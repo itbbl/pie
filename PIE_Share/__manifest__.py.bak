@@ -1,0 +1,16 @@
+{
+    'name': 'PIE Share',
+    'category': 'Sales',
+    'summary': 'PIE Build Module',
+    'version': '10.0.1.2.0',
+    'website': 'https://www.businessborderlines.com',
+    "author": "Kingfisher Consultancy , BusinessBorderlines",
+    "sequence":1,
+    'depends': ['PIE_Admin','mail'],
+    'data': ['views/build_view.xml','views/Build_actions.xml','views/Build_Menus.xml','views/scheduler.xml', ],
+    'image': [],
+    'demo': [],
+    'license': 'AGPL-3',
+    'installable': True,
+    'application': True,
+}

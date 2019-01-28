@@ -1,0 +1,57 @@
+<odoo>
+
+
+<!--       PIE Setup Actions       -->
+
+    <record model="ir.actions.act_window" id="action_PIE_setup_status_tree">
+       <field name="name">Units Status list</field>
+        <field name="res_model">build.property.status</field>
+		<field name="view_mode">tree</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_PIE_setup_caterogy_tree">
+       <field name="name">Units Category list</field>
+        <field name="res_model">build.property.category</field>
+		<field name="view_mode">tree</field>
+    </record>
+
+	<record model="ir.actions.act_window" id="action_PIE_setup_finishing_tree">
+       <field name="name">Units Finishing list</field>
+        <field name="res_model">build.property.finishing</field>
+		<field name="view_mode">tree</field>
+    </record>
+
+	<record model="ir.actions.act_window" id="action_PIE_setup_desgin_type_tree">
+       <field name="name">Units Design Types list</field>
+        <field name="res_model">build.property.design_type</field>
+		<field name="view_mode">tree</field>
+    </record>
+
+<!--       properties Actions       -->
+
+
+    <record model="ir.actions.act_window" id="action_properties_list_tree">
+       <field name="name">Properties list</field>
+        <field name="res_model">build.property</field>
+		<field name="view_mode">tree</field>
+    </record>
+
+    <record model="ir.actions.act_window"
+            id="action_broker_list_tree">
+        <field name="name">Brokers List</field>
+        <field name="res_model">build.broker</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+
+
+ <!--         Category Actions       -->
+
+	<record model="ir.actions.act_window"
+            id="action_category_list_tree">
+        <field name="name">Category list</field>
+        <field name="res_model">pie.setup.category</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>

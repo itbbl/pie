@@ -1,0 +1,19 @@
+<odoo>
+
+
+ <!--         PIE Setup Actions       -->
+
+	<record id="action_advances_search_tree" model="ir.actions.act_window"
+        >
+        <field name="name">Advance search</field>
+        <field name="res_model">pie.advanced.search</field>
+           <field name="context">{}</field>
+		<field name="view_mode">form</field> 
+        
+        
+    
+      
+    </record> 
+ 
+   
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+<!-- Top menu item -->
+    <menuitem id="menu_advance_search_root"  name=" Advanced Search"   sequence="1"  />
+
+
+<!--         Generic Menu       -->
+   <menuitem id="menu_advanced_search_developers" name="Advance Search"   parent="menu_advance_search_root" sequence="1"/>
+    
+	  <menuitem id="menu_Advance_form" name="Search Property " action="action_advances_search_tree" parent="PIE_Grid.menu_pie_grid_root" sequence="1"/>
+
+
+
+ 
+</odoo>

@@ -1,0 +1,100 @@
+.navbar-nav {
+    display: -ms-flexbox;
+    display: inline;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.homepage{
+  background: url('../img/bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+}
+.navbar-default .navbar-collapse{
+float:right;
+}
+.navbar-header{
+float:left;
+}
+.navbar>.container, .navbar>.container-fluid {
+    display: -ms-flexbox;
+    display: block;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+.navbar-default .navbar-nav > li > a {
+    font-family: "Proxima-Nova-Alt-Light";
+    font-size: 16px;
+    padding-right: 10px;
+    padding-left: 10px;
+    color: #fff;
+}
+.navbar-default .navbar-nav>li.active>a, .navbar-default .navbar-nav>li.active>a:hover, .navbar-default .navbar-nav>li.active>a:focus {
+    font-family: "Proxima-Nova-Alt-Bold";
+      color: #ED1C24;
+      background-color: transparent;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+     font-family: "Proxima-Nova-Alt-Bold";
+      color: #ED1C24;
+      background-color: transparent;
+}
+footer div{
+display:none;
+}
+.pad-top-122{
+    padding-top: 20px;
+    margin-top: 80px;
+}
+.navbar-nav>li>.dropdown-menu {
+    margin-top: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    background: transparent;
+}
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+    text-decoration: none;
+    color: #f2f7f7;
+    background-color: #ed1c24;
+}
+.dropdown-menu>li>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;
+    color: #666;
+    white-space: nowrap;
+    font-family: "Proxima-Nova-Alt-Light";
+    font-size: 16px;
+    padding-right: 10px;
+    padding-left: 10px;
+    color:#fff;
+}
+.navbar-nav .dropdown-menu {
+    position: absolute;
+    float: none;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    background-color: transparent;
+    color: #fff;
+}
+.caret{
+display:none;
+}
+.oe_menu_text{
+color:#666;
+}

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>       
+    <data>           
+        <template id="custom_header" inherit_id="website.layout" name="Custom Header">
+
+  <!-- Assign an id  -->
+  <xpath expr="//div[@id='wrapwrap']/header" position="attributes">
+    <attribute name="id">my_header</attribute>
+    
+  </xpath>
+</template>
+      
+      
+   
+      
+                   <template id="custom_body" inherit_id="website.layout" name="Custom_body">
+
+  <!-- Add an element after the top menu  -->
+  <xpath expr="//div[@id='wrapwrap']/header/div" position="after">
+
+  </xpath>
+</template>
+      
+
+      
+             <template id="custom_head" inherit_id="website.layout" name="Custom_Head">
+
+  
+  <!-- Add an element after the top menu  -->
+  <xpath expr="." position="inside">
+    
+	<style>
+	body {
+  background: url("http://businessborderlines.com/bg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+	</style>
+  </xpath>
+</template>
+        <template id="assets_backend" name="PIE_UI css assets" inherit_id="web.assets_backend">
+
+            <xpath expr="." position="inside">
+
+                <link rel="stylesheet" href="/PIE_UI/static/src/css/colors.css"/>
+                <link rel="stylesheet" href="/PIE_UI/static/src/css/ui.css"/>
+            </xpath>
+        </template>
+          <template id="assets_frontend" name="web css assets" inherit_id="web.assets_frontend">
+
+            <xpath expr="." position="inside">
+
+                <link rel="stylesheet" href="/PIE_UI/static/src/css/bootstrap.min.css"/>
+                <link rel="stylesheet" href="/PIE_UI/static/src/css/custom.css"/>
+             <link rel="stylesheet" href="/PIE_UI/static/src/css/website.css"/>
+               <script src="/PIE_UI/static/src/js/popper.min.js"></script>
+<script src="/PIE_UI/static/src/js/modernizr.min.js"></script>
+                <script src="/PIE_UI/static/src/js/bootstrap.min.js"></script>
+
+            </xpath>
+        </template>
+      
+          <template id="assets_backend_full" name="web css assets" inherit_id="web.assets_backend">
+
+            <xpath expr="." position="inside">
+
+                
+                    <link rel="stylesheet" href="/PIE_UI/static/src/css/bootstrap.min.css"/>
+                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"/>
+                    <link rel="stylesheet" href="/PIE_UI/static/src/css/pie.css"/>
+                    <link rel="stylesheet" href="/PIE_UI/static/src/css/pie_adjust.css"/>
+                    <script src="/PIE_UI/static/src/js/popper.min.js"></script>
+<script src="/PIE_UI/static/src/js/modernizr.min.js"></script>
+                    
+           
+            </xpath>
+        </template>
+           <template id="hide_footer" name="web css assets" inherit_id="website.footer_default">
+
+            <xpath expr="//div[@id='wrapwrap']/footer/div" position="replace">
+
+            </xpath>
+        </template>
+    </data>   
+
+
+</odoo>

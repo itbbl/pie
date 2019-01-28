@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+       <record id="view_import_prop" model="ir.ui.view">
+			<field name="name">view_import_prop</field>
+			<field name="model">pie.build.import</field>
+			<field name="arch" type="xml">
+
+				<form string="Import" action_buttons="False">
+               
+                <sheet>
+                <group>
+               
+                <field name="supplier" string="Supplier" options="{'no_create': True,'no_open':True}" domain="[('pie_type','=','is_supplier')]"  groups="PIE_Setup.group_pie_admin_admin"/>
+                <field name="import_date"/>
+                <field name="has_project" />
+
+                <field name="project" attrs="{'invisible':[('has_project','=',True)],'required':[('has_project','=',False)]}" domain="[('developer','=',supplier)]" options="{'no_create': True,'no_open':True}"/>
+					<field name="imported_file" string="File to import" filename="binary_fname"/>
+                  	<field name="binary_fname" invisible="1"/>
+                    
+
+                    </group>
+                     <footer>
+                            <button string="Import Data" name="Import_Data" type="object" class="btn-primary"/>
+                            <!--<button string="Print Excel Report" name="print_timesheet_excel" type="object" class="btn-primary"/>-->
+                            <button string="Discard" class="btn-default" special="cancel"/>
+                        </footer>
+                    </sheet>
+				</form>
+			</field>
+		</record>
+       <record id="view_export_prop" model="ir.ui.view">
+			<field name="name">view_export_prop</field>
+			<field name="model">pie.build.export</field>
+			<field name="arch" type="xml">
+
+				<form string="Import" action_buttons="False">
+               
+                <sheet>
+                <group>
+               
+                <field name="developer" string="Supplier" options="{'no_create': True,'no_open':True}" groups="PIE_Setup.group_pie_admin_admin"/>
+
+
+                <field name="project" domain="[('developer','=',developer)]" options="{'no_create': True,'no_open':True}"/>
+
+                    </group>
+                     <footer>
+                            <button string="Validate Only" name="validate_prop" type="object" class="btn-primary"/>
+                            <button string="Validate and Export" name="export_prop" type="object" class="btn-primary"/>
+                            <!--<button string="Print Excel Report" name="print_timesheet_excel" type="object" class="btn-primary"/>-->
+                            
+                        </footer>
+                    </sheet>
+				</form>
+			</field>
+		</record>
+       <record id="view_mapping_list" model="ir.ui.view">
+			<field name="name">view_mapping_list</field>
+			<field name="model">pie.build.mapping</field>
+			<field name="arch" type="xml">
+<tree>
+<field name="developer" string="Supplier Name"/>
+<field name="write_date"/>
+</tree>
+			</field>
+		</record>
+
+ 	<record model="ir.ui.view" id="view_PIE_supplier_column_mapping">
+		<field name="name">view_PIE_supplier_column_mapping</field>
+		<field name="model">pie.build.mapping</field>
+		<field name="arch" type="xml">
+			<form>
+            <sheet>
+             <group col="2">
+            <group>
+				<field name="developer" string="Supplier" options="{'no_create': True,'no_open':True}"  groups="PIE_Setup.group_pie_admin_admin"/>
+                <field name="property_code_field" required="True"/>
+                <field name="project_field" required="True"/>
+            </group>
+<group>
+<div>
+
+here help abot mapping </div>
+</group>
+
+            </group>
+            <group col="2">
+            
+            <group string="Required Fields">
+                <field name="developer_column" string="Developer" />
+                <field name="built_up_field" />
+                <field name="price_field" />
+                <field name="property_type_field" />
+             <field name="property_design_field" />
+             <field name="finishing_field" />
+             <field name="property_status_field"/>
+            </group>
+            
+           
+            
+            <group string="Optional Fields" nolabel="1">
+            
+                        
+                            <field name="other_columns_mapping_ids" mode="tree" nolabel="1" >
+                                    <tree editable="Top"  >
+                                        <field name="pie_column2" string="Pie Name"  />
+                                        <field name="supplier_column" string="Supplier Column" required="True" />
+                                    </tree>
+                            </field>
+                           
+                        
+                
+                </group>
+                </group>
+            </sheet>
+            
+			</form>
+		</field>
+	</record>
+
+      <record id="view_import_list" model="ir.ui.view">
+			<field name="name">view_mapping_list</field>
+			<field name="model">pie.build.import</field>
+			<field name="arch" type="xml">
+            <tree>
+                <field name="supplier" string="Supplier Name"/>
+                <field name="has_project"/>
+                <field name="import_date"/>
+                <field name="imported_file"/>
+                <field name="sharing_level"/>
+            </tree>
+			</field>
+		</record>
+</odoo>

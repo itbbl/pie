@@ -1,0 +1,7 @@
+<odoo>
+<template id ="ImportViewtemp">
+    <t t-name="ImportViewtemp">
+    <div>this is div</div>
+</t>
+</template>
+</odoo>

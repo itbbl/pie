@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <!-- Start of PIE Setup Views -->
+	<record model="ir.ui.view" id="view_PIE_setup_status_tree">
+		<field name="name">view_PIE_setup_status_tree</field>
+		<field name="model">build.property.status</field>
+		<field name="arch" type="xml">
+			<tree editable="Top">
+				<field name="name" string="Status Name"/>
+			</tree>
+		</field>
+	</record>
+
+    <record model="ir.ui.view" id="view__setup_category_tree">
+		<field name="name">view_PIE_setup_category_tree</field>
+		<field name="model">pie.setup.category</field>
+		<field name="arch" type="xml">
+			<tree editable="Top">
+				<field name="name" string="Category Name"/>
+			</tree>
+		</field>
+	</record>
+
+    <record model="ir.ui.view" id="view_PIE_setup_finishing_tree">
+		<field name="name">view_PIE_setup_finishing_tree</field>
+		<field name="model">build.property.finishing</field>
+		<field name="arch" type="xml">
+			<tree editable="Top">
+				<field name="name" string="Finishing Name"/>
+			</tree>
+		</field>
+	</record>
+
+    <record model="ir.ui.view" id="view_PIE_setup_design_type_tree">
+		<field name="name">view_PIE_setup_design_type_tree</field>
+		<field name="model">build.property.design_type</field>
+		<field name="arch" type="xml">
+			<tree editable="Top">
+				<field name="name" string="Design Type"/>
+			</tree>
+		</field>
+	</record>
+
+    <!-- End of PIE Setup Views -->
+
+	<record model="ir.ui.view" id="view_projects_list_form">
+		<field name="name">view_projects_list_form</field>
+		<field name="model">build.project</field>
+		<field name="priority" eval="16"/>
+		<field name="arch" type="xml">
+			<form>
+				<field name="developer" string="Project Devloper"/>
+				<field name="project_name" string="Project Name"/>
+			</form>
+        </field>
+    </record>
+  
+
+
+	<record model="ir.ui.view" id="view_single_property_tree">
+		<field name="name">view_single_property_tree</field>
+		<field name="model">build.property</field>
+		<field name="arch" type="xml">
+			<tree editable="top">
+				<field name="developer" string="Unit Devloper"/>
+				<field name="project" string="Unit Project"/>
+                <field name="district" string="Unit District"/>
+                <field name="phase" string="Unit Phase"/>
+                <field name="plot" string="Unit Plot"/>
+                <field name="price" string="Unit Price"/>
+                <field name="category" string="Unit Category"/>
+                <field name="design_type" string="Unit Design Type"/>
+                <field name="status" string="Unit Status"/>
+                <field name="finishing" string="Unit Finishing"/>
+                <field name="total_space" string="Unit Total Space"/>
+			</tree>
+        </field>
+    </record>
+
+	<record model="ir.ui.view" id="view_single_property_tree_import">
+		<field name="name">view_single_property_tree_import</field>
+		<field name="model">build.property.import</field>
+		<field name="arch" type="xml">
+			<tree editable="top">
+				<field name="developer" string="Unit Devloper"/>
+				<field name="project" string="Unit Project"/>
+                <field name="district" string="Unit District"/>
+                <field name="phase" string="Unit Phase"/>
+                <field name="plot" string="Unit Plot"/>
+                <field name="price" string="Unit Price"/>
+                <field name="category" string="Unit Category"/>
+                <field name="design_type" string="Unit Design Type"/>
+                <field name="status" string="Unit Status"/>
+                <field name="finishing" string="Unit Finishing"/>
+                <field name="total_space" string="Unit Total Space"/>
+			</tree>
+        </field>
+    </record>
+</odoo>

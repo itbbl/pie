@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_PIE_Build_Draft - Supplier Admin,access.pie.build draft,PIE_Build.model_pie_build_draft,PIE_Setup.group_pie_supplier_manager,1,1,1,1
+access_PIE_Build_Project - Supplier Admin,access.pie.build project,PIE_Build.model_pie_project,PIE_Setup.group_pie_supplier_manager,1,1,1,1
+access_PIE_Build_Active Property - Supplier Admin,access.pie.build active property,PIE_Build.model_pie_build_property,PIE_Setup.group_pie_supplier_manager,1,1,1,1
+access_PIE_Build_column mapping - Supplier Admin,access.pie.build column mapping,model_pie_build_mapping_column,PIE_Setup.group_pie_supplier_manager,1,1,1,1
+access_PIE_Build_mapping - Supplier Admin,access.pie.build mapping,model_pie_build_mapping,PIE_Setup.group_pie_supplier_manager,1,1,1,1
+access_PIE_Build_export - Supplier Admin,access.pie.build export,model_pie_build_export,PIE_Setup.group_pie_supplier_manager,1,1,1,0
+access_PIE_Build_import - Supplier Admin,access.pie.build import,model_pie_build_import,PIE_Setup.group_pie_supplier_manager,1,1,1,1
+access_PIE_Build_Draft - Supplier Editor 1,access.pie.build draft Editor,PIE_Build.model_pie_build_draft,PIE_Setup.group_pie_supplier_editor,1,1,1,1
+access_PIE_Build_Draft - Supplier Editor 2,access.pie.build project Editor,PIE_Build.model_pie_project,PIE_Setup.group_pie_supplier_editor,1,1,1,1
+access_PIE_Build_Draft - Supplier Editor 3,access.pie.build active property Editor,PIE_Build.model_pie_build_property,PIE_Setup.group_pie_supplier_editor,1,1,1,1
+access_PIE_Build_Draft - Supplier Editor 4,access.pie.build column mapping Editor,model_pie_build_mapping_column,PIE_Setup.group_pie_supplier_editor,1,1,1,1
+access_PIE_Build_Draft - Supplier Editor 5,access.pie.build mapping Editor,model_pie_build_mapping,PIE_Setup.group_pie_supplier_editor,1,1,1,1
+access_PIE_Build_Draft - Supplier Editor 6,access.pie.build export Editor,model_pie_build_export,PIE_Setup.group_pie_supplier_editor,0,0,0,0
+access_PIE_Build_Draft - Supplier Editor 7,access.pie.build import Editor,model_pie_build_import,PIE_Setup.group_pie_supplier_editor,1,1,1,1

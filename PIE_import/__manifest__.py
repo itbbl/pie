@@ -1,0 +1,16 @@
+{
+    'name': 'PIE Import',
+    'category': 'Sales',
+    'summary': 'PIE Build Module',
+    'version': '10.0.1.2.0',
+    'website': 'https://www.businessborderlines.com',
+    "author": "Kingfisher Consultancy , BusinessBorderlines",
+    "sequence":10,
+    'depends': ['PIE_Build','PIE_Setup'],
+    'data': ['views/import_view.xml','views/import_actions.xml','views/import_Menus.xml','security/ir.model.access.csv'],
+    'image': [],
+    'demo': [],
+    'license': 'AGPL-3',
+    'installable': True,
+    'application': True,
+}

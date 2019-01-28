@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pie_advance_search,access_pie_advance_search,PIE_Advace_search.model_pie_advanced_search,PIE_Setup.group_pie_broker_manager,1,1,1,0
+access_pie_advance_search_sale_agent,access_pie_advance_search_sale_agent,PIE_Advace_search.model_pie_advanced_search,PIE_Setup.group_pie_broker_agent,1,1,1,0
+access_pie_advance_search_admin,access_pie_advance_search_admin,PIE_Advace_search.model_pie_advanced_search,PIE_Setup.group_pie_admin_admin,1,1,1,1

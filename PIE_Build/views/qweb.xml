@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates id="prop_templates" xml:space="preserve">
+<t t-extend="ListView.buttons">
+
+    <t t-jquery="button.o_list_button_add" t-operation="after">
+
+        <t t-if="widget.model=='PIE.Build.property'">
+
+            <button class="oe_button oe_highlight" type="button">Custom Button</button>
+
+        </t>
+
+    </t>
+
+</t>
+
+</templates>

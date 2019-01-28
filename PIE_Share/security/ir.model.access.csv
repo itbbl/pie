@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_PIE_share_request,access_PIE_share_request,model_pie_share_sharing_request,PIE_Setup.group_pie_broker_manager,1,1,1,0
+access_P_share_request_supplier,access_P_share_request_supplier,model_pie_share_sharing_request,PIE_Setup.group_pie_supplier_manager,1,1,0,0
+access_PIE_sahre_request_open_inventory,access_PIE_sahre_request_open_inventory,PIE_Share.model_pie_share_open_inventory,PIE_Setup.group_pie_broker_manager,1,1,1,0

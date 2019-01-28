@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<odoo>
+ <record model="ir.ui.view" id="view_pie_company_form">
+		<field name="name">view_pie_company_form</field>
+		<field name="model">pie.entity</field>
+        
+        <field name="arch" type="xml">
+		
+          <form duplicate="false" delete="false" export="true"> 
+		 
+		   
+		   <sheet>
+                    <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                                <field name="active" widget="boolean_button" options="{&quot;terminology&quot;: &quot;active&quot;}"/>
+                            </button>
+                    </div>
+					<div>
+                   
+                       
+                     
+                        
+					
+						 
+                        <h1>
+						<!--field name="image" widget="image" class="oe_avatar"/>-->
+                            <field name="name" default_focus="1" placeholder="Name" />
+                            
+                        </h1><div>
+							<label for="type" string="Type"/>
+						<field name="pie_type" widget="radio" options="{'horizontal': true}"/>
+						 
+                        </div>
+					     <div>
+						<!--<label for="head_of_adddress" name="Address "/><field name="head_of_adddress" string="Head of Address"/>-->
+						<field name="pie_access_right" widget="radio" string="Acess Right" invisible="1" options="{'horizontal': true}" /></div>
+                      <field name="supplier_type" widget="radio" options="{'horizontal': true}" attrs="{'required':[('pie_type','=','is_supplier')],'invisible':[('pie_type','!=','is_supplier')]}"/>
+                        <field name="borker_type" widget="radio" options="{'horizontal': true}" attrs="{'required':[('pie_type','=','is_broker')],'invisible':[('pie_type','=','is_broker')]}"/>
+                    </div>
+
+                    <group>
+                        <group>
+                          
+                            <label for="street" string="Address"/>
+                            <div class="o_address_format">
+                              
+                                <field name="street" placeholder="Street..." class="o_address_street"  />
+                                <field name="street2" placeholder="Street 2..." class="o_address_street"  />
+								<field name="country_id" placeholder="Country" class="o_address_country" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"  />
+                                <field name="city" placeholder="City" class="o_address_city" />
+                                  
+                                 
+                                
+                            </div>
+                            <field name="website" widget="url" placeholder="e.g. http://businessborderlines.com/"/>
+                           
+                        </group>
+                        <group>
+						
+                            <field name="code" options="{'horizontal': true}"/>
+                            <field name="phone"  placeholder="01xxxxxxx"/>
+							
+                             
+                            <field name="fax"/>
+                    
+                            <field name="email" widget="email" placeholder="xxx@businessborderlines.com"/>
+							<field name="number_branches"/>
+						    <field name="Description"/>
+							
+                          
+                        </group>
+                    </group>
+					<group name="Contract infor">
+					<group>
+					<field name="contract_contant_name"/>
+					<field name="contract_contant_position"/>
+					</group>
+					<group>
+						<field name="contract_contant_mobile"/>
+					<field name="contract_contant_mail"/>
+					</group>
+					<group>
+					<field name="landline"/>
+					</group>
+					</group>
+
+                    <notebook colspan="4">
+                    
+					  <page string="Branches">
+					          
+								 
+								      <field name="branches" mode="tree,kanban" widget="many2many">
+									            <form>
+												 <group>
+												 <group>
+												  <field name="name" string="Branch Name"/>
+												  <field name="address" string="Address"/>
+												  <field name="Phone" string="Phone"/>
+												   </group>
+												   <group>
+                                                    <field name="country_id" placeholder="Country" class="o_address_country" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"  />
+                                <field name="city" placeholder="City" class="o_address_city" />
+                                 <field name="area" class="o_address_state" placeholder="area" options="{&quot;no_open&quot;: True}"  /> 
+
+
+												   </group>
+												   </group>
+												</form>
+												 <tree>
+                                                    
+												  <field name="name" string="Branch Name"/> 
+												  <field name="address" string="Address"/>
+												   
+												  <field name="Phone" string="Phone"/>
+												  
+                                                  
+												 </tree>
+												 
+									  </field>
+								 
+					</page>  
+					 
+					<page String="Broker Admin" attrs="{'invisible': [ ('pie_type', '=', 'is_supplier')]}"  >
+						<!-- <button name="add_broker" String="Add Broker" type="object"/>-->
+					 
+						    
+						 <group>
+						 <field name="internal_broker"/>
+						 </group>
+
+					     <field name="internal_broker_admin" widget="many2many"   attrs="{'invisible':[('internal_broker','=',False)]}" >
+						 <tree  >
+						 <field name="name"/>
+						 <field name="login" string="Email" attrs="{'readonly':True}"/>
+						  
+						  
+						 
+						 </tree>
+						 <form string="Users">
+                     
+                    <sheet>
+                        <field name="id" invisible="1"/>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button" options="{&quot;terminology&quot;: &quot;active&quot;}"/>
+                            </button>
+                        </div>
+                        <field name="image" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;image_medium&quot;}"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" required="1"/></h1>
+                            <field name="email" invisible="1"/>
+                            <label for="login" class="oe_edit_only" string="Email Address"/>
+                            <h2><field name="login"/></h2>
+            <label for="mobile" class="oe_edit_only" string="Mobile"/>
+							<h3><field name="mobile"  string="Mobile" attrs="{'required':True}"/></h3>
+                            <group>
+                               
+                                <field name="partner_id" readonly="1" required="0" groups="base.group_no_one" attrs="{'invisible': [('id', '=', False)]}"/>
+                            </group>
+                        </div>
+                    </sheet>
+                </form>
+
+						 </field>
+
+
+						 <field name="entity_broker_mail" widget="many2many"   attrs="{'invisible':[('internal_broker','=',True)]}" >
+						 <tree  >
+						 <field name="name"/>
+						 <field name="login" string="Email" attrs="{'readonly':True}"/>
+						  
+						  
+						 
+						 </tree>
+						 <form string="Users">
+                     
+                    <sheet>
+                        <field name="id" invisible="1"/>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button" options="{&quot;terminology&quot;: &quot;active&quot;}"/>
+                            </button>
+                        </div>
+                        <field name="image" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;image_medium&quot;}"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" required="1"/></h1>
+                            <field name="email" invisible="1"/>
+                            <label for="login" class="oe_edit_only" string="Email Address"/>
+                            <h2><field name="login"/></h2>
+                            <label for="mobile" class="oe_edit_only" string="Mobile"/>
+							<h3><field name="mobile"  string="Mobile" attrs="{'required':True}"/></h3>
+                            <group>
+                               
+                                <field name="partner_id" readonly="1" required="0" groups="base.group_no_one" attrs="{'invisible': [('id', '=', False)]}"/>
+                            </group>
+                        </div>
+                    </sheet>
+                </form>
+
+						 </field>
+						  
+						 
+						 
+						 
+						</page>
+						<page String="Broker information" attrs="{'invisible': [ ('pie_type', '=', 'is_supplier')]}"  >
+								 
+                          
+							  <form>
+								<group  name="Broker Info">
+								      <group name="rigth_info">
+									  
+									<field name="sevice_list"  widget="many2many_tags" attrs="{'required':[('pie_type','=','is_broker')]}"  options="{'no_quick_create': True, 'no_create_edit' : True,'no_open': True}" />
+									  </group>
+									  
+								      <group name="left_info">
+                                            
+									         <field name="number_sales_agents" attrs="{'required':[('pie_type','=','is_broker')],'invisible':[('borker_type','!=','Company')]}"/>
+											  
+											  
+									  </group>
+								</group>
+								</form>
+                             
+						</page>
+						
+						<page String="Supplier information" attrs="{'invisible': [('pie_type', '=', 'is_broker')]}">
+						<form>
+						<group>
+						<group>
+						 
+						
+						<field name="type_inventory"   attrs="{'required':[('pie_type','=','is_supplier')]}" />
+						</group>
+						<group>
+						 
+						 <field name="supplier_share"  attrs="{'invisible':[('type_inventory','=','open_inventory')]}"/></group></group>
+						 </form>
+                       
+						
+						</page>
+						<page String="Supplier Admin" attrs="{'invisible': [('pie_type', '=', 'is_broker')]}" >
+						<!-- <button name="add_broker" String="Add Broker" type="object"/>-->
+						<!-- 
+						<field name="entity_supplier_mail" mode="tree,kanban">
+						         
+                                <tree>
+								<field name='name'/>
+								<field name='login'/>
+								</tree>
+
+						</field>
+						 
+						 -->
+						  
+						 <field name="entity_supplier_mail" widget="many2many" >
+						 <tree  >
+						 <field name="name"/>
+						 <field name="login" string="Email" />
+                          
+						 
+						 </tree>
+						 <form string="Users">
+                     
+                    <sheet>
+                        <field name="id" invisible="1"/>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button" options="{&quot;terminology&quot;: &quot;active&quot;}"/>
+                            </button>
+                        </div>
+                        <field name="image" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;image_medium&quot;}"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" required="1"/></h1>
+                            <field name="email" invisible="1"/>
+                            <label for="login" class="oe_edit_only" string="Email Address"/>
+                            <h2><field name="login"/></h2>
+                            <label for="mobile" class="oe_edit_only" string="Mobile"/>
+							<h3><field name="mobile"  string="Mobile" attrs="{'required':True}"/></h3>
+                            <group>
+                               
+                                <field name="partner_id" readonly="1" required="0" groups="base.group_no_one" attrs="{'invisible': [('id', '=', False)]}"/>
+                            </group>
+                        </div>
+                    </sheet>
+                </form>
+						 <kanban>
+						 <field name="name"/>
+						 <field name="login"/>
+						 
+						  
+						 </kanban>
+
+						 </field>
+						  
+						 
+						 
+						 
+						 
+						  	 
+						 
+						</page>
+						 <page String="Publisher" attrs="{'invisible': [('pie_type', '=', 'is_broker')]}" >
+					 
+						 <field name="publisher" widget="many2many" >
+						 <tree  >
+						 <field name="name"/>
+						 <field name="login" string="Email" />
+                          
+						 
+						 </tree>
+						  <form string="Users">
+                     
+                    <sheet>
+                        <field name="id" invisible="1"/>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button" options="{&quot;terminology&quot;: &quot;active&quot;}"/>
+                            </button>
+                        </div>
+                        <field name="image" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;image_medium&quot;}"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" required="1"/></h1>
+                            <field name="email" invisible="1"/>
+                            <label for="login" class="oe_edit_only" string="Email Address"/>
+                            <h2><field name="login"/></h2>
+                              <label for="mobile" class="oe_edit_only" string="Mobile"/>
+							<h3><field name="mobile"  string="Mobile" attrs="{'required':True}"/></h3>
+                            <group>
+                               
+                                <field name="partner_id" readonly="1" required="0" groups="base.group_no_one" attrs="{'invisible': [('id', '=', False)]}"/>
+                            </group>
+                        </div>
+                    </sheet>
+                </form>
+						 <kanban>
+						 <field name="name"/>
+						 <field name="login"/>
+						 
+						  
+						 </kanban>
+
+						 </field>
+						  
+						 
+						 
+						 
+						 
+						  	 
+						 
+						</page>
+						 
+						 
+						  	 
+						 
+					 
+                    </notebook> 
+                 </sheet>
+                </form>
+            
+	    </field>
+	</record>
+
+
+ 
+       
+      
+ 
+
+ </odoo>

@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_PIE_setup_area_IT,access.pie.setup.area IT,model_pie_setup_area,PIE_Setup.group_PIE_IT,1,1,1,0
+access_PIE_setup_region_IT,access.pie.setup.region IT,model_pie_setup_region,PIE_Setup.group_PIE_IT,1,1,1,0
+access_PIE_setup_label_IT,access.pie.setup.label IT,model_pie_setup_label,PIE_Setup.group_PIE_IT,1,1,1,0
+access_PIE_setup_hashtag_IT,access.pie.setup.hashtag IT,model_pie_setup_hashtag,PIE_Setup.group_PIE_IT,1,1,1,0
+access_PIE_setup_bathroom_IT,access.pie.setup.bathroom IT,model_pie_setup_bathrooms,PIE_Setup.group_PIE_IT,1,1,1,0
+access_PIE_setup_room_IT,access.pie.setup.room IT,model_pie_setup_room,PIE_Setup.group_PIE_IT,1,1,1,0
+access_PIE_setup_floor_IT,access.pie.setup.floor IT,model_pie_setup_floor,PIE_Setup.group_PIE_IT,1,1,1,0
+access_PIE_setup_property_status_IT,access.pie.setup.property_status IT,model_pie_setup_property_status,PIE_Setup.group_PIE_IT,1,1,1,0
+access_PIE_setup_finishing_IT,access.pie.setup.finishing IT,model_pie_setup_finishing,PIE_Setup.group_PIE_IT,1,1,1,0
+access_PIE_setup_commercial_type_IT,access.pie.setup.commercial_type IT,model_pie_setup_commercial,PIE_Setup.group_PIE_IT,1,1,1,0
+access_PIE_setup_residental_type_IT,access.pie.setup.residental_type IT,model_pie_setup_residental,PIE_Setup.group_PIE_IT,1,1,1,0
+access_PIE_setup_category_IT,access.pie.setup.category IT,model_pie_setup_category,PIE_Setup.group_PIE_IT,1,1,1,0
+access_PIE_share_request,access_PIE_share_request,model_pie_share_sharing_request,PIE_Setup.group_pie_broker_manager,1,1,1,0
+access_P_share_request_supplier,access_P_share_request_supplier,model_pie_share_sharing_request,PIE_Setup.group_pie_supplier_manager,1,1,0,0

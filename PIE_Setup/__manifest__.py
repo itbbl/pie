@@ -1,0 +1,16 @@
+{
+    'name': 'PIE Setup',
+    'category': 'Sales',
+    'summary': 'PIE Setup Module',
+    'version': '10.0.1.2.0',
+    'website': 'https://www.businessborderlines.com',
+    "author": "Kingfisher Consultancy , BusinessBorderlines",
+    "sequence":1,
+    'depends': [],
+    'data': ['security/user_groups.xml','views/Build_view.xml','views/company_form.xml','views/user.xml','views/Build_actions.xml','views/Build_Menus.xml','security/ir.model.access.csv','views/demo.xml'],
+    'image': [],
+    'demo': [],
+    'license': 'AGPL-3',
+    'installable': True,
+    'application': True,
+}

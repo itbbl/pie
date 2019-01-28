@@ -1,0 +1,32 @@
+<odoo>
+
+
+ <!--         PIE Setup Actions       -->
+
+	<record model="ir.actions.act_window"
+        id="action_share_requests">
+        <field name="name">Sharing Requests list</field>
+        <field name="res_model">pie.share.sharing_request</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+<record model="ir.actions.act_window" id="action_scheduler_sharing_requests">
+            <field name="name">Scheduler data</field>
+            <field name="res_model">pie.share.scheduler</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create the first record
+                </p>
+            </field>
+        </record>
+<!--
+<record model="ir.actions.act_window" id="menu_share_requests_open_inventory">
+            <field name="name">Open Inventory</field>
+            <field name="res_model">pie.share.open.inventory</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                
+            </field>
+        </record>-->
+</odoo>

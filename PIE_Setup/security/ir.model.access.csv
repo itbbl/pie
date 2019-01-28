@@ -1,0 +1,34 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_PIE_setup_zone_IT,access.pie.setup.zone admin,model_pie_setup_zone,PIE_Setup.group_pie_admin_admin,1,1,1,0
+access_PIE_setup_area_IT,access.pie.setup.area admin,model_pie_setup_area,PIE_Setup.group_pie_admin_admin,1,1,1,0
+access_PIE_setup_bathroom_IT,access.pie.setup.bathroom IT,model_pie_setup_bathrooms,PIE_Setup.group_pie_admin_admin,1,1,1,0
+access_PIE_setup_category_IT,access.pie.setup.category IT,model_pie_setup_category,PIE_Setup.group_pie_admin_admin,1,1,1,0
+access_PIE_setup_finishing_IT,access.pie.setup.finishing IT,model_pie_setup_finishing,PIE_Setup.group_pie_admin_admin,1,1,1,0
+access_PIE_setup_floor_IT,access.pie.setup.floor IT,model_pie_setup_floor,PIE_Setup.group_pie_admin_admin,1,1,1,0
+access_PIE_setup_hashtag_IT,access.pie.setup.hashtag IT,model_pie_setup_hashtag,PIE_Setup.group_pie_admin_admin,1,1,1,0
+access_PIE_setup_region_IT,access.pie.setup.region IT,model_pie_setup_region,PIE_Setup.group_pie_admin_admin,1,1,1,0
+access_PIE_setup_label_IT,access.pie.setup.label IT,model_pie_setup_label,PIE_Setup.group_pie_admin_admin,1,1,1,0
+access_PIE_setup_property_status_IT,access.pie.setup.property_status IT,model_pie_setup_property_status,PIE_Setup.group_pie_admin_admin,1,1,1,0
+access_PIE_setup_room_IT,access.pie.setup.room IT,model_pie_setup_room,PIE_Setup.group_pie_admin_admin,1,1,1,0
+access_PIE_setup_comments_IT,access.pie.setup.comments IT,model_pie_setup_property_comments,PIE_Setup.group_pie_admin_admin,1,1,1,0
+access_PIE_setup_labels_IT,access.pie.setup.labels IT,model_pie_setup_property_labels,PIE_Setup.group_pie_admin_admin,1,1,1,0
+access_PIE_setup_service_IT,access.pie.setup.service IT,model_pie_setup_property_comments,PIE_Setup.group_pie_admin_admin,1,1,1,0
+access_PIE_setup_design_IT,access.pie.setup.design IT,model_pie_entity_service,PIE_Setup.group_pie_admin_admin,1,1,1,0
+access_PIE_setup_entity_Admin,access.pie.entity_Admin,model_pie_entity,PIE_Setup.group_pie_admin_admin,1,1,1,0
+access_PIE_setup_entity_branch_Admin,access.pie.entity_branch_Admin,model_pie_entity_branch,PIE_Setup.group_pie_admin_admin,1,1,1,0
+,,,,,,,
+access_PIE_setup_zone_Basic_User 1,access.pie.setup.zone Basic User,model_pie_setup_zone,PIE_Setup.group_pie_basic_user,1,0,0,0
+access_PIE_setup_zone_Basic_User 2,access.pie.setup.area admin,model_pie_setup_area,PIE_Setup.group_pie_basic_user,1,0,0,0
+access_PIE_setup_zone_Basic_User 3,access.pie.setup.bathroom IT,model_pie_setup_bathrooms,PIE_Setup.group_pie_basic_user,1,0,0,0
+access_PIE_setup_zone_Basic_User 4,access.pie.setup.category IT,model_pie_setup_category,PIE_Setup.group_pie_basic_user,1,0,0,0
+access_PIE_setup_zone_Basic_User 5,access.pie.setup.finishing IT,model_pie_setup_finishing,PIE_Setup.group_pie_basic_user,1,0,0,0
+access_PIE_setup_zone_Basic_User 6,access.pie.setup.floor IT,model_pie_setup_floor,PIE_Setup.group_pie_basic_user,1,0,0,0
+access_PIE_setup_zone_Basic_User 7,access.pie.setup.hashtag IT,model_pie_setup_hashtag,PIE_Setup.group_pie_basic_user,1,0,0,0
+access_PIE_setup_zone_Basic_User 8,access.pie.setup.region IT,model_pie_setup_region,PIE_Setup.group_pie_basic_user,1,0,0,0
+access_PIE_setup_zone_Basic_User 9,access.pie.setup.label IT,model_pie_setup_label,PIE_Setup.group_pie_basic_user,1,0,0,0
+access_PIE_setup_zone_Basic_User 10,access.pie.setup.property_status IT,model_pie_setup_property_status,PIE_Setup.group_pie_basic_user,1,0,0,0
+access_PIE_setup_zone_Basic_User 11,access.pie.setup.room IT,model_pie_setup_room,PIE_Setup.group_pie_basic_user,1,0,0,0
+access_PIE_setup_zone_Basic_User 12,access.pie.setup.comments IT,model_pie_setup_property_comments,PIE_Setup.group_pie_basic_user,1,0,0,0
+access_PIE_setup_zone_Basic_User 13,access.pie.setup.labels IT,model_pie_setup_property_labels,PIE_Setup.group_pie_basic_user,1,0,0,0
+access_PIE_setup_zone_Basic_User 14,access.pie.setup.service IT,model_pie_setup_property_comments,PIE_Setup.group_pie_basic_user,1,0,0,0
+access_PIE_setup_zone_Basic_User 15,access.pie.setup.design IT,model_pie_entity_service,PIE_Setup.group_pie_basic_user,1,0,0,0

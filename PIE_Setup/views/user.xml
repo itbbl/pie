@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ 	<record model="ir.ui.view" id="view_pie_admin_form">
+		<field name="name">view_pie_admin_form</field>
+		<field name="model">res.users</field>
+		<field name="arch" type="xml">
+			<form string="Users">
+                    <header>
+                        <button string="Change Password" type="action" name="69" help="Change the user password."/>
+                    </header>
+                    <sheet>
+                        <field name="id" invisible="1"/>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button" options="{&quot;terminology&quot;: &quot;active&quot;}"/>
+                            </button>
+                        </div>
+                        <field name="image" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;image_medium&quot;}"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" required="1"/></h1>
+                            <field name="email" invisible="1"/>
+                            <label for="login" class="oe_edit_only" string="Email Address"/>
+                            <h2><field name="login"/></h2>
+                            <group>
+                                <field name="company_id" readonly="0" required="1" invisible="1"/>
+                                
+                            </group>
+                        </div>
+                        <notebook colspan="4">
+                            
+                            <page string="Preferences">
+                                <group>
+                                <group string="Access Rights">
+                                    <group col="2" string="PIE Rights" groups="PIE_Setup.group_pie_admin_admin">
+                                        <field name="PIE_Admin"  readonly="1"/>
+                                        <field name="Manage_Admins"/>
+                                        
+                                    </group>
+                                 <group col="2" string="Build Rights" groups="PIE_Setup.group_pie_admin_admin" invisible="1">
+                                        <field name="is_broker_admin"/>
+                                        <field name="is_broker_agent"/>
+                                    </group>
+                                   <group col="2" string="Grid Rights" groups="PIE_Setup.group_pie_admin_admin" invisible="1">
+                                        <field name="is_supplier_admin"/>
+                                        <field name="is_supplier_editor"/>
+                                    </group>
+                                </group>
+                                <group string="Messaging and Social" name="messaging">
+                                    <field name="signature"/>
+                                </group>
+                                    <group string="Localization" name="preferences">
+                                    
+                                    <field name="lang"/>
+                                    <field name="tz" widget="timezone_mismatch" options="{'tz_offset_field': 'tz_offset'}"/>
+                                    <field name="tz_offset" invisible="1"/>
+                                    </group>
+                                    <group string="Menus Customization" groups="base.group_no_one" invisible="1">
+                                        <field name="action_id"/>
+                                    </group>
+                                </group>
+                                
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+		</field>
+	</record>
+
+
+    
+ 	<record model="ir.ui.view" id="view_pie_user_form">
+		<field name="name">view_pie_user_form</field>
+		<field name="model">res.users</field>
+		<field name="arch" type="xml">
+			<form string="Users">
+                    <header>
+                        <button string="Change Password" type="action" name="69" help="Change the user password."/>
+                    </header>
+                    <sheet>
+                        <field name="id" invisible="1"/>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button" options="{&quot;terminology&quot;: &quot;active&quot;}"/>
+                            </button>
+                        </div>
+                        <field name="image" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;image_medium&quot;}"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" required="1"/></h1>
+                            <field name="email" invisible="1"/>
+                            <label for="login" class="oe_edit_only" string="Email Address"/>
+                            <h2><field name="login"/></h2>
+                            <group>
+                                <field name="company_id" readonly="0" required="1" invisible="1"/>
+                                <field name="entity" required="1" options="{'no_quick_create': True, 'no_create_edit' : True,'no_open': True}"/>
+                            </group>
+                        </div>
+                        <notebook colspan="4">
+                            
+                            <page string="Preferences">
+                                <group>
+                                <group string="Access Rights">
+                                   
+                                  <group col="2" string="Build Rights" attrs="{'invisible':[('entity_access_right','=','broker')]}">
+                                        <field name="is_supplier_admin"/>
+                                        <field name="is_supplier_editor" readonly="1" invisible="1"/>
+                                    </group>
+                                 <group col="2" string="Grid Rights" readonly="1" attrs="{'invisible':[('entity_access_right','=','supplier')]}" >
+                                        <field name="is_broker_admin"/>
+                                        <field name="is_broker_agent" readonly="1" invisible="1"/>
+                                    </group>
+                                    <group string="Localization" name="preferences">
+                                    <field name="entity_access_right" invisible="1" />
+                                    <field name="entity_type" invisible="1" />
+                                    <field name="lang"/>
+                                    <field name="tz" widget="timezone_mismatch" options="{'tz_offset_field': 'tz_offset'}"/>
+                                    <field name="tz_offset" invisible="1"/>
+                                    </group>
+                                    <group string="Menus Customization" groups="base.group_no_one" invisible="1">
+                                        <field name="action_id"/>
+                                    </group>
+                                </group>
+                                <group string="Messaging and Social" name="messaging">
+                                    <field name="signature"/>
+                                </group>
+                                    
+                                </group>
+                                
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+		</field>
+	</record>
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <odoo>
+    <data>
+      <template id="PIE_contact_Page" name="Contact Us" page="True">
+        <t t-call="website.layout">
+          <div id="wrap" class="oe_structure oe_empty bg-white">
+           
+     
+      <div class="mt-5 container-fluid">
+         <img class="img-fluid" src="images/Mask Group 1.jpg"/>
+      </div>
+      <div class="mt-5 container-fluid pl-5 pr-5">
+         <div class="row">
+            <div class="col-6">
+               <h2 class="font-bold">Support</h2>
+               <div class="mb-2">
+                  <img src="images/envelope.png" class="d-inline " width="30"/>
+                  <p class="font-semibold d-inline font-166 ml-2 mb-2">support@pie.properties</p>
+               </div>
+               <div>
+                  <img src="images/phone-symbol.png" class="d-inline " width="30"/>
+                  <p class="font-semibold d-inline font-166 ml-2 mb-2">(+20) 2 4933 9394 - (+20) 10 5839 4802</p>
+               </div>
+               <h2 class="font-bold mt-3">Sales</h2>
+               <div class="mb-2">
+                  <img src="images/envelope.png" class="d-inline " width="30"/>
+                  <p class="font-semibold d-inline font-166 ml-2 mb-2">sales@pie.properties</p>
+               </div>
+               <div>
+                  <img src="images/phone-symbol.png" class="d-inline " width="30"/>
+                  <p class="font-semibold d-inline font-166 ml-2 mb-2">(+20) 2 4933 9394 - (+20) 10 5839 4802</p>
+               </div>
+            </div>
+            <div class="col-6">
+               <h2 class="font-bold">Address</h2>
+               <p class="font-semibold font-166 mb-0">Office 4-6-D, Polygon Building 4, km 38 Cairo-Alex Desert Road,</p>
+               <p class="font-semibold font-166">Sodic West - Shiekh Zayed, Giza EGYPT</p>
+            </div>
+            <div class="col-4">
+            </div>
+         </div>
+      </div>
+              </div>
+        </t>
+      </template>
+    </data>
+</odoo>

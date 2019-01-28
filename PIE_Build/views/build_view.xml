@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <!-- Start of PIE Setup Views -->
+	<record model="ir.ui.view" id="view_PIE_build_project">
+		<field name="name">view_PIE_build_project</field>
+		<field name="model">pie.project</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name" string="Project Name"/>
+                <field name="developer" />
+                <field name="zone2" />
+                 <field name="area" />
+                 <field name="region" />
+                <field name="country" />
+                
+                <field name="active" string="Active"/>
+			</tree>
+		</field>
+	</record>
+    <record model="ir.ui.view" id="view_PIE_build_project_form">
+		<field name="name">view_PIE_build_project_form</field>
+		<field name="model">pie.project</field>
+		<field name="arch" type="xml">
+			<form>
+            <sheet>
+            <group>
+            <field name="developer" string="Project Developer" options="{'no_quick_create': True, 'no_create_edit' : True,'no_open': True}"  groups="PIE_Setup.group_pie_admin_admin"/>
+				<field name="name" string="Project Name" required="1"/>
+                <field name="active"/>
+                <field name="country" options="{'no_quick_create': True, 'no_create_edit' : True,'no_open': True}"/>
+                <field name="region" domain="[('country_id','=',country)]" options="{'no_quick_create': True, 'no_create_edit' : True,'no_open': True}"/>
+                <field name="area" domain="[('region_id','=',region)]" options="{'no_quick_create': True, 'no_create_edit' : True,'no_open': True}"/>
+                <field name="zone2"/>
+                <field name="description"/>
+                </group>
+                </sheet>
+			</form>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="view_PIE_build_properties">
+		<field name="name">view_PIE_build_project</field>
+		<field name="model">pie.build.property</field>
+
+		<field name="arch" type="xml">
+			<tree decoration-danger="has_errors==0" create="false" >
+                <field name="has_errors" string="Errors"/>
+				<field name="project" string="Project"/>
+                <field name="zone" string="Zone/Phase"/>
+                <field name="district" string="District"/>
+                <field name="region" string="Region"/>
+                <field name="property_code" string="Property Code"/>
+                <field name="design_code" string="Design Code"/>
+                <field name="built_up" string="Built Space"/>
+			</tree>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="view_PIE_build_properties_draft">
+		<field name="name">view_PIE_build_properties_draft</field>
+		<field name="model">pie.build.draft</field>
+		<field name="arch" type="xml">
+			<tree class="draft_view" create="false">
+				
+                <field name="property_code" string="Property Code"/>
+                <field name="region" string="Location"/>
+                <field name="property_status" string="Property Status"/>
+                <field name="project" string="Project"/>
+                <field name="zone" string="Phase/Zone"/>
+                <field name="property_type" string="Property Type"/>
+                <field name="property_design" string="Property Design"/>
+                <field name="rooms" string="Rooms"/>
+                <field name="built_up" string="Built Space"/>
+                <field name="finishing_type" string="Finishing Type"/>
+                <field name="price" string="Price"/>
+			</tree>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="view_PIE_build_properties_history">
+		<field name="name">view_PIE_build_properties_history</field>
+		<field name="model">pie.build.history</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="developer" string="Developer"/>
+				<field name="property_id" string="Property PIE ID"/>
+                <field name="supplier" string="Supplied By"/>
+                <field name="project" string="Project"/>
+                <field name="property_code" string="Property Code"/>
+                <field name="property_type" string="Property Type"/>
+                <field name="property_design" string="Property Design"/>
+                <field name="price" string="Price"/>
+                <field name="built_up" string="Built Space"/>
+                <field name="finishing_type" string="Finishing Type"/>
+                <field name="sharing_level" string="Property Status"/>
+                <field name="importid"/>
+			</tree>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="view_PIE_build_properties_draft_form">
+		<field name="name">view_PIE_build_properties_draft</field>
+		<field name="model">pie.build.draft</field>
+		<field name="arch" type="xml">
+			<form>
+           
+				<sheet>
+                <h1>Draft Property </h1>
+                <group string="Location information">
+                <field name="developer" />
+                <field name="project" string="Project"/>
+                <field name="region" string="Region"/>
+                <field name="area" string="Area"/>
+                <field name="zone" string="Zone/Phase"/>
+                <field name="district" string="District"/>
+                <field name="plot" string="Plot"/>
+                </group>
+                <group string="Property Information">
+                <group>
+                 <field name="property_code" string="Property Code"/>
+                <field name="design_code" string="Design Code"/>
+                <field name="property_type" string="Property Type"/>
+                <field name="property_design" string="Property Design"/>
+                <field name="finishing_type" string="Finishing Type"/>
+                
+                </group>
+               <group>
+               <field name="property_status" string="Property Status"/>
+                <field name="built_up" string="Built Space"/>
+                <field name="delivery_date"/>
+                <field name="price" string="Price"/>
+                </group>
+                </group>
+                <group string="Property Details">
+                <group>
+                <field name="land_m"/>
+                <field name="garden_m"/>
+                <field name="terrace_m"/>
+                <field name="basement_m"/>
+                <field name="roof_m"/>
+                <field name="garage_slot"/>
+                </group>
+                <group>
+                <field name="rooms"/>
+                <field name="baths"/>
+                <field name="maintne_fee"/>
+                <field name="clubhouse_fee"/>
+                <field name="garage_slot_price"/>
+                </group>
+                
+                </group>
+                </sheet>
+			</form>
+		</field>
+	</record>
+
+
+<!-- Search View for Student Information -->
+		<record id="view_build_draft_search" model="ir.ui.view">
+			<field name="name">view_build_draft_search</field>
+			<field name="model">pie.build.draft</field>
+			<field name="arch" type="xml">
+				<search string="Property Search">
+					<field name="project"/>
+					<field name="property_code"/>
+					<field name="property_type"/>
+                    <field name="property_design"/>
+                    <field name="built_up"/>
+                    <field name="finishing_type"/>
+                    <field name="property_status"/>
+                    <field name="has_errors"/>
+					<group expand="0" string="Group By">
+						<filter name="groupby_project" string="Project" domain="[]" context="{'group_by':'project'}"
+							help="Group By Project"/>
+                        <filter name="groupby_errors" string="Errors" domain="[]" context="{'group_by':'has_errors'}"
+							help="Group By Project"/>
+                         <filter name="groupby_region" context="{'group_by': 'region'}" string="Region"
+							help="Group By Area" />
+						<filter name="groupby_area" context="{'group_by': 'area'}" string="Area"
+							help="Group By Area" />
+						<filter name="groupby_property_status" context="{'group_by': 'property_status'}" string="Property Status"
+							help="Group By Property Status" />
+					</group>
+					
+				</search>
+			</field>
+		</record>
+		<record id="view_build_property_search" model="ir.ui.view">
+			<field name="name">view_build_property_search</field>
+			<field name="model">pie.build.property</field>
+			<field name="arch" type="xml">
+				<search string="Property Search">
+					<field name="project"/>
+					<field name="property_code"/>
+					<field name="property_type"/>
+                    <field name="property_design"/>
+                    <field name="built_up"/>
+                    <field name="finishing_type"/>
+                    <field name="property_status"/>
+                    <field name="has_errors"/>
+					<group expand="0" string="Group By">
+						<filter name="groupby_project" string="Project" domain="[]" context="{'group_by':'project'}"
+							help="Group By Project"/>
+                        <filter name="groupby_errors" string="Errors" domain="[]" context="{'group_by':'has_errors'}"
+							help="Group By Project"/>
+                         <filter name="groupby_region" context="{'group_by': 'region'}" string="Region"
+							help="Group By Area" />
+						<filter name="groupby_area" context="{'group_by': 'area'}" string="Area"
+							help="Group By Area" />
+						<filter name="groupby_property_status" context="{'group_by': 'property_status'}" string="Property Status"
+							help="Group By Property Status" />
+					</group>
+					
+				</search>
+			</field>
+		</record>
+		<record id="view_build_prop_search" model="ir.ui.view">
+			<field name="name">view_build_prop_search</field>
+			<field name="model">pie.build.property</field>
+			<field name="arch" type="xml">
+				<search string="Property Search">
+					<field name="project"/>
+					<field name="property_code"/>
+					<field name="property_type"/>
+                    <field name="property_design"/>
+                    <field name="built_up"/>
+                    <field name="finishing_type"/>
+                    <field name="property_status"/>
+					<group expand="0" string="Group By">
+						<filter name="groupby_project" string="Project" domain="[]" context="{'group_by':'project'}"
+							help="Group By Project"/>
+                         <filter name="groupby_region" context="{'group_by': 'region'}" string="Region"
+							help="Group By Area" />
+						<filter name="groupby_area" context="{'group_by': 'area'}" string="Area"
+							help="Group By Area" />
+						<filter name="groupby_property_status" context="{'group_by': 'property_status'}" string="Property Status"
+							help="Group By Property Status" />
+					</group>
+					
+				</search>
+			</field>
+		</record>
+	<record model="ir.ui.view" id="view_PIE_build_properties_prop">
+		<field name="name">view_PIE_build_properties_prop</field>
+		<field name="model">pie.build.property</field>
+		<field name="arch" type="xml">
+			<form>
+            
+				<sheet>
+                <h1>Active Property </h1>
+                <group string="Location information">
+                
+                <field name="project" string="Project"/>
+                <field name="region" string="Region"/>
+                <field name="area" string="Area"/>
+                <field name="has_errors" string="Errors"/>
+                <field name="zone" string="Zone/Phase"/>
+                <field name="district" string="District"/>
+                <field name="plot" string="Plot"/>
+                </group>
+                <group string="Property Information">
+                <group>
+                 <field name="property_code" string="Property Code"/>
+                <field name="design_code" string="Design Code"/>
+                <field name="property_type" string="Property Type"/>
+                <field name="property_design" string="Property Design"/>
+                <field name="finishing_type" string="Finishing Type"/>
+                
+                </group>
+               <group>
+               <field name="property_status" string="Property Status"/>
+                <field name="built_up" string="Built Space"/>
+                <field name="delivery_date"/>
+                <field name="price" string="Price"/>
+                </group>
+                </group>
+                <group string="Property Details">
+                <group>
+                <field name="land_m"/>
+                <field name="garden_m"/>
+                <field name="terrace_m"/>
+                <field name="basement_m"/>
+                <field name="roof_m"/>
+                <field name="garage_slot"/>
+                </group>
+                <group>
+                <field name="rooms"/>
+                <field name="baths"/>
+                <field name="maintne_fee"/>
+                <field name="clubhouse_fee"/>
+                
+                </group>
+                
+                </group>
+                 
+                </sheet>
+			</form>
+		</field>
+	</record>
+
+</odoo>

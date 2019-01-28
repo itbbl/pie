@@ -1,0 +1,36 @@
+<odoo>
+
+
+ <!--         PIE Setup Actions       -->
+
+   <record model="ir.actions.act_window"
+        id="action_import_prop">
+        <field name="name">Import form</field>
+        <field name="res_model">pie.build.import</field>
+		<field name="view_mode">form</field>
+        <field name="target">main</field>
+        
+    </record>
+    <record model="ir.actions.act_window"
+        id="action_export_prop">
+        <field name="name">Validate and Export Properties</field>
+        <field name="res_model">pie.build.export</field>
+		<field name="view_mode">form</field>
+        <field name="target">main</field>
+        
+    </record>
+	<record model="ir.actions.act_window"
+        id="action_build_mapping_list_tree">
+        <field name="name">File Mapping List</field>
+        <field name="res_model">pie.build.mapping</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window"
+        id="action_prop_import_history">
+        <field name="name">Draft Import history</field>
+        <field name="res_model">pie.build.import</field>
+		<field name="view_mode">tree</field>
+        
+    </record>
+ 
+</odoo>

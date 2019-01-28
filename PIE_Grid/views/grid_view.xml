@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   <record model="ir.ui.view" id="view_PIE_grid_properties">
+      <field name="name">view_PIE_grid_properties</field>
+      <field name="model">pie.grid.property</field>
+      <field name="arch" type="xml">
+         <tree create="false">
+            <field name="project" string="Project" />
+            <field name="zone" string="Zone/Phase" />
+            <field name="district" string="District" />
+            <field name="region" string="Region" />
+            <field name="property_code" string="Property Code" />
+            <field name="design_code" string="Design Code" />
+            <field name="built_up" string="Built Space" />
+         </tree>
+      </field>
+   </record>
+
+   <record model="ir.ui.view" id="view_PIE_build_properties_draft_form">
+      <field name="name">view_PIE_build_properties_draft</field>
+      <field name="model">pie.grid.property</field>
+      <field name="arch" type="xml">
+         <form>
+            <sheet>
+               <h1>Active Property</h1>
+               <group string="Location information">
+                  <field name="project" string="Project" />
+                  <field name="region" string="Region" />
+                  <field name="area" string="Area" />
+                  <field name="zone" string="Zone/Phase" />
+                  <field name="district" string="District" />
+                  <field name="plot" string="Plot" />
+               </group>
+               <group string="Property Information">
+                  <group>
+                     <field name="property_code" string="Property Code" />
+                     <field name="design_code" string="Design Code" />
+                     <field name="property_type" string="Property Type" />
+                     <field name="property_design" string="Property Design" />
+                     <field name="finishing_type" string="Finishing Type" />
+                  </group>
+                  <group>
+                     
+                     <field name="built_up" string="Built Space" />
+                     <field name="delivery_date" />
+                     <field name="price" string="Price" />
+                  </group>
+               </group>
+               <group string="Property Details">
+                  <group>
+                     <field name="land_m" />
+                     <field name="garden_m" />
+                     <field name="terrace_m" />
+                     <field name="basement_m" />
+                     <field name="roof_m" />
+                     <field name="garage_slot" />
+                  </group>
+                  <group>
+                     <field name="rooms" />
+                     <field name="baths" />
+                     <field name="maintne_fee" />
+                     <field name="clubhouse_fee" />
+                     <field name="garage_price" />
+                  </group>
+               </group>
+             
+            </sheet>
+         </form>
+      </field>
+   </record>
+  
+   	<record model="ir.ui.view" id="view_pie_grid_user_form">
+		<field name="name">view_pie_grid_user_form</field>
+		<field name="model">res.users</field>
+		<field name="arch" type="xml">
+			<form string=" New Editor">
+                    <header>
+                        <button string="Change Password" type="action" name="69" help="Change the user password."/>
+                    </header>
+                    <sheet>
+                        <field name="id" invisible="1"/>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button" options="{&quot;terminology&quot;: &quot;active&quot;}"/>
+                            </button>
+                        </div>
+                        <field name="image" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;image_medium&quot;}"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" required="1"/></h1>
+                            <field name="email" invisible="1"/>
+                            <label for="login" class="oe_edit_only" string="Email Address"/>
+                            <h2><field name="login"/></h2>
+                            <group>
+                                <field name="company_id" readonly="0" required="1" invisible="1"/>
+                                <field name="entity" required="1" options="{'no_quick_create': True, 'no_create_edit' : True,'no_open': True}"/>
+                            </group>
+                        </div>
+                        <notebook colspan="4">
+                            
+                            <page string="Preferences">
+                                <group>
+                                <group string="Access Rights">                              
+                                   <group col="2" string="Build Rights" invisible="1" >
+                                        <field name="is_broker_admin" readonly="1" attrs="{'invisible':[('entity_type','=','is_supplier')]}"/>
+                                        <field name="is_broker_agent" readonly="1"/>
+                                    </group>
+                                    <group string="Localization" name="preferences">
+                                    
+                                    <field name="lang"/>
+                                    <field name="tz" widget="timezone_mismatch" options="{'tz_offset_field': 'tz_offset'}"/>
+                                    <field name="tz_offset" invisible="1"/>
+                                    <field name="entity_access_right" invisible="1" />
+                                    <field name="entity_type" invisible="1" />
+                                    </group>
+                                    <group string="Menus Customization" groups="base.group_no_one" invisible="1">
+                                        <field name="action_id"/>
+                                    </group>
+                                </group>
+                                <group string="Messaging and Social" name="messaging">
+                                    <field name="signature"/>
+                                </group>
+                                    
+                                </group>
+                                
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+		</field>
+	</record>
+  
+  
+  
+</odoo>

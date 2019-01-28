@@ -1,0 +1,74 @@
+
+<odoo>
+        <record model="ir.module.category" id="module_category_PIE_setup">
+            <field name="name">PIE Setup</field>
+            <field name="description">PIE Configuration</field>
+            <field name="sequence">1</field>
+        </record>
+        <record model="ir.module.category" id="module_category_PIE_admin">
+            <field name="name">PIE Admin</field>
+            <field name="description">PIE Administration</field>
+            <field name="sequence">2</field>
+        </record>
+        <record model="ir.module.category" id="module_category_PIE_broker">
+            <field name="name">PIE Broker</field>
+            <field name="description">PIE Broker Roles</field>
+            <field name="sequence">3</field>
+        </record>
+
+        <record model="ir.module.category" id="module_category_PIE_supplier">
+            <field name="name">PIE Supplier</field>
+            <field name="description">PIE Supplier Roles</field>
+            <field name="sequence">4</field>
+        </record>
+       <record model="res.groups" id="group_pie_basic_user">
+            <field name="name">PIE Basic User</field>
+            <field name="category_id" ref="PIE_Setup.module_category_PIE_admin"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+       <record model="res.groups" id="group_pie_setup_manager">
+            <field name="name">PIE Setup Manager</field>
+            <field name="category_id" ref="PIE_Setup.module_category_PIE_setup"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+       <record model="res.groups" id="group_pie_admin_admin">
+            <field name="name">PIE Administrator</field>
+            <field name="category_id" ref="PIE_Setup.module_category_PIE_admin"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_erp_manager'))]"/>
+        </record>
+       <record model="res.groups" id="group_pie_admin_manager">
+            <field name="name">PIE Manager</field>
+            <field name="category_id" ref="PIE_Setup.module_category_PIE_admin"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+			 <field name="implied_ids" eval="[(4, ref('group_pie_admin_admin'))]"/>
+        </record>
+       <record model="res.groups" id="group_pie_supplier_manager">
+            <field name="name">PIE Developer/Supplier Administrator</field>
+            <field name="category_id" ref="PIE_Setup.module_category_PIE_supplier"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+			<field name="implied_ids" eval="[(4, ref('group_pie_basic_user'))]"/>
+        </record>
+	<record model="res.groups" id="group_pie_supplier_editor">
+            <field name="name">PIE Supplier Editor</field>
+            <field name="category_id" ref="PIE_Setup.module_category_PIE_supplier"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+			<field name="implied_ids" eval="[(4, ref('group_pie_basic_user'))]"/>
+			
+        </record>
+        <record model="res.groups" id="group_pie_broker_agent">
+            <field name="name">PIE Broker Agent</field>
+            <field name="category_id" ref="PIE_Setup.module_category_PIE_broker"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+			<field name="implied_ids" eval="[(4, ref('group_pie_basic_user'))]"/>
+        </record>
+        <record model="res.groups" id="group_pie_broker_manager">
+            <field name="name">PIE Broker Administrator</field>
+            <field name="category_id" ref="PIE_Setup.module_category_PIE_broker"/>
+            <field name="implied_ids" eval="[(4, ref('group_pie_broker_agent'))]"/>
+			<field name="implied_ids" eval="[(4, ref('group_pie_basic_user'))]"/>
+            <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        </record>
+
+</odoo>

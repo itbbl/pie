@@ -1,0 +1,17 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_PIE_build_draft,access.pie.build.draft,model_pie_build_draft,PIE_Setup.group_pie_supplier_manager,1,1,1,0
+access_PIE_build_prop,access.piebuild.prop,model_pie_build_property,PIE_Setup.group_pie_supplier_manager,1,1,1,0
+access_PIE_build_project,access.pie.build.project,model_pie_project,PIE_Setup.group_pie_supplier_manager,1,1,1,0
+access_PIE_build_history,access.pie.build.history,model_pie_build_history,PIE_Setup.group_pie_supplier_manager,1,1,1,0
+access_PIE_Build_Draft - Supplier Admin,access.pie.build draft,model_pie_build_draft,PIE_Setup.group_pie_supplier_manager,1,1,1,1
+access_PIE_Build_Project - Supplier Admin,access.pie.build project,model_pie_project,PIE_Setup.group_pie_supplier_manager,1,1,1,1
+access_PIE_Build_Active Property - Supplier Admin,access.pie.build active property,model_pie_build_property,PIE_Setup.group_pie_supplier_manager,1,1,1,1
+access_PIE_Build_Draft - Supplier Editor,access.pie.build draft Editor,model_pie_build_draft,PIE_Setup.group_pie_supplier_editor,1,1,1,1
+access_PIE_Build_Draft - Supplier Editor 2,access.pie.build project Editor,model_pie_project,PIE_Setup.group_pie_supplier_editor,1,1,1,1
+access_PIE_Build_Draft - Supplier Editor 3,access.pie.build active property Editor,model_pie_build_property,PIE_Setup.group_pie_supplier_editor,1,1,1,1
+access_PIE_Admin_Build 1,access.pie.admin.build Draft 1,model_pie_build_draft,PIE_Setup.group_pie_admin_admin,1,1,1,1
+access_PIE_Admin_Build 2,access.pie.admin.build Draft 2,model_pie_build_property,PIE_Setup.group_pie_admin_admin,1,1,1,1
+access_PIE_Admin_Build 3,access.pie.admin.build Draft 3,model_pie_project,PIE_Setup.group_pie_admin_admin,1,1,1,1
+access_PIE_Admin_Build 4,access.pie.admin.build Draft 4,model_pie_build_history,PIE_Setup.group_pie_admin_admin,1,1,1,1
+access_PIE_Admin_Build 5,access.pie.admin.build Draft 5,model_pie_build_draft,PIE_Setup.group_pie_admin_admin,1,1,1,1
+access_PIE_Admin_Build 6,access.pie.admin.build Draft 6,model_pie_build_draft,PIE_Setup.group_pie_admin_admin,1,1,1,1

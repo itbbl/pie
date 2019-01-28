@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <odoo>
+    <data>
+      <template id="PIE_About_Page" name="About PIE" page="True">
+        <t t-call="website.layout">
+          <script>
+            $("body").css("background","white");
+            $(".navbar-nav>li>a").css({
+            "color":"rgb(237, 28, 36)!important"
+            });
+
+          </script>
+          
+          <div id="wrap" class="oe_structure oe_empty bg-white">
+           
+     
+       <div class="container mt-5">
+         <p class="font-semibold text-center">
+            PIE™ is Egypt’s very first online multiple listing service. Using advanced proprietary software, the cloud-based PIE™ website portal enables property agents who subscribe to the service for an annual subscription fee to cooperate with other agents who subscribe to the service. This makes selling and buying property faster, more efficient, more transparent and, ultimately, less expensive benefiting all parties involved - sellers and agents.
+         </p>
+      </div>
+      <div class="container-fluid mt-4">
+         <div class="row">
+            <div class="col-6">
+              <img class="img-fluid img-style" src="/PIE_Web/static/src/img/architecture-building-business-280492.jpg"/>
+
+            </div>
+            <div class="col-6 pt-5 paddting-t-3-5">
+               <h2 class="font-semibold">TO DEVELOPERS</h2>
+               <p>The property distribution system between real estate suppliers and brokers. PIE provide suppliers with access to the growing brokers market. The need to send every individual broker with a new and updated inventory will be made much more faster and easier. Suppliers will share the inventory to PIE and then receive inventory sharing requests from brokers and approve. Suppliers will also have the luxury to view how their inventory compares with the general market. 
+                  The logical structure of our inventory software allows suppliers to import their inventory with perfect results. Inventories will be stored and instantly shared with partner and new brokers. All inventory updates can be done daily or even less, in order to display fresh status on the on-sale available properties.
+               </p>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-6 pt-5 paddting-t-3-5">
+               <h2 class="font-semibold">TO BROKERS</h2>
+               <p>The property management and market comparison system for real estate brokers. PIE provides brokers with access to the growing supplier inventories and their updated offers. The need to find new inventories and requesting their updates will be made more easier than ever. From one database brokers will have the luxury to compare, follow and find the best available on-sale properties in a matter of seconds. 
+                  The clear design and logical structure of our inventory software allows property consultants to easily search and find suitable property options for their customers. Comparing offers across real estate developers and their projects not only points out price differences, but also the added values of each property listing. All inventory listings are constantly updated every day.
+               </p>
+            </div>
+            <div class="col-6">
+                <img class="img-fluid img-style" src="/PIE_Web/static/src/img/architecture-building-business-280492.jpg"/>
+            </div>
+         </div>
+      </div>
+              </div>
+        </t>
+      </template>
+    </data>
+</odoo>

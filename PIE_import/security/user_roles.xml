@@ -1,0 +1,29 @@
+<odoo>
+  <record id="own_properties_supplier" model="ir.rule">
+    <field name="name">Own Properties Supplier</field>
+    <field name="model_id" ref="model_pie_build_draft"/>
+   
+    <field name="perm_read" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+ 
+    <field name="groups" eval="[(4, ref('PIE_Setup.module_category_PIE_supplier'))]"/>
+
+    <field name="domain_force">[('developer.id', '=', user.entity_id)]</field>
+  </record>
+  
+    <record id="own_projects_supplier" model="ir.rule">
+    <field name="name">Own Project Supplier</field>
+    <field name="model_id" ref="model_pie_project"/>
+   
+    <field name="perm_read" eval="True"/>
+    <field name="perm_create" eval="True"/>
+    <field name="perm_write" eval="True"/>
+    <field name="perm_unlink" eval="True"/>
+ 
+    <field name="groups" eval="[(4, ref('PIE_Setup.module_category_PIE_supplier'))]"/>
+
+    <field name="domain_force">[('developer.id', '=', user.entity_id)]</field>
+  </record>
+</odoo>

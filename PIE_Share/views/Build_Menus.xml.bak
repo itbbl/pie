@@ -1,0 +1,22 @@
+<odoo>
+
+
+<!-- Top menu item -->
+    <menuitem id="menu_pie_share_root"  name="PIE Share" sequence="4"/>
+
+
+<!--         Generic Menu       -->
+    <menuitem id="menu_share_generic" name="PIE Share" parent="menu_pie_share_root" sequence="1"/>
+    <menuitem id="menu_share_requests" name="Sharing requests" action="action_share_requests" parent="menu_share_generic" sequence="1"/>.
+    <!--<menuitem id="menu_share_requests_open_inventory" name="Open inventory" action="action_share_requests_open_inventory" parent="menu_share_generic" sequence="1" group="PIE_Setup.group_pie_supplier_manager"/>
+ -->
+       
+        <!-- A first level in the left side menu is needed
+             before using action= attribute -->
+        <menuitem id="scheduler_demo_menu" name="Scheduler records"
+                  parent="menu_pie_share_root"/>
+        <menuitem id="default_scheduler_overview_menu" name="Scheduler records" parent="scheduler_demo_menu"
+                  action="action_scheduler_sharing_requests"/>
+
+        
+</odoo>

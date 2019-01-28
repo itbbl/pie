@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<odoo>
+<!-- Top menu item -->
+    <menuitem id="menu_pie_share_root"  name="PIE Share" sequence="4"/>
+
+
+<!--         Generic Menu       -->
+    <menuitem id="menu_share_generic" name="PIE Share" parent="menu_pie_share_root" sequence="1"/>
+    <menuitem id="menu_share_requests" name="Sharing requests" action="action_share_requests" parent="menu_share_generic" sequence="1"/>
+    <menuitem id="menu_share_open_inventory" name="Open Inventory" action="action_share_open_inventory" parent="menu_share_generic" sequence="2"  />
+       
+      
+
+        
+</odoo>

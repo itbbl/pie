@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <odoo>
+    <data>
+      <!-- webpage record -->
+      
+       
+
+      <!-- webpage record -->
+      
+       
+      <template id="PIE_terms_Page" name="Terms" page="True">
+        <t t-call="website.layout">
+          <div id="wrap" class="oe_structure oe_empty">
+            <!-- Your content here -->
+            <h1>Terms </h1>
+          </div>
+        </t>
+      </template>
+
+      <template id="PIE_privacy_Page" name="Privacy" page="True">
+        <t t-call="website.layout">
+          <div id="wrap" class="oe_structure oe_empty">
+            <!-- Your content here -->
+            <h1>Privacy </h1>
+          </div>
+        </t>
+      </template>
+
+  
+
+
+
+    </data>
+  </odoo>

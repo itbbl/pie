@@ -1,0 +1,54 @@
+<odoo>
+
+
+ <!--         PIE Setup Actions       -->
+
+	<record model="ir.actions.act_window"
+        id="action_build_project_list_tree">
+        <field name="name">Projects list</field>
+        <field name="res_model">pie.project</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+
+ 
+     <record model="ir.actions.act_window"
+        id="action_prop_list_active">
+        <field name="name">Active Properties List</field>
+        <field name="res_model">pie.build.property</field>
+		<field name="view_mode">tree,form</field>
+        
+    </record>
+         <record model="ir.actions.act_window"
+        id="action_prop_list_draft">
+        <field name="name">Draft Properties List</field>
+        <field name="res_model">pie.build.draft</field>
+        <field name="context">{}</field>
+		<field name="view_mode">tree,form</field>
+        
+    </record>
+<record id="action_model_done_something" model="ir.actions.server">        
+    <field name="name">Label</field>        
+    <field name="model_id" ref="model_pie_build_draft"/>        
+    <field name="binding_model_id" ref="PIE_Build.model_pie_build_draft"/>        
+   
+</record>
+    <record model="ir.actions.act_window"
+        id="action_prop_list_history">
+        <field name="name">Draft Properties history</field>
+        <field name="res_model">pie.build.history</field>
+		<field name="view_mode">tree,form</field>
+        
+    </record>
+    <record model="ir.actions.act_window"
+        id="action_build_users">
+        <field name="name">Build Users</field>
+        <field name="res_model">res.users</field>
+        <field name="context">{"default_is_supplier_editor":1,"default_is_supplier_admin":0}</field>
+		  <field name="domain">[('is_supplier_editor','=', True)]</field>
+		<field name="view_mode">tree,form</field>
+         <field name="view_ids" eval="[(5, 0, 0), 
+        (0, 0, {'view_mode': 'tree', 'view_id': ref('PIE_Setup.view_pie_user_tree')}),
+        (0, 0, {'view_mode': 'form', 'view_id': ref('view_pie_build_user_form')})]"/>
+        
+    </record>
+</odoo>

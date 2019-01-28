@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <odoo>
+    <data>
+      <template id="PIE_Broker_Company_page" name="Broker Company" page="True">
+        <t t-call="website.layout">
+          <div id="wrap" class="oe_structure oe_empty bg-white">
+           
+     
+      <div class="container-fluid position-absolute h-100" style="top:0px;">
+         <div class="row">
+            <div class="col-12 col-lg-6 col-md-12 col-sm-12 d-lg-block d-md-block d-sm-none mob-padding">
+               <div class="centercont margintop-37 pl-4 d-none d-lg-block d-md-none d-sm-none">
+                  <h3 class="text-white font-regular font-36 mb-0">All Properties in</h3>
+                  <h1 class="text-white font-68 font-semibold">ONE INVENTORY</h1>
+                  <h4 class="text-white font-light font-20">Rich and Up To Date Property Information</h4>
+                  <h4 class="text-white font-light font-20">Controlled Inventory Sharing System</h4>
+               </div>
+            </div>
+            <div class="col-12 col-lg-6 col-md-12 col-sm-12 bg-white mob-padding2 pad-top-122">
+               <div class="row mb-5 pl-3 pr-3">
+                  <div class="col-12 mb-2 centercont">
+                     <h3 class="text-white font-regular mb-0 font-26 red-color ">BROKER - Company</h3>
+                  </div>
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-12">
+                     <div class="form-group mb-1">
+                        <h3 for="exampleFormControlSelect1 mb-0">Company Name:</h3>
+                        <input class="form-control textbox" type="text" placeholder="Default input"/>
+                     </div>
+                  </div>
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-12">
+                     <div class="form-group mb-1">
+                        <h3 for="exampleFormControlSelect1 mb-0">Website:</h3>
+                        <input class="form-control textbox" type="text" placeholder="Default input"/>
+                     </div>
+                  </div>
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-12">
+                     <div class="form-group mb-1">
+                        <h3 for="exampleFormControlSelect1 mb-0">Email / Username:</h3>
+                        <input class="form-control textbox" type="text" placeholder="Default input"/>
+                     </div>
+                  </div>
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-12">
+                     <div class="form-group mb-1">
+                        <h3 for="exampleFormControlSelect1 mb-0">Facebook:</h3>
+                        <input class="form-control textbox" type="text" placeholder="Default input"/>
+                     </div>
+                  </div>
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-12">
+                     <div class="form-group mb-1">
+                        <h3 for="exampleFormControlSelect7 mb-0">Services:</h3>
+                        <select class="form-control selectstyle" id="exampleFormControlSelect7">
+                           <option>1</option>
+                           <option>2</option>
+                           <option>3</option>
+                           <option>4</option>
+                           <option>5</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-12">
+                     <div class="form-group mb-1">
+                        <h3 for="exampleFormControlSelect6 mb-0">Number of Agents:</h3>
+                        <select class="form-control selectstyle" id="exampleFormControlSelect6">
+                           <option>1</option>
+                           <option>2</option>
+                           <option>3</option>
+                           <option>4</option>
+                           <option>5</option>
+                        </select>
+                     </div>
+                  </div>
+                  <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+                     <h3 for="exampleFormControlSelect1 mb-0">Company Description:</h3>
+                     <textarea class="form-control textbox" id="exampleFormControlTextarea1" rows="2"></textarea>
+                  </div>
+                  <div class="col-12 col-lg-12 col-md-12 col-sm-12 text-center mt-1">
+                     <h3 class="text-white font-regular mb-0 font-20 red-color">Contracting Department</h3>
+                  </div>
+                  <div class="col-12">
+                     <div class="form-group mb-1">
+                        <h3 for="exampleFormControlSelect1 mb-0">Contact Person:</h3>
+                        <input class="form-control textbox" type="text" placeholder="Default input"/>
+                     </div>
+                  </div>
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-12">
+                     <div class="form-group ">
+                        <h3 for="exampleFormControlSelect1 mb-0">Telephone:</h3>
+                        <input class="form-control textbox" type="text" placeholder="Default input"/>
+                     </div>
+                  </div>
+                  <div class="col-12 col-lg-6 col-md-6 col-sm-12">
+                     <div class="form-group ">
+                        <h3 for="exampleFormControlSelect1 mb-0">Email:</h3>
+                        <input class="form-control textbox" type="text" placeholder="Default input"/>
+                     </div>
+                  </div>
+                  <div class="col-12">
+                     <nav>
+                        <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
+                           <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Head Office</a>
+                           <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Add Branches</a>
+                        </div>
+                     </nav>
+                     <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active p-3" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                           <div class="row">
+                              <div class="col-12 col-lg-8 col-md-12 col-sm-12">
+                                 <div class="form-group mb-1">
+                                    <h3 for="exampleFormControlSelect1 mb-0">Street:</h3>
+                                    <input class="form-control textbox" type="text" placeholder="Default input"/>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-lg-4 col-md-12 col-sm-12">
+                                 <div class="form-group mb-1">
+                                    <h3 for="exampleFormControlSelect1 mb-0">Postal Code:</h3>
+                                    <input class="form-control textbox" type="text" placeholder="Default input"/>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-lg-4 col-md-12 col-sm-12">
+                                 <div class="form-group mb-1">
+                                    <h3 for="exampleFormControlSelect4 mb-0">Country:</h3>
+                                    <select class="form-control selectstyle" id="exampleFormControlSelect4">
+                                       <option>1</option>
+                                       <option>2</option>
+                                       <option>3</option>
+                                       <option>4</option>
+                                       <option>5</option>
+                                    </select>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-lg-4 col-md-12 col-sm-12">
+                                 <div class="form-group mb-1">
+                                    <h3 for="exampleFormControlSelect5 mb-0">City:</h3>
+                                    <select class="form-control selectstyle" id="exampleFormControlSelect5">
+                                       <option>1</option>
+                                       <option>2</option>
+                                       <option>3</option>
+                                       <option>4</option>
+                                       <option>5</option>
+                                    </select>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-lg-4 col-md-12 col-sm-12">
+                                 <div class="form-group mb-1">
+                                    <h3 for="exampleFormControlSelect1 mb-0">State/Govornorate:</h3>
+                                    <input class="form-control textbox" type="text" placeholder="Default input"/>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-lg-6 col-md-12 col-sm-12">
+                                 <div class="form-group mb-1">
+                                    <h3 for="exampleFormControlSelect1 mb-0">Telephone:</h3>
+                                    <input class="form-control textbox" type="text" placeholder="Default input"/>
+                                 </div>
+                              </div>
+                              <div class="col-12 col-lg-6 col-md-12 col-sm-12">
+                                 <div class="form-group mb-1">
+                                    <h3 for="exampleFormControlSelect1 mb-0">Email:</h3>
+                                    <input class="form-control textbox" type="text" placeholder="Default input"/>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="tab-pane fade p-3" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                           <div class="row">
+                              <div class="col-12">
+                                 <button type="button" class="btn btn-outline-dark w-100" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-plus"></i></button>
+                              </div>
+                           </div>
+                           <div class="row mt-1">
+                              <div class="col-11 pt-2">
+                                 <h3 class="mb-0">Branch 1 </h3>
+                              </div>
+                              <div class="col-1">
+                                 <button type="button" class="btn btn-light red-color bg-transparent border-0"><i class="fas fa-times"></i></button>
+                              </div>
+                           </div>
+                           <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog modal-lg" role="document">
+                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                       <h5 class="modal-title red-color" id="exampleModalLabel">Add Branch Details</h5>
+                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                       <span aria-hidden="true"></span>
+                                       </button>
+                                    </div>
+                                    <div class="modal-body">
+                                       <div class="row">
+                                          <div class="col-12">
+                                             <div class="form-group mb-1">
+                                                <h3 for="exampleFormControlSelect1 mb-0">Branch Name:</h3>
+                                                <input class="form-control textbox" type="text" placeholder="Default input"/>
+                                             </div>
+                                          </div>
+                                          <div class="col-8">
+                                             <div class="form-group mb-1">
+                                                <h3 for="exampleFormControlSelect1 mb-0">Street:</h3>
+                                                <input class="form-control textbox" type="text" placeholder="Default input"/>
+                                             </div>
+                                          </div>
+                                          <div class="col-4">
+                                             <div class="form-group mb-1">
+                                                <h3 for="exampleFormControlSelect1 mb-0">Postal Code:</h3>
+                                                <input class="form-control textbox" type="text" placeholder="Default input"/>
+                                             </div>
+                                          </div>
+                                          <div class="col-4">
+                                             <div class="form-group mb-1">
+                                                <h3 for="exampleFormControlSelect4 mb-0">Country:</h3>
+                                                <select class="form-control selectstyle" id="exampleFormControlSelect4">
+                                                   <option>1</option>
+                                                   <option>2</option>
+                                                   <option>3</option>
+                                                   <option>4</option>
+                                                   <option>5</option>
+                                                </select>
+                                             </div>
+                                          </div>
+                                          <div class="col-4">
+                                             <div class="form-group mb-1">
+                                                <h3 for="exampleFormControlSelect5 mb-0">City:</h3>
+                                                <select class="form-control selectstyle" id="exampleFormControlSelect5">
+                                                   <option>1</option>
+                                                   <option>2</option>
+                                                   <option>3</option>
+                                                   <option>4</option>
+                                                   <option>5</option>
+                                                </select>
+                                             </div>
+                                          </div>
+                                          <div class="col-4">
+                                             <div class="form-group mb-1">
+                                                <h3 for="exampleFormControlSelect1 mb-0">State/Govornorate:</h3>
+                                                <input class="form-control textbox" type="text" placeholder="Default input"/>
+                                             </div>
+                                          </div>
+                                          <div class="col-6">
+                                             <div class="form-group mb-1">
+                                                <h3 for="exampleFormControlSelect1 mb-0">Telephone:</h3>
+                                                <input class="form-control textbox" type="text" placeholder="Default input"/>
+                                             </div>
+                                          </div>
+                                          <div class="col-6">
+                                             <div class="form-group mb-1">
+                                                <h3 for="exampleFormControlSelect1 mb-0">Email:</h3>
+                                                <input class="form-control textbox" type="text" placeholder="Default input"/>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="modal-footer text-right">
+                                       <button type="button" class="btn btn-danger rounded d-block w-25">Add</button>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-12 text-center mt-3">
+                     <button type="button" class="btn btn-danger rounded d-block w-100">Submit</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+              </div>
+        </t>
+      </template>
+    </data>
+</odoo>

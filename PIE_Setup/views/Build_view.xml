@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <!-- Start of PIE Setup Views -->
+  
+      <record model="ir.ui.view" id="view_PIE_setup_payment_plan">
+		<field name="name">view_PIE_setup_payment_plan</field>
+		<field name="model">pie.setup.payment_plan</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name" string="Payment Plan Name"/>
+                
+                <field name="no_of_years"/>
+                <field name="frst_deposit" string="First Deposit"/>
+			</tree>
+		</field>
+	</record>
+
+
+
+	<record model="ir.ui.view" id="view_PIE_setup_payment_plan_form">
+		<field name="name">view_PIE_setup_payment_plan_form</field>
+		<field name="model">pie.setup.payment_plan</field>
+		<field name="arch" type="xml">
+			<form  >
+		 	 <sheet>
+         <group col="2">
+			<group>
+			    
+				<field name="name" string="Plan Name"/>
+                <field name="code" string="Plan Code"/>
+               <field name="no_of_years"/>
+                <field name="is_percentage"/>
+               
+				</group>
+                <group>
+                 <field name="frst_deposit"/>
+                <field name="scnd_deposit"/>
+                <field name="thrd_deposit"/>
+                <field name="forth_deposit"/>
+                </group>
+                </group>
+			</sheet>
+            </form>
+            
+		</field>
+	</record>
+  
+  
+	<record model="ir.ui.view" id="view_PIE_setup_category">
+		<field name="name">view_PIE_setup_category</field>
+		<field name="model">pie.setup.category</field>
+		<field name="arch" type="xml">
+			<tree editable="Top">
+				<field name="name" string="Category Name"/>
+                <field name="active" string="Active"/>
+			</tree>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_PIE_setup_category">
+		<field name="name">view_PIE_setup_design</field>
+		<field name="model">pie.setup.property_design</field>
+		<field name="arch" type="xml">
+			<tree editable="Top">
+				<field name="name" string="Design Name"/>
+                <field name="active" string="Active"/>
+			</tree>
+		</field>
+	</record>
+
+
+   <record model="ir.ui.view" id="view_PIE_setup_region">
+		<field name="name">view_PIE_setup_region</field>
+		<field name="model">pie.setup.region</field>
+		<field name="arch" type="xml">
+			<tree editable="Top">
+				<field name="name" string="Governorate Name"/>
+              <field name="country_id" string="Country"/>
+                <field name="active" string="Active"/>
+			</tree>
+		</field>
+	</record>
+
+    <record model="ir.ui.view" id="view_PIE_setup_bathrooms">
+		<field name="name">view_PIE_setup_bathrooms</field>
+		<field name="model">pie.setup.bathrooms</field>
+		<field name="arch" type="xml">
+			<tree editable="Top">
+				<field name="name" string="Bathrooms Count Title"/>
+                <field name="bathrooms_count" string="Bathrooms Count "/>
+                <field name="active" string="Active"/>
+			</tree>
+		</field>
+	</record>
+
+
+    <record model="ir.ui.view" id="view_PIE_setup_finishing">
+		<field name="name">view_PIE_setup_finishing</field>
+		<field name="model">pie.setup.finishing</field>
+		<field name="arch" type="xml">
+			<tree editable="Top">
+				<field name="name" string="Finishing Type Name"/>
+                <field name="active" string="Active"/>
+			</tree>
+		</field>
+	</record>
+
+    <record model="ir.ui.view" id="view_PIE_setup_floor">
+		<field name="name">view_PIE_setup_floor</field>
+		<field name="model">pie.setup.floor</field>
+		<field name="arch" type="xml">
+			<tree editable="Top">
+				<field name="name" string="Floor Type Name"/>
+                <field name="floor_value" string="Nth Floor"/>
+                <field name="active" string="Active"/>
+			</tree>
+		</field>
+	</record>
+
+
+    <record model="ir.ui.view" id="view_PIE_setup_hashtag">
+		<field name="name">view_PIE_setup_hashtag</field>
+		<field name="model">pie.setup.hashtag</field>
+		<field name="arch" type="xml">
+			<tree editable="Top">
+				<field name="name" string="Hashtag Name"/>
+                <field name="active" string="Active"/>
+			</tree>
+		</field>
+	</record>
+
+    <record model="ir.ui.view" id="view_PIE_setup_label_tree">
+		<field name="name">view_PIE_setup_label_tree</field>
+		<field name="model">pie.setup.label</field>
+		<field name="arch" type="xml">
+			<tree >
+				<field name="name" string="Label Name"/>
+                <field name="active" string="Active"/>
+			</tree>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_PIE_setup_label_form">
+		<field name="name">view_PIE_setup_label_form</field>
+		<field name="model">pie.setup.label</field>
+		<field name="arch" type="xml">
+			<form  >
+		 
+			<group>
+			    <field name="logo" widget="image" class="oe_avatar"/>
+				<field name="name" string="Label Name"/>
+                <field name="active" string="Active"/>
+				<field name="state" string="state"/>
+				</group>
+			</form>
+		</field>
+	</record>
+ 
+    <record model="ir.ui.view" id="view_PIE_setup_propoerty_status">
+		<field name="name">view_PIE_setup_propoerty_status</field>
+		<field name="model">pie.setup.property_status</field>
+		<field name="arch" type="xml">
+			<tree  editable="top">
+				<field name="name" string="Property Status Name"/>
+                <field name="active" string="Active"/>
+			</tree>
+		</field>
+    </record>
+
+     <record model="ir.ui.view" id="view_PIE_setup_propoerty_status_search">
+		<field name="name">view_PIE_setup_propoerty_status_search</field>
+		<field name="model">pie.setup.property_status</field>
+		<field name="arch" type="xml">
+			<search >
+     
+		<field name="name"/>
+
+
+
+
+		</search>
+       	</field>
+	</record>
+
+    <record model="ir.ui.view" id="view_PIE_setup_region">
+		<field name="name">view_PIE_setup_region</field>
+		<field name="model">pie.setup.region</field>
+		<field name="arch" type="xml">
+			<tree editable="Top">
+				<field name="name" string="Governorate Name"/>
+              <field name="country_id" string="Country"/>
+                <field name="active" string="Active"/>
+			</tree>
+		</field>
+	</record>
+
+
+
+    <record model="ir.ui.view" id="view_PIE_setup_rooms">
+		<field name="name">view_PIE_setup_rooms</field>
+		<field name="model">pie.setup.room</field>
+		<field name="arch" type="xml">
+			<tree editable="Top">
+				<field name="name" string="Title"/>
+                <field name="rooms_count" string="count of Rooms"/>
+                <field name="active" string="Active"/>
+			</tree>
+		</field>
+	</record>
+
+ 	<record model="ir.ui.view" id="view_pie_company_tree">
+		<field name="name">view_pie_company_tree</field>
+		<field name="model">pie.entity</field>
+		  
+		<field name="arch" type="xml">
+		   
+			<tree delete="0">
+                
+				<field name="name" string="Company Name"/>
+				<field name="pie_access_right" string="Access Right"/>
+				<field name="pie_type" string="Type"/>
+				<field name="active" string="Active"/>
+              <field name="offline_state" string="Is Offline"/>
+			</tree>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_pie_entity_service">
+		<field name="name">view_pie_entity_service</field>
+		<field name="model">pie.entity.service</field>
+		<field name="arch" type="xml">
+			<tree editable="Top">
+				<field name="name" string="Service  Name"/>
+                 
+			</tree>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="view_pie_admin_tree">
+		<field name="name">view_pie_admin_tree</field>
+		<field name="model">res.users</field>
+		<field name="arch" type="xml">
+			<tree >
+					<field name="name" string="Administrator  Name"/>
+                <field name="email" string="Administrator  Email"/>
+                <field name="Manage_Admins" string="Manage PIE Administrators"/>
+                <field name="is_supplier_admin" string="PIE Build Admin"/>
+                <field name="is_broker_admin" string="PIE Grid Admin"/>
+                 
+                 
+			</tree>
+		</field>
+	</record>
+    	<record model="ir.ui.view" id="view_pie_user_tree">
+		<field name="name">view_pie_user_tree</field>
+		<field name="model">res.users</field>
+		<field name="arch" type="xml">
+			<tree >
+				    <field name="name" string="User Full Name"/>
+                <field name="email" string="User  Email"/>
+                <field name="entity" string="Company  Name"/>
+                <field name="is_supplier_admin" string="Build Admin"/>
+                <field name="is_supplier_editor" string="Build Editor"/>
+                <field name="is_broker_admin" string="Grid Admin"/>
+                <field name="is_broker_agent" string="Grid Agent"/>
+			</tree>
+		</field>
+	</record>
+
+
+
+        <record model="ir.ui.view" id="view_pie_company_form2">
+		<field name="name">view_pie_company_form2</field>
+		<field name="model">pie.entity</field>
+		<field name="arch" type="xml">
+        
+        
+        <form string="Partners">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" options="{&quot;terminology&quot;: &quot;archive&quot;}"/>
+                        </button>
+                    </div>
+                    <field name="image" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;image_medium&quot;, &quot;size&quot;: [90, 90]}"/>
+                    <div class="oe_title">
+                        
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name" attrs="{'required' : True}"/>
+                        </h1>
+                        <div class="o_row"><field name="pie_type" widget="radio"  options="{'horizontal': true}"/></div>
+                       
+                      
+                    </div>
+
+                    <group>
+                        <group>
+                        
+                            <field name="pie_access_right" string="PIE Access Rights"  invisible="1"/>
+                             <field name="supplier_type" widget="radio" options="{'horizontal': true}" attrs="{'required':[('pie_type','=','is_supplier')],'invisible':[('pie_type','!=','is_supplier')]}" />
+
+                            
+                            <field name="internal_broker" attrs="{'invisible':[('pie_access_right','!=','both')]}"/>
+                            
+                             <field name="borker_type" widget="radio" options="{'horizontal': true}"  attrs="{'invisible': [('pie_type', '!=', 'is_broker')],'required': [('pie_type', '=', 'is_broker')]}"/>
+                             <field name="type_inventory" widget="radio" options="{'horizontal': true}" attrs="{'required':[('pie_type','=','is_supplier')],'invisible':[('pie_type','=','is_broker')]}"/>
+                           	<field name="offline_state"></field>
+                            <field name="number_sales_agents" attrs="{'invisible': [('borker_type', '!=', 'Company')],'required': [('borker_type', '=', 'Company')]}"></field>
+                         	    <field name="supplier_share" attrs="{'invisible':[('pie_type','!=','is_supplier')],'invisible':[('type_inventory','!=','Control_inventory')]}" />
+                          <field name="sevice_list" string="Services List" widget="many2many_tags" attrs="{'invisible': [('pie_type', '!=', 'is_broker')]}" options="{'no_quick_create': True, 'no_create_edit' : True,'no_open': True}" />
+                        </group>
+                        <group>
+                            <label for="street" string="Address"/>
+                            <div class="o_address_format">
+                                <field name="street" placeholder="Street..." class="o_address_street"  />
+                               
+                                <field name="city" placeholder="City" class="o_address_city"  />
+                                <field name="state_id" class="o_address_state" placeholder="State" options="{&quot;no_open&quot;: True}"   context="{'country_id': country_id, 'zip': zip}"/>
+                                <field name="zip" placeholder="ZIP" class="o_address_zip"  />
+                                <field name="country_id" placeholder="Country" class="o_address_country" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"  />
+                            </div>
+                           
+                            <field name="mobile" widget="phone"/>
+                           
+                            
+                            <field name="email" widget="email" />
+                            <field name="landline" widget="phone" string="Landline"/>
+                            
+                            <field name="website" widget="url" placeholder="e.g. http://www.pie.properties"/>
+                        </group>
+                    </group>
+
+                    <notebook colspan="4">
+                    <page string="PIE Options and Contact Person" autofocus="autofocus">
+                    <group  col="2">
+                    
+                    
+                    
+                    <group string="Contact Person">
+                        <field name="contract_contant_name" string="Name"/>
+                        <field name="contract_contant_position" string="Position"/>
+                        <field name="contract_contant_mobile" string="Mobile"/>
+                        <field name="contract_contant_mail" string="E-Mail"/>
+                    </group>
+                   <group string="Branches">
+                  <field name="branches" mode="tree,kanban" widget="many2many">
+                     <form>
+                        <group>
+                           <group>
+                              <field name="name" string="Branch Name" />
+                              <field name="address" string="Address" />
+                              <field name="Phone" string="Phone" />
+                           </group>
+                           <group>
+                              <field name="country_id" placeholder="Country" class="o_address_country" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}" />
+                              <field name="city" placeholder="City" class="o_address_city" />
+                              <field name="area" class="o_address_state" placeholder="area" options="{&quot;no_open&quot;: True}" />
+                           </group>
+                        </group>
+                     </form>
+                     <tree>
+                        <field name="name" string="Branch Name" />
+                        <field name="address" string="Address" />
+                        <field name="Phone" string="Phone" />
+                     </tree>
+                  </field>
+               </group>
+                    </group>
+                    </page>
+                   
+                       
+                        <page name="internal_notes" string="Internal Notes">
+                            <field name="comments" placeholder="Internal note..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                </form>
+            
+
+        </field>
+    </record>
+</odoo>

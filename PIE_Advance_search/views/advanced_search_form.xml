@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<odoo>
+
+
+    <!-- Start of PIE Setup Views -->
+	<record model="ir.ui.view" id="view_pie_advance_search_form">
+		<field name="name">view_pie_advance_search_form</field>
+		<field name="model">pie.advanced.search</field>
+		  
+		<field name="arch" type="xml">
+		      <form>
+            <sheet>
+            <group>
+			<group>
+			<field name="developers" widget="many2many_tags" options="{'no_create_edit': True, 'no_create':True, 'no_open':True }"  />
+			<field name="projects" widget="many2many_tags"  options="{'no_create_edit': True, 'no_create':True, 'no_open':True }"   />
+			<field name="region" widget="many2many_tags" options="{'no_create_edit': True, 'no_create':True, 'no_open':True }"  />
+			<field name="area" widget="many2many_tags" options="{'no_create_edit': True, 'no_create':True, 'no_open':True }"  />
+              
+			  
+            
+			<field name="district"   />
+           <field name="property_code"  />
+            
+             </group>
+			 <group>
+            <field name="property_type" widget="many2many_tags" options="{'no_create_edit': True, 'no_create':True, 'no_open':True }"  />
+       
+           
+      
+            <field name="property_status" widget="many2many_tags" options="{'no_create_edit': True, 'no_create':True, 'no_open':True }"  />
+       
+            
+        
+            <field name="finishing" widget="many2many_tags" options="{'no_create_edit': True, 'no_create':True, 'no_open':True }"   />
+       
+            <field name="property_design" widget="many2many_tags" options="{'no_create_edit': True, 'no_create':True, 'no_open':True }"  />
+      
+            <field name="rooms" widget="many2many_tags" options="{'no_create_edit': True, 'no_create':True, 'no_open':True }"  />
+        
+            <field name="bathrooms" widget="many2many_tags" options="{'no_create_edit': True, 'no_create':True, 'no_open':True }"  />
+      </group></group>
+ 
+             <group>
+               <group>
+			   <field name="Basement"/>
+			   
+			   <field name="Garden"/>
+                <field name="Land"/>
+			    </group><group>
+			   <field name="Roof"/>
+			  
+			   <field name="Terrace"/>
+			   <field name="Garden"/>
+			    
+			   
+			   
+			   </group>
+           </group>
+       
+		<group>
+         <label  for="bua_from" String ="BAU">BUA:</label>
+      <div>
+	  <span><field name="bua_from" widget="char"  placeholder="From" class="form-control rounded-0 textbox w-100"/> </span>
+    	  <span><field name="bua_to" class="form-control rounded-0 textbox w-100" type="text" widget="char"  placeholder="To"/>  </span></div>
+       </group> 
+	   
+	   <group>
+         <label  for="price_from" String ="Price">Price:</label>
+      <div>
+	  <span><field name="price_from" widget="char"  placeholder="From" class="form-control rounded-0 textbox w-100"/> </span>
+    	  <span><field name="price_to" class="form-control rounded-0 textbox w-100" type="text" widget="char"  placeholder="To"/>  </span></div>
+       </group> 
+	   
+
+	   <group>
+         <label  for="price_from_m" String ="Price/m2">Price/m2</label>
+      <div>
+	  <span><field name="price_from_m" widget="char"  placeholder="From" class="form-control rounded-0 textbox w-100"/> </span>
+    	  <span><field name="price_to_m" class="form-control rounded-0 textbox w-100" type="text" widget="char"  placeholder="To"/>  </span></div>
+       </group> 
+	   
+	   <group>
+         <label  for="deposit_from" String ="Deposit">Deposit:</label>
+      <div>
+	  <span><field name="deposit_from" widget="char"  placeholder="From" class="form-control rounded-0 textbox w-100"/> </span>
+    	  <span><field name="deposited_to" class="form-control rounded-0 textbox w-100" type="text" widget="char"  placeholder="To"/>  </span></div>
+       </group> 
+	   
+	   
+	    <group>
+         <label  for="installment_from" String ="Installment">Installment:</label>
+      <div>
+	  <span><field name="installment_from" widget="char"  placeholder="From" class="form-control rounded-0 textbox w-100"/> </span>
+    	  <span><field name="installment_to" class="form-control rounded-0 textbox w-100" type="text" widget="char"  placeholder="To"/>  </span></div>
+       </group>
+   
+      
+   
+ 
+        <group>
+		<div>
+         <h3 class="darkgrey-color font-bold mt-3 mb-0 d-block">Payment:</h3>
+         <select class="form-control selectstyle" id="exampleFormControlSelect2">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+         </select>
+      </div>
+	  <div>
+         <h3 class="darkgrey-color font-bold mt-3 mb-0 d-block">Market:</h3>
+         <field name="Market" class="form-control selectstyle" id="exampleFormControlSelect2"/>
+         </div>
+		 </group>
+	<button string="search" type="object" name="advance_search_property"/>
+            </sheet>
+			 
+         </form>
+			 
+			 
+		</field>
+	</record>
+    <record id="pie_advance_search_tree" model="ir.ui.view">
+    <field name="name">view_pie_advance_search_form</field>
+		<field name="model">pie.advanced.search</field>
+		  
+		<field name="arch" type="xml">
+         <tree>
+           
+          </tree>
+        </field>
+    </record>
+
+
+</odoo>

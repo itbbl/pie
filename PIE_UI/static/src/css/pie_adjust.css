@@ -1,0 +1,28 @@
+.navbar>.container, .navbar>.container-fluid{
+ display: block;
+}
+
+.navbar-nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.navbar-nav .dropdown-menu {
+    position: absolute;
+    float: none;
+}
+.o_form_view .o_form_sheet_bg .o_form_sheet {
+    min-width: 50px;
+    max-width: 860px;
+    min-height: 330px;
+    background: white;
+    padding: 16px;
+    margin: 0 auto; 
+}
+input:not([type="radio"]):not([type="checkbox"]) {
+    min-width: 110px;
+}

@@ -1,0 +1,9 @@
+from odoo import api ,fields, models,exceptions
+
+from datetime import date,datetime,timedelta
+from dateutil.relativedelta import relativedelta
+from odoo.exceptions import ValidationError
+import logging
+from datetime import datetime as dt
+class open_inventory(models.Model):
+ _name='pie.share.open.inventory'

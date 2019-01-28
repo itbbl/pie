@@ -1,0 +1,143 @@
+<odoo>
+
+
+ <!--         PIE Setup Actions       -->
+
+    <record model="ir.actions.act_window"
+        id="action_payment_plan_list_tree">
+        <field name="name">Payment Plans List</field>
+        <field name="res_model">pie.setup.payment_plan</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+
+	<record model="ir.actions.act_window"
+        id="action_area_list_tree">
+        <field name="name">Area list</field>
+        <field name="res_model">pie.setup.area</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+	<record model="ir.actions.act_window"
+        id="action_design_list_tree">
+        <field name="name">Property Type list</field>
+        <field name="res_model">pie.setup.property_design</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+	<record model="ir.actions.act_window"
+        id="action_zone_list_tree">
+        <field name="name">Zones list</field>
+        <field name="res_model">pie.setup.zone</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+
+	<record model="ir.actions.act_window"
+        id="action_bathrooms_list_tree">
+        <field name="name">Bathrooms list</field>
+        <field name="res_model">pie.setup.bathrooms</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+
+	<record model="ir.actions.act_window"
+        id="action_category_list_tree">
+        <field name="name">Category list</field>
+        <field name="res_model">pie.setup.category</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+
+
+	<record model="ir.actions.act_window"
+        id="action_finishing_list_tree">
+        <field name="name">Finishing Types list</field>
+        <field name="res_model">pie.setup.finishing</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+
+	<record model="ir.actions.act_window"
+        id="action_floor_list_tree">
+        <field name="name">Floors list</field>
+        <field name="res_model">pie.setup.floor</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+	<record model="ir.actions.act_window"
+        id="action_hashtag_list_tree">
+        <field name="name">Hashtags list</field>
+        <field name="res_model">pie.setup.hashtag</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+
+	<record model="ir.actions.act_window"
+        id="action_label_list_tree">
+        <field name="name">Labels list</field>
+        <field name="res_model">pie.setup.label</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+
+
+	<record model="ir.actions.act_window"
+        id="action_property_status_list_tree">
+        <field name="name">Property Status list</field>
+        <field name="res_model">pie.setup.property_status</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+
+	<record model="ir.actions.act_window"
+        id="action_region_list_tree">
+        <field name="name">Regions list</field>
+        <field name="res_model">pie.setup.region</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+
+	<record model="ir.actions.act_window"
+        id="action_rooms_list_tree">
+        <field name="name">Bathrooms list</field>
+        <field name="res_model">pie.setup.room</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+
+
+	<record model="ir.actions.act_window"
+        id="action_service_list_tree">
+        <field name="name">Services </field>
+        <field name="res_model">pie.entity.service</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+	<record model="ir.actions.act_window"
+        id="action_entity">
+        <field name="name">PIE Companies </field>
+        <field name="res_model">pie.entity</field>
+         
+		<field name="view_mode">tree,form</field>
+         <field name="view_ids" eval="[(5, 0, 0), 
+        (0, 0, {'view_mode': 'tree', 'view_id': ref('view_pie_company_tree')}),
+        (0, 0, {'view_mode': 'form', 'view_id': ref('view_pie_company_form2')})]"/>
+         <!--<field name="context">{'search_default_group_supplier_id': 1,'search_default_group_type': 1}</field>-->
+    
+      
+    </record> 
+    	<record model="ir.actions.act_window"
+        id="action_pie_user">
+        <field name="name">PIE Administrators</field>
+        <field name="res_model">res.users</field>
+         <field name="context">{"default_PIE_Admin":"True","default_action_id":"383"}</field>
+          <field name="domain">[('PIE_Admin','=', True)]</field>
+		<field name="view_mode">tree,form</field>
+         <field name="view_ids" eval="[(5, 0, 0), 
+        (0, 0, {'view_mode': 'tree', 'view_id': ref('view_pie_admin_tree')}),
+        (0, 0, {'view_mode': 'form', 'view_id': ref('view_pie_admin_form')})]"/>
+         <!--<field name="context">{'search_default_group_supplier_id': 1,'search_default_group_type': 1}</field>-->
+    
+      
+    </record>
+        <record model="ir.actions.act_window"
+        id="action_admin_user">
+        <field name="name">PIE Users</field>
+        <field name="res_model">res.users</field>
+         <field name="domain">[('PIE_Admin','!=', True)]</field>
+		<field name="view_mode">tree,form</field>
+         <field name="view_ids" eval="[(5, 0, 0), 
+        (0, 0, {'view_mode': 'tree', 'view_id': ref('view_pie_user_tree')}),
+        (0, 0, {'view_mode': 'form', 'view_id': ref('view_pie_user_form')})]"/>
+         <!--<field name="context">{'search_default_group_supplier_id': 1,'search_default_group_type': 1}</field>-->
+    
+      
+    </record>
+</odoo>

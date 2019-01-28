@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+ 
+    <!-- Start of PIE Share Views -->
+	<record model="ir.ui.view" id="view_PIE_share_request_tree">
+		<field name="name">view_PIE_share_request</field>
+		<field name="model">pie.share.sharing_request</field>
+		<field name="arch" type="xml">
+			<tree >
+			
+             <field name="developer" string="Developer" groups="PIE_Setup.group_pie_broker_manager" />
+ 
+			 <field name="create_uid" string="Brorker Name"  groups="PIE_Setup.group_pie_supplier_manager"/>
+             <field name="contract_sign_start_date" string="Start Date" attrs="{'readonly': [('status', '=', 'Approved')]}"></field>
+             <field name="contract_sign_end_date" string="End  Date" attrs="{'readonly': [('status', '=', 'Approved')]}"/>
+             <field name="status" string="Contract Status" options='{"bg_color":"red"}'/>
+              <field name="head_office" groups="PIE_Setup.group_pie_supplier_manager"/>
+            
+			 
+             
+			</tree>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_PIE_share_request_form">
+		<field name="name">view_PIE_share_request</field>
+		<field name="model">pie.share.sharing_request</field>
+		<field name="arch" type="xml">
+			<form>
+            <header>
+                    <button string="Approve" name="action_confirm" status="Pending" type="object" 
+					groups="PIE_Setup.group_pie_supplier_manager" attrs="{'invisible': [('status', 'in', ('Disable','Expired','Approved'))]}" class="oe_highlight"  />
+                    <button string="Reject" name="action_reject"  type="object" 
+					groups="PIE_Setup.group_pie_supplier_manager" attrs="{'invisible': [('status', 'in', ('Disable','Expired','Approved'))]}" class="oe_highlight"  />      
+                    <button string="Enable" name="action_enable"  type="object" groups="PIE_Setup.group_pie_supplier_manager"
+					 attrs="{'invisible': [('status', 'in', ('Enable','Pending','Rejected','Expired','Approved'))]}" class="oe_highligh" />
+
+                    <button string="Disable" name="action_disable"  type="object" 
+					 attrs="{'invisible': [('status', 'in',    ('Disable','Pending','Rejected','Expired'))]}" class="oe_highligh" />
+                   <button string="Renew"   name="action_approve" status="Expired" type="object" 
+					attrs="{'invisible': [('status', 'in', ('Enable','Pending','Renewal','Approved','Disable'))]}"   groups="PIE_Setup.group_pie_broker_manager"   class="oe_highlight"  />
+                  
+                <button string="Enable" name="action_enable_broker"  type="object" 
+					groups="PIE_Setup.group_pie_broker_manager" attrs="{'invisible':[('status', 'in', ('Enable','Pending','Rejected','Expired','Approved'))]  }" class="oe_highligh" />
+
+                    <!--<button string="Disable" name="action_disable"  type="object" 
+					groups="PIE_Setup.group_pie_broker_manager" attrs="{'invisible':['&amp;',('open_inventory','=',False),('status','=','Disable')]  }"  class="oe_highligh" />-->
+                 
+            </header>
+                <sheet>
+                 
+                    
+                    <div class="oe_title">
+                        <label for="developer" class="oe_edit_only" groups="PIE_Setup.group_pie_broker_manager"/>
+                         
+                         
+						<label for="Broker " class="oe_edit_only" groups="PIE_Setup.group_pie_supplier_manager"/>
+                         
+                        <h1>
+ 
+                         <field name="developer" class="oe_inline"  groups="PIE_Setup.group_pie_broker_manager" options="{'no_open' : True}"                                 attrs="{'required':True}"/> 
+                            
+							<field name="create_uid" string="Brorker Name" class="oe_inline"  groups="PIE_Setup.group_pie_supplier_manager" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,}" attrs="{'readonly':True}"/>
+                            
+                        </h1>
+                       
+                    </div>
+                    <group>
+             <field name="name"/>
+            
+             <field name="status" string="Contract Status"  attrs="{'readonly':True,'invisible':[ ('no_contract','=',True) ]}" />
+             <field name="no_contract" String="No Contract"  />  
+             
+             <field name="contract_sign_start_date" string="Start Date" attrs="{'readonly': [('status', 'in', ('Expired','Approved'))],
+'invisible':[('no_contract','=',True) ]}"/>
+             <field name="contract_sign_end_date" string="End Date" attrs="{'readonly': [('status', 'in', ('Expired','Approved'))],
+'invisible':[('no_contract','=',True)]}"/>
+            </group>
+             </sheet>
+                        
+			</form>
+		</field>
+	</record>
+   
+<record id="view_PIE_share_scheduler_form" model="ir.ui.view">
+    <field name="name">pie.share.scheduler.form</field>
+    <field name="model">pie.share.scheduler</field>
+    <field name="arch" type="xml">
+        <form string="Schedule record">
+	    <group>
+		<field name="name"/>
+		<field name="numberOfUpdates"/>
+		<field name="lastModified"/>
+            </group>
+        </form>
+    </field>
+</record>
+
+<!-- tree (list) view-->
+<record id="view_PIE_share_scheduler_form" model="ir.ui.view">
+    <field name="name">pie.share.scheduler.form</field>
+    <field name="model">pie.share.scheduler</field>
+    <field name="arch" type="xml">
+        <tree string="Schedule records">
+	    <field name="name"/>
+	    <field name="numberOfUpdates"/>
+	    <field name="lastModified"/>
+        </tree>
+    </field>
+</record>
+
+ 
+
+<!--
+<record id="view_PIE_share_request_form_inherited" model="ir.ui.view">
+            <field name="name">view_PIE_share_request_form_inherited</field>
+            <field name="model">pie.share.sharing_request</field>
+            <field name="inherit_id" ref="PIE_Share.view_PIE_share_request_form" />
+            <field name="groups_id" eval="[(6,0, [ref('PIE_Setup.group_pie_broker_manager')])]" />
+            <field name="arch" type="xml">                
+                <field name="status" position="attributes">
+                   <attribute name="attrs">{'invisible':1}</attribute>                   
+                </field>                
+            </field>
+</record>-->
+<record model="ir.ui.view" id="view_PIE_open_inventory">
+		<field name="name">view_PIE_open_inventory</field>
+		<field name="model">pie.share.open.inventory</field>
+		<field name="arch" type="xml">
+			<form>
+            <header>
+                         
+                    
+                  
+                <button string="Enable" name="action_enable_broker"  type="object" 
+					groups="PIE_Setup.group_pie_broker_manager" attrs="{'invisible':[('status', 'in', ('Enable'))]  }" class="oe_highligh" />
+
+                    <button string="Disable" name="action_disable"  type="object" 
+					groups="PIE_Setup.group_pie_broker_manager" attrs="{'invisible':[('status','=','Disable')]  }"  class="oe_highligh" />
+                 
+            </header>
+                <sheet>
+                
+                   
+                    
+                    <div class="oe_title">
+                        <label for="developer" class="oe_edit_only" groups="PIE_Setup.group_pie_broker_manager"/>
+                         
+                         
+						<label for="Broker " class="oe_edit_only" groups="PIE_Setup.group_pie_supplier_manager"/>
+                         
+                        <h1>
+ 
+                         <field name="developer" class="oe_inline"  groups="PIE_Setup.group_pie_broker_manager" options="{'no_open' : True}"                                 attrs="{'required':True}"/> 
+                            
+							<field name="create_uid" string="Brorker Name" class="oe_inline"  groups="PIE_Setup.group_pie_supplier_manager" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,}" attrs="{'readonly':True}"/>
+                            
+                        </h1>
+                       
+                    </div>
+                    <group>
+             <field name="name"/>
+            
+             <field name="status" string="Contract Status"  attrs="{'readonly':True}" />
+             
+            </group>
+             </sheet>
+                        
+			</form>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="view_PIE_open_inventory_tree">
+	     <field name="name">view_PIE_open_inventory_tree</field>
+		<field name="model">pie.share.open.inventory</field>
+		<field name="arch" type="xml">
+			<tree>
+             <field name="developer" string="Developer" groups="PIE_Setup.group_pie_broker_manager" />
+ 
+			 <field name="create_uid" string="Brorker Name"  groups="PIE_Setup.group_pie_supplier_manager"/>
+             <field name="status"/>
+
+            
+			 
+             
+			</tree>
+		</field>
+	</record>
+</odoo>

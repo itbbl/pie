@@ -1,0 +1,14 @@
+<odoo>
+
+
+<!-- Top menu item -->
+   
+
+
+<!--         Generic Menu       -->
+    <menuitem id="menu_import_prop" name="Import Properties" action="action_import_prop"  parent="PIE_Build.menu_build_import_heading" sequence="2"/>
+  <menuitem id="menu_build_mapping_list_tree" name="Manage Inventory Structure" action="action_build_mapping_list_tree" parent="PIE_Build.menu_build_import_heading" sequence="1"/>
+ <menuitem id="menu_prop_import_history" name="Draft Import History" action="action_prop_import_history" parent="PIE_Build.menu_build_import_heading" sequence="3"/>
+
+  <menuitem id="menu_xport_prop" name="Validate and Export Properties" action="action_export_prop"  parent="PIE_Build.menu_build_export_heading" sequence="7"/>
+</odoo>

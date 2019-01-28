@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<odoo>
+ 
+	<record  model="ir.actions.act_window" id="action_share_requests">
+        <field name="name">Sharing Requests list</field>
+        <field name="res_model">pie.share.sharing_request</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+
+ 
+ <record  model="ir.actions.act_window" id="action_share_open_inventory">
+        <field name="name">Sharing Open Inventory</field>
+        <field name="res_model">pie.share.open.inventory</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,45 @@
+.draft_view th[data-id='property_code'] {
+background-color:#999997;
+color:black;
+}
+.draft_view th[data-id='project'] {
+background-color:#E7B8B0;
+color:black;
+}
+.draft_view th[data-id='finishing_type'] {
+background-color:#B6D7A8;
+color:black;
+}
+.draft_view th[data-id='price'] {
+background-color:#FFE59A;
+color:black;
+}
+.draft_view th[data-id='built_up'] {
+background-color:#FFE59A;
+color:black;
+}
+.draft_view th[data-id='rooms'] {
+background-color:#FFE59A;
+color:black;
+}
+.draft_view th[data-id='zone'] {
+background-color:#E7B8B0;
+color:black;
+}
+.draft_view th[data-id='property_status'] {
+background-color:#B6D7A8;
+color:black;
+}
+.draft_view th[data-id='property_type'] {
+background-color:#E7B8B0;
+color:black;
+}
+.draft_view th[data-id='property_design'] {
+background-color:#B6D7A8;
+color:black;
+}
+.draft_view th[data-id='region'] {
+background-color:#B6D7A8;
+color:black;
+}
+
