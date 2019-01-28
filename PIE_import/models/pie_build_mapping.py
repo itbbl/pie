@@ -48,7 +48,7 @@ class Supplier_Mapping(models.Model):
 
         #mapped_region = self.env['pie.build.mapping.column'].create({'supplier_column':values['region_field'],'pie_column2':'region','mapping_id':record.id,'selected':True})
 
-        mapped_developer_column = self.env['pie.build.mapping.column'].create({'supplier_column':values['developer_column'],'pie_column2':'developer','mapping_id':record.id,'selected':True})
+        #mapped_developer_column = self.env['pie.build.mapping.column'].create({'supplier_column':values['developer_column'],'pie_column2':'developer','mapping_id':record.id,'selected':True})
 
         mapped_price = self.env['pie.build.mapping.column'].create({'supplier_column':values['price_field'],'pie_column2':'price','mapping_id':record.id,'selected':True})
 
@@ -74,11 +74,11 @@ class Supplier_Mapping(models.Model):
         record = super(Supplier_Mapping, self).write(values)
         #_logger.warn(values)
         #_logger.warn(self)
-        if 'developer_column' in values:
-            area_record = self.env['pie.build.mapping.column'].search([['mapping_id', '=', self.id], ['pie_column2', '=', 'developer']])
+        #if 'developer_column' in values:
+            #area_record = self.env['pie.build.mapping.column'].search([['mapping_id', '=', self.id], ['pie_column2', '=', 'developer']])
             #_logger.warn(region_record)
-            for records in area_record:
-                records.write({'supplier_column': values['developer_column']})
+            #for records in area_record:
+                #records.write({'supplier_column': values['developer_column']})
          
         if 'region_field' in values:
             area_record = self.env['pie.build.mapping.column'].search([['mapping_id', '=', self.id], ['pie_column2', '=', 'region']])
