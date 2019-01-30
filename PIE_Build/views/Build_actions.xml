@@ -9,7 +9,13 @@
         <field name="res_model">pie.project</field>
 		<field name="view_mode">tree,form</field>
     </record>
-
+  
+	<record model="ir.actions.act_window"
+        id="action_build_home">
+        <field name="name">Build Home</field>
+        <field name="res_model">pie.build.home</field>
+		<field name="view_mode">form</field>
+    </record>
  
      <record model="ir.actions.act_window"
         id="action_prop_list_active">

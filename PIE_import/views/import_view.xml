@@ -88,7 +88,7 @@ here help abot mapping </div>
             <group col="2">
             
             <group string="Required Fields">
-                <field name="developer_column" string="Developer" />
+               
                 <field name="built_up_field" />
                 <field name="price_field" />
                 <field name="property_type_field" />

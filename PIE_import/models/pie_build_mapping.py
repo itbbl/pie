@@ -21,7 +21,7 @@ class Supplier_Mapping(models.Model):
     #area_field = fields.Char(string="Area Field" ,store=True)
     developer_column= fields.Char(string="Developer" ,store=True)
     property_code_field = fields.Char(string="Property Code" ,store=True,default="Property Code")
-    property_type_field = fields.Char(string="Property Type" ,store=True,default="Type")
+    property_type_field = fields.Char(string="Property Category" ,store=True,default="Type")
     property_design_field = fields.Char(string="Property Design",store=True ,default="Design")
     price_field = fields.Char(string="Price" ,store=True,default="Price")
     built_up_field = fields.Char(string="Built Up Space",store=True,default="BUA")

@@ -11,12 +11,15 @@ class Build_Property(models.Model):
     name = fields.Char(string="Property Name",size=150)
 
     project = fields.Many2one('pie.project',size=150,required=True)
-    developer=fields.Many2one(related='project.developer')
-    zone = fields.Many2one(related='project.zone',size=150)
-    district = fields.Char(string="District",size=150)
+    
+    
+    
     plot = fields.Char(string="Plot",size=150)
-    region = fields.Many2one(related='project.region',string="Region",size=150)
+    governorate = fields.Many2one(related='project.governorate',string="Region",size=150)
     area = fields.Many2one(related='project.area',string="Area",size=150)
+    district = fields.Many2one(related='project.district',string="Area",size=150)
+    developer = fields.Many2one(related='project.developer',string="Developer",size=150)
+    zone = fields.Char(related='project.zone',size=150)
     active= fields.Boolean(string="Active")
     
     property_id = fields.Char(string="Property PIE ID",size=350)

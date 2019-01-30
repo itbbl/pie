@@ -135,7 +135,16 @@ class sharing_request(models.Model):
             self.broker.sudo().active_suppliers = [(4,self.developer.id)]
             self.developer.sudo().active_brokers = [(4,self.broker.id)]
             self.env.cr.commit()
-            
+    def change_statue_activated(self):
+        sharing_requests_ids = self.env['pie.share.sharing_request'].search([])
+        self.action_disable()
+         
+        for rec in self:
+            rec.xx=1
+        try:
+             _logger.info('Successfu;;')
+        except:
+             _logger.info('Failedhh')         
     @api.constrains('developer')
     def _duplicate_name(self):
         broker_admin=self.env['res.users'].search([('id','=',self.env.uid)])

@@ -3,18 +3,46 @@
 
 
     <!-- Start of PIE Setup Views -->
+  
+  
+  	<record model="ir.ui.view" id="view_PIE_build_home">
+		<field name="name">view_PIE_build_home</field>
+		<field name="model">pie.build.home</field>
+		<field name="arch" type="xml">
+<form >
+            <div class="row">
+                <div class="col-xs-6"><field name="project_count"/></div>
+                <div class="col-xs-6"><field name="prop_count"/></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                <group string="Import Data">
+                <field name="import_supplier" string="Supplier"/>
+                <field name="import_project" string="Project"/>
+                <field name="import_file" string="File"/>
+                </group>
+                </div>
+                <div class="col-xs-4">text</div>  
+                <div class="col-xs-4">validate</div> 
+            </div>
+           
+         </form>
+      
+		</field>
+	</record>
+  
+  
 	<record model="ir.ui.view" id="view_PIE_build_project">
 		<field name="name">view_PIE_build_project</field>
 		<field name="model">pie.project</field>
 		<field name="arch" type="xml">
 			<tree>
 				<field name="name" string="Project Name"/>
-                <field name="developer" />
-                <field name="zone2" />
-                 <field name="area" />
-                 <field name="region" />
-                <field name="country" />
-                
+               <field name="developer" />
+              <field name="country" />
+              <field name="governorate"  domain="[('country_id','=',country)]" />
+               <field name="area"  domain="[('region_id','=',governorate)]" />
+                <field name="district" /> 
                 <field name="active" string="Active"/>
 			</tree>
 		</field>
@@ -30,9 +58,9 @@
 				<field name="name" string="Project Name" required="1"/>
                 <field name="active"/>
                 <field name="country" options="{'no_quick_create': True, 'no_create_edit' : True,'no_open': True}"/>
-                <field name="region" domain="[('country_id','=',country)]" options="{'no_quick_create': True, 'no_create_edit' : True,'no_open': True}"/>
-                <field name="area" domain="[('region_id','=',region)]" options="{'no_quick_create': True, 'no_create_edit' : True,'no_open': True}"/>
-                <field name="zone2"/>
+                <field name="governorate" domain="[('country_id','=',country)]" options="{'no_quick_create': True, 'no_create_edit' : True,'no_open': True}"/>
+                <field name="area" domain="[('region_id','=',governorate)]" options="{'no_quick_create': True, 'no_create_edit' : True,'no_open': True}"/>
+                <field name="district"/>
                 <field name="description"/>
                 </group>
                 </sheet>
@@ -44,15 +72,15 @@
 		<field name="model">pie.build.property</field>
 
 		<field name="arch" type="xml">
-			<tree decoration-danger="has_errors==0" create="false" >
-                <field name="has_errors" string="Errors"/>
-				<field name="project" string="Project"/>
-                <field name="zone" string="Zone/Phase"/>
-                <field name="district" string="District"/>
-                <field name="region" string="Region"/>
-                <field name="property_code" string="Property Code"/>
-                <field name="design_code" string="Design Code"/>
-                <field name="built_up" string="Built Space"/>
+			<tree create="false" >
+                       <field name="project" string="Project"/>
+            <field name="built_up" string="BUA"/>
+            <field name="property_code" string="Property Code"/>
+            <field name="property_status" string="Property Status"/>
+            <field name="price" string="Price"/>
+            <field name="developer" string="Developer"/>
+            <field name="governorate" string="Governorate"/>
+            <field name="finishing_type" string="Finishing"/>
 			</tree>
 		</field>
 	</record>
@@ -60,7 +88,7 @@
 		<field name="name">view_PIE_build_properties_draft</field>
 		<field name="model">pie.build.draft</field>
 		<field name="arch" type="xml">
-			<tree class="draft_view" create="false">
+			<tree class="draft_view" create="false" editable="top">
 				
                 <field name="property_code" string="Property Code"/>
                 <field name="region" string="Location"/>
@@ -107,7 +135,7 @@
                 <group string="Location information">
                 <field name="developer" />
                 <field name="project" string="Project"/>
-                <field name="region" string="Region"/>
+                
                 <field name="area" string="Area"/>
                 <field name="zone" string="Zone/Phase"/>
                 <field name="district" string="District"/>
@@ -249,7 +277,7 @@
                 <group string="Location information">
                 
                 <field name="project" string="Project"/>
-                <field name="region" string="Region"/>
+                <field name="governorate" string="Governorate"/>
                 <field name="area" string="Area"/>
                 <field name="has_errors" string="Errors"/>
                 <field name="zone" string="Zone/Phase"/>

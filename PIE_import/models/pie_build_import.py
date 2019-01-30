@@ -8,6 +8,7 @@ import itertools
 from odoo import http
 from odoo.exceptions import ValidationError
 from odoo.http import request
+import datetime
 
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT
 _logger = logging.getLogger(__name__)
@@ -185,7 +186,7 @@ class Supplier_import(models.Model):
                         #_logger.warn(text_headers)
                         prop.update({'property_id':str(sup_id)+'-'+row[text_headers.index(property_code_column_header.lower())].value})
                         prop.update({'upload_date':upload_date})
-                        prop.update({'has_errors':True})
+                        
                         prop.update({'supplier':supplier.id})
                         prop.update({'sharing_level':sharing_level})
                         #_logger.warn(record.id)
@@ -240,10 +241,12 @@ class Supplier_import(models.Model):
         if len(headers_in_file) == 0:
             raise exceptions.ValidationError("Make Sure that the First Row has the Right Column header")
 
+
         column_mapping = self.env['pie.build.mapping'].search([['active','=',True],['developer','=',supplier_id]], limit=1)
 
         if not column_mapping:
             raise exceptions.ValidationError("Kindly Make Sure you have an active File Mapping.")
+
         
         project_mapped_name = column_mapping.columns_mapping_ids
         
@@ -251,16 +254,19 @@ class Supplier_import(models.Model):
             if col.pie_column2 == 'project' and has_project:
                 if not col.supplier_column.lower() in file_columns_headers:
                     raise exceptions.ValidationError("We Cannot Find Project Column in Uploaded File. \n  Check your Inventory Structure , Or Headers in uploaded file")
+                    
                 else:
                     col_index = file_columns_headers.index(unicode(col.supplier_column.lower()))
                     projects_list = sheet.col_values(col_index, 1)
                     #_logger.warn(projects_list)
                     if '' in projects_list:
                         raise exceptions.ValidationError("Empty Values in Project Column")
+                        
 
             if col.pie_column2 == 'property_code':
                 if not col.supplier_column.lower() in file_columns_headers:
                     raise exceptions.ValidationError("We Cannot Find Property Code Column in Uploaded File. \n  Check your Inventory Structure , Or Headers in uploaded file")
+                    
                 else:
                     property_code_column_header = col.supplier_column
                     col_index = file_columns_headers.index(unicode(col.supplier_column.lower()))
@@ -268,12 +274,14 @@ class Supplier_import(models.Model):
                     #_logger.warn(codes_list)
                     if '' in codes_list:
                         raise exceptions.ValidationError("Empty Values in Property Code Column")
+                        action = self.env.ref('PIE_import.action_import_prop').read()[0]
+                        return action
 
 
             try:
 
                 Mapped_columns.append((file_columns_headers.index(unicode(col.supplier_column.lower())),col.supplier_column.lower(),col.pie_column2.lower()))
-                _logger.warn(Mapped_columns)
+                #_logger.warn(Mapped_columns)
             except:
                 _logger.warn(col.pie_column2 + " Wasn't find in mapping")
 
@@ -294,31 +302,30 @@ class Supplier_import(models.Model):
         for row in itertools.imap(sheet.row, range(1,sheet.nrows)):
             prop = {}
             for r in Mapped_columns:
-                prop.update({unicode(r[2]):unicode(row[r[0]].value)})
-                entity = self.env['pie.entity'].search([['id','=',supplier_id],['pie_type','=','is_supplier']])
-                
-                if entity:
-                    prop.update({'developer':entity.name})
-                    prop.update({'is_secondary':False})
-                    prop.update({'is_primary':True})
-                else:
-                    prop.update({'is_secondary':True})
-                    prop.update({'is_primary':False})
+              prop.update({unicode(r[2]):row[r[0]].value})
+              entity = self.env['pie.entity'].search([['id','=',supplier_id],['pie_type','=','is_supplier']])
+              if entity:
+                prop.update({'developer':entity.name})
+                prop.update({'is_secondary':False})
+                prop.update({'is_primary':True})
+              else:
+                prop.update({'is_secondary':True})
+                prop.update({'is_primary':False})
 
-                if not has_project:
-                    project = self.env['pie.project'].search([['id','=',project_id]])
-                    if project:
-                        prop.update({'project':project.name})
+              if not has_project:
+                project = self.env['pie.project'].search([['id','=',project_id]])
+                if project:
+                  prop.update({'project':project.name})
                 #_logger.warn(text_headers)
-                prop.update({'property_id':str(supplier_id)+'-'+row[file_columns_headers.index(property_code_column_header.lower())].value})
-                prop.update({'upload_date':upload_date})
-                prop.update({'has_errors':True})
-                prop.update({'supplier':supplier_id})
-                prop.update({'sharing_level':sharing_level})
+              prop.update({'property_id':str(supplier_id)+'-'+row[file_columns_headers.index(property_code_column_header.lower())].value})
+              prop.update({'upload_date':upload_date})
+              
+              prop.update({'supplier':supplier_id})
+              prop.update({'sharing_level':sharing_level})
                 #_logger.warn(record.id)
                 #_logger.warn(self)
-                _logger.warn(self)
-                prop.update({'importid':self.id})
+                #_logger.warn(self)
+              prop.update({'importid':self.id})
             #_logger.warn(prop)
             iddd = self.env['pie.build.draft'].create(prop)
             

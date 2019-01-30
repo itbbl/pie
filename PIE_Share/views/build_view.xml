@@ -206,9 +206,9 @@
             <field name="groups_id" eval="[(6,0, [ref('PIE_Setup.group_pie_broker_manager')])]" />
             <field name="arch" type="xml">                
                 <xpath expr="//field[@name='contract_sign_start_date']" position="attributes">
-                    <attribute name="attrs">{'readonly': [('status', 'in', ('Disable','Enable','Expired','Approved','Rejected','Renewal','Activated'))]}</attribute> </xpath>
+                    <attribute name="attrs">{'readonly': [('status', 'in', ('Disable','Enable','Expired','Approved','Rejected','Renewal','Activated'))],'invisible':[('no_contract','=',True)]}</attribute> </xpath>
 					 <xpath expr="//field[@name='contract_sign_end_date']" position="attributes">
-                    <attribute name="attrs">{'readonly': [('status', 'in', ('Disable','Enable','Expired','Approved','Activated','Rejected'))]}</attribute> </xpath>
+                    <attribute name="attrs">{'readonly': [('status', 'in', ('Disable','Enable','Expired','Approved','Activated','Rejected'))],'invisible':[('no_contract','=',True)]}</attribute> </xpath>
 					<xpath expr="//field[@name='developer']" position="attributes">
                     <attribute name="attrs">{'readonly': [('status', 'in', ('Disable','Enable','Expired','Approved','Rejected','Renewal'))]}</attribute> </xpath>
 
@@ -237,4 +237,17 @@
                     <attribute name="attrs">{'readonly':True}</attribute> </xpath>
             </field>
 </record>
+  
+  
+<record id="action_server_share_request" model="ir.actions.server">
+
+          <field name="name">share_reqquest_edit</field>
+
+          <field name="model_id" ref="model_pie_share_sharing_request"/>
+
+          <field name="state">code</field>
+
+          <field name="code">model.change_statue_activated()</field>
+
+ </record>
 </odoo>

@@ -10,7 +10,8 @@
     <menuitem id="menu_generic" name="Location Data" parent="menu_pie_setup_root" sequence="1"/>
     <menuitem id="menu_region_list_tree" name="Governorate List" action="action_region_list_tree" parent="menu_generic" sequence="1"/>
     <menuitem id="menu_area_list_tree" name="Area List" action="action_area_list_tree" parent="menu_generic" sequence="2"/>
-     <menuitem id="menu_zone_list_tree" name="District List" action="action_zone_list_tree" parent="menu_generic" sequence="3"/>
+ 
+    <menuitem id="menu_district_list_tree" name="District List" action="action_district_list_tree" parent="menu_generic" sequence="3"/>
     <menuitem id="menu_generic2" name="PIE Attributes" parent="menu_pie_setup_root" sequence="2"/>
   
     <menuitem id="menu_category_list_tree" name="Category List(Property Type)" action="action_category_list_tree" parent="menu_generic2" sequence="1"/>

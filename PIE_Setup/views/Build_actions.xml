@@ -2,7 +2,12 @@
 
 
  <!--         PIE Setup Actions       -->
-
+    <record model="ir.actions.act_window"
+        id="action_country_state">
+        <field name="name">Governorate List</field>
+        <field name="res_model">res.country.state</field>
+		<field name="view_mode">tree</field>
+    </record>
     <record model="ir.actions.act_window"
         id="action_payment_plan_list_tree">
         <field name="name">Payment Plans List</field>
@@ -23,10 +28,10 @@
 		<field name="view_mode">tree,form</field>
     </record>
 	<record model="ir.actions.act_window"
-        id="action_zone_list_tree">
-        <field name="name">Zones list</field>
-        <field name="res_model">pie.setup.zone</field>
-		<field name="view_mode">tree,form</field>
+        id="action_district_list_tree">
+        <field name="name">District list</field>
+        <field name="res_model">pie.setup.district</field>
+		<field name="view_mode">tree</field>
     </record>
 
 	<record model="ir.actions.act_window"
@@ -81,7 +86,7 @@
 
 	<record model="ir.actions.act_window"
         id="action_region_list_tree">
-        <field name="name">Regions list</field>
+        <field name="name">Governorate list</field>
         <field name="res_model">pie.setup.region</field>
 		<field name="view_mode">tree,form</field>
     </record>

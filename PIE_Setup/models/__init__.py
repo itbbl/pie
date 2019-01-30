@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-import pie_setup_zone
+import pie_setup_district
 import pie_setup_area
 import pie_setup_bathrooms
 import pie_setup_category

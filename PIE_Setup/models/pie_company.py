@@ -52,7 +52,7 @@ class Entity(models.Model):
     sevice_list=fields.Many2many('pie.entity.service',store=True)
     
     pie_access_right=fields.Selection([('broker','Broker Company'),('supplier','Supplier Company'),('both','Both Supplier and Broker')],'Acces Right' ,store=True)
-    pie_type=fields.Selection([('is_supplier','Is Supplier'),('is_broker','Is Broker')],string="Type",required=True,store=True)
+    pie_type=fields.Selection([('is_supplier','Supplier'),('is_broker','Broker')],string="Type",required=True,store=True)
 
     zip = fields.Char(string="Postal Code" , size=10)
     comments = fields.Text(string='Internal Notes')
@@ -82,7 +82,7 @@ class Entity(models.Model):
     internal_broker_admin=fields.One2many('res.users','internal_broker_admin',copy=True ,store=True)
     #------supplier inf----------
     supplier_type=fields.Selection([('Developer','Developer'),('Reseller','Reseller')] ,store=True)
-    type_inventory=fields.Selection([('open_inventory','Open Inventory'),('Control_inventory','Controlled Inventory'),('closed_inventory','Closed Inventory')] ,store=True)
+    type_inventory=fields.Selection([('open_inventory','Open Inventory'),('Control_inventory','Controlled Inventory')] ,store=True)
     
     entity_supplier_mail= fields.One2many('res.users','supplier_admin',copy=True ,store=True)
     supplier_share=fields.Boolean('Show Supplier on Share',default=False ,store=True)
@@ -136,10 +136,7 @@ class Entity(models.Model):
     
     @api.model
     def create(self, vals):
-         
-        
-        
-        
+
         partner = super(Entity, self).create(vals)
        
        
@@ -374,19 +371,14 @@ class Entity(models.Model):
                                  
     @api.constrains('active')
     def change_entity_state(self):
-        if self.active==False:
-         if self.entity_supplier_mail.id>0:
-          users=self.env['res.users'].search([('login','=',self.entity_supplier_mail.login)])
-          users.write({'active':False})
-         elif self.entity_broker_mail.id>0:
-          users=self.env['res.users'].search([('login','=',self.entity_broker_mail.login)])
-          users.write({'active':False})
-         elif self.publisher.id>0:
-          users=self.env['res.users'].search([('login','=',self.publisher.login)])
-          users.write({'active':False})
-         elif self.internal_broker_admin.id>0:
-          users=self.env['res.users'].search([('login','=',self.internal_broker_admin.login)])
-          users.write({'active':False})
+      if self.active==False:
+            users=self.env['res.users'].search([('entity','=',self.id)])
+            for rec in users:
+              rec.write({'active':False})
+      if self.active==True:
+        users=self.env['res.users'].search([('entity','=',self.id)])
+        sql = " UPDATE res_users SET active = true  WHERE entity ="+ str(self.id)
+        self.env.cr.execute(sql)
             
         
          

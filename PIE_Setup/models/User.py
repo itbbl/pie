@@ -17,14 +17,19 @@ class pie_admin(models.Model):
     entity_type = fields.Selection(related='entity.pie_type',string="entity_type")
     entity_access_right = fields.Selection(related='entity.pie_access_right',string="entity_access_right")
     
-    
+    @api.model
+    def create(self, vals):
+      user = super(pie_admin, self).create(vals)
+      _logger.warn("Test")
+      _logger.warn(user)
+      _logger.warn(user.entity_type)
+      return user
 
     @api.onchange('entity')
     def _entity_chng(self):
         self.entity_type= self.entity.pie_type
-        
         self.entity_access_right = self.entity.pie_access_right
-        _logger.warn(self.entity_access_right)
+        
 
 
     @api.constrains('PIE_Admin')

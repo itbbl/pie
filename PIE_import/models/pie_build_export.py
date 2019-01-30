@@ -93,17 +93,18 @@ class PIE_Export_Props(models.Model):
         project = self.project
         if self.project:
             recs = self.env['pie.build.import'].search([['supplier','=',developer.id],['project','=',project.id]],order='create_date Desc',limit=1)
-            props = self.env['pie.build.draft'].search([['supplier','=',developer.id],['project','ilike', project.name]])
+            props = self.env['pie.build.draft'].search([['supplier','=',developer.id],['project','=ilike', project.name]])
             _logger.warn(props)
         else:
             recs = self.env['pie.build.import'].search([['supplier','=',developer.id]],order='create_date DESC',limit=1)
             props = self.env['pie.build.draft'].search([['supplier','=',developer.id]])
+            _logger.warn("Propes Down there")
             _logger.warn(props)
         
         
         try:
-            #self.env['pie.build.draft'].validate_prop(prop)
-            valid_props = self.env['pie.build.draft'].validate_project(props)
+          valid_props = self.env['pie.build.draft'].validate_project(props)
+          
             
         except:
             raise exceptions.ValidationError("Invalid Data Found in Project Column")
@@ -163,14 +164,15 @@ class PIE_Export_Props(models.Model):
         self._cr.commit()
 
         for prope in valid_props:
-            _logger.warn(prope.built_up)
+            #_logger.warn(prope.built_up)
 
             project = self.env['pie.project'].search([('name', '=ilike', prope.project)])
             category = self.env['pie.setup.category'].search([('name', '=ilike', prope.property_type)])
             property_design = self.env['pie.setup.property_design'].search([('name', '=ilike', prope.property_design)])
             property_status = self.env['pie.setup.property_status'].search([('name', '=ilike', prope.property_status)])
             finishing_type = self.env['pie.setup.finishing'].search([('name', '=ilike', prope.finishing_type)])
-            p = {'active':prope.active,
+            p = {
+            'active':prope.active,
             'property_code':prope.property_code,
             'property_id':prope.property_id,
             'project':project.id,
@@ -192,8 +194,11 @@ class PIE_Export_Props(models.Model):
             }
             #prop_dict = dict_from_class(prope)
             _logger.warn(p)
-            valid_props = self.env['pie.build.property'].create(p)
-            valid_props = self.env['pie.grid.property'].create(p)
+            
+            build_prop = self.env['pie.build.property'].create(p)
+            grid_prop = self.env['pie.grid.property'].create(p)
+            prope.unlink()
+            self._cr.commit()
 
             
         action = self.env.ref('PIE_Build.action_prop_list_active').read()[0]

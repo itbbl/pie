@@ -3,6 +3,31 @@
 
 
     <!-- Start of PIE Setup Views -->
+      <record model="ir.ui.view" id="view_PIE_setup_area">
+		<field name="name">view_PIE_setup_area</field>
+		<field name="model">pie.setup.area</field>
+		<field name="arch" type="xml">
+			<tree editable="top">
+				<field name="name" string="Area Name"/>
+                
+                <field name="region_id"/>
+                <field name="country_id" />
+			</tree>
+		</field>
+	</record>
+  
+        <record model="ir.ui.view" id="view_PIE_setup_district">
+		<field name="name">view_PIE_setup_district</field>
+		<field name="model">pie.setup.district</field>
+		<field name="arch" type="xml">
+			<tree editable="top">
+				<field name="name" string="District Name"/>
+                <field name="area_id"/>
+                <field name="region_id"/>
+                <field name="country_id" />
+			</tree>
+		</field>
+	</record>
   
       <record model="ir.ui.view" id="view_PIE_setup_payment_plan">
 		<field name="name">view_PIE_setup_payment_plan</field>
@@ -219,7 +244,7 @@
 			<tree delete="0">
                 
 				<field name="name" string="Company Name"/>
-				<field name="pie_access_right" string="Access Right"/>
+				<field name="phone" string="Phone"/>
 				<field name="pie_type" string="Type"/>
 				<field name="active" string="Active"/>
               <field name="offline_state" string="Is Offline"/>

@@ -5,4 +5,5 @@ import pie_build_property
 import pie_build_draft
 import pie_build_history
 import pie_project
+import pie_build_home
 

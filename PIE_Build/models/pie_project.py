@@ -13,10 +13,10 @@ class Project(models.Model):
     project_code = fields.Char(string="Project Code",size=150)
     developer = fields.Many2one('pie.entity',string="Project Developer",domain="[('pie_type','=','is_supplier')]",required=True,default=lambda self: self.env.user.entity )
     country = fields.Many2one('res.country', string='Country',required=True)
-    region = fields.Many2one('pie.setup.region',string='Governorate',required=True)
+    governorate = fields.Many2one('pie.setup.region',string='Governorate',required=True)
     area = fields.Many2one('pie.setup.area',string="Area",required=True)
-    zone = fields.Many2one('pie.setup.zone',string="District")
-    zone2 = fields.Char(string="District",size=50)
+    district = fields.Many2one('pie.setup.district',string="District")
+    zone = fields.Char(string="Zone",size=100)
     description = fields.Text(string="Project Description",size=600)
     
 

@@ -102,17 +102,17 @@
                                 <group>
                                 <group string="Access Rights">
                                    
-                                  <group col="2" string="Build Rights" attrs="{'invisible':[('entity_access_right','=','broker')]}">
+                                  <group col="2" string="Build Rights"  attrs="{'invisible':[('entity_type','=','is_broker')]}">
                                         <field name="is_supplier_admin"/>
                                         <field name="is_supplier_editor" readonly="1" invisible="1"/>
                                     </group>
-                                 <group col="2" string="Grid Rights" readonly="1" attrs="{'invisible':[('entity_access_right','=','supplier')]}" >
+                                 <group col="2" string="Grid Rights"   attrs="{'invisible':[('entity_type','=','is_supplier')]}" >
                                         <field name="is_broker_admin"/>
                                         <field name="is_broker_agent" readonly="1" invisible="1"/>
                                     </group>
                                     <group string="Localization" name="preferences">
-                                    <field name="entity_access_right" invisible="1" />
-                                    <field name="entity_type" invisible="1" />
+                                   
+                                    <field name="entity_type"  />
                                     <field name="lang"/>
                                     <field name="tz" widget="timezone_mismatch" options="{'tz_offset_field': 'tz_offset'}"/>
                                     <field name="tz_offset" invisible="1"/>

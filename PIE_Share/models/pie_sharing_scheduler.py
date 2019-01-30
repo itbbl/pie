@@ -30,6 +30,8 @@ class sharing_scheduler(models.Model):
              if dt.strptime(sharing_request_id.contract_sign_end_date, '%Y-%m-%d')<= dt.today():
               _logger.info('Exipred')
               sharing_request_id.update({'status':'Expired'})
+              sharing_request_id.broker.sudo().active_suppliers = [(2,sharing_request_id.developer.id)]
+              sharing_request_id.developer.sudo().active_brokers = [(2,sharing_request_id.broker.id)]
 
             if sharing_request_id.contract_sign_start_date :
              _logger.info(dt.today()  )
