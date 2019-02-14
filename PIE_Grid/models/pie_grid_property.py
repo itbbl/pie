@@ -60,7 +60,7 @@ class Build_Property(models.Model):
     label=fields.One2many('pie.setup.property.labels','property_line',string='Labels')
     supplierid = fields.Integer('Supplier ID')
     supplier = fields.Many2one('pie.entity',string="Supplier")
-
+    labels_pro=fields.One2many('pie.setup.property.grid.labels','property_line',string='Labels')
 
     @api.constrains('comments')
     def get_number_comment_bar_user(self):
@@ -121,8 +121,50 @@ class Build_Property(models.Model):
         for c in names:
             if self.name.lower() == c.name.lower() and self.id != c.id:
                 raise exceptions.exceptions.ValidationError("Error: Name must be unique")
+    is_label=fields.Boolean('Label',default=False) 
+    
+    @api.constrains('label')
+    def get_label(self):
+        for rec in self:
+            _logger.info('Yes')
+            if rec.label:
+                rec.is_label=True
                 
 class labels_propertyss(models.Model):
     _name = "pie.setup.property.labels"
     property_line=fields.Many2one('pie.grid.property',string='property Label')
     property_id=fields.Many2one('pie.grid.property',string='property Label')
+class labels_propertyss(models.Model):
+    _name = "pie.setup.property.grid.labels"
+    share_type=fields.Selection([('public','Public'),('private','Private'),('specific','Specific')],'Share type',default='public')
+    share_with=fields.Many2many('res.users',string="Share With")
+    label=fields.Many2many('pie.setup.label',string='labels')
+    property_line=fields.Many2one('pie.grid.property',string='property Label',ondelete='cascade')
+    property_id=fields.Many2one('pie.grid.property',string='property Label')
+    broker = fields.Many2one('pie.entity',string="Broker",store=True,domain="[('pie_type','=','is_broker')]",default=lambda self: self.env.user.entity)
+    comment=fields.Char('Comment')
+    @api.constrains('label')
+    def duplicate_label(self):
+        records=self.env['pie.setup.property.grid.labels'].search(['&',('property_line','=',self.property_line.id),('create_uid','=',self.env.uid)])
+        _logger.warn(records)
+        ids="("
+        for rec in records:
+            ids+=str(rec.id)+","
+        
+        if records:
+            ids=ids[:-1] 
+            ids+=")"
+            sql = "SELECT pie_setup_label_id FROM pie_setup_label_pie_setup_property_grid_labels_rel WHERE pie_setup_property_grid_labels_id IN"+ids
+            self.env.cr.execute(sql)
+            res_name = self.env.cr.fetchall()  
+            res_name2=list(set(res_name))
+            _logger.warn('result')
+            _logger.warn((res_name))
+            _logger.warn((res_name2))
+            if len(res_name)>len(res_name2):
+                raise ValidationError('label is selected before .....')      
+    @api.onchange('share_type')
+    def remove_share_with(self):
+        for rec in self:
+          if rec.share_type !='specific':
+            rec.share_with=[]

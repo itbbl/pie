@@ -128,13 +128,7 @@ class sharing_request(models.Model):
         #self.broker.active_suppliers = 
         self.developer.sudo().active_brokers = [(2,self.broker.id)]
         self.env.cr.commit()
-    @api.depends('status')
-    def change_statue_activated(self):
-        if self.status=='Activated':
-            self.env['pie.grid.property'].clear_caches()
-            self.broker.sudo().active_suppliers = [(4,self.developer.id)]
-            self.developer.sudo().active_brokers = [(4,self.broker.id)]
-            self.env.cr.commit()
+     
     def change_statue_activated(self):
         sharing_requests_ids = self.env['pie.share.sharing_request'].search([])
         self.action_disable()

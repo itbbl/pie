@@ -8,7 +8,7 @@ _logger=logging.getLogger(__name__)
 
 class advance_search(models.Model):
  _name="pie.advanced.search"
- region = fields.Many2many('pie.setup.region',string="Governorate",store=True)#done
+ governorate = fields.Many2many('pie.setup.region',string="Governorate",store=True)#done
 
   
  name=fields.Char('name',default="Search property")  
@@ -24,10 +24,10 @@ class advance_search(models.Model):
  developers = fields.Many2many('pie.entity',string='Developer' ,store=True)#done
  projects = fields.Many2many('pie.project',size=150,store=True)#done
  rooms = fields.Many2many('pie.setup.room',string="Count of Rooms",store=True)#done
-  
+ bathrooms = fields.Many2many('pie.setup.bathrooms',string="Bathroom",store=True)#done
  #property_code_list = fields.Selection(('',''),string="Property Code",size=100)
  property_code =fields.Char(string="Property code")
- bathrooms = fields.Many2many('pie.setup.bathrooms',string="Bathroom",store=True)#done
+ 
  Basement = fields.Boolean(string="Basement") #done
  Garden = fields.Boolean(string="Garden") #done
  Terrace = fields.Boolean(string="Terrace") #done
@@ -61,6 +61,17 @@ class advance_search(models.Model):
     _logger.warn('project')
     _logger.warn(res)
     res=list(set(res))
+    developers = self.env['pie.grid.property'].search([])
+    res2 = []
+    if developers:
+        for record in developers:
+            res2.append((record.supplier.id))
+         
+    _logger.warn('developers')
+    _logger.warn(res2) 
+     
+    res2=list(set(res2))
+    
     if self.developers:
         for rec in self.developers:
             dev.append(rec.id)
@@ -70,13 +81,14 @@ class advance_search(models.Model):
             records=self.env['pie.project'].search(['&',('developer','in',dev),('id','in',res)])
             self.projects=[]
         else:
-            return {'domain':{'projects':['&',('id','in',res),('developer','in',dev)]}} 
+            return {'domain':{'projects':['&',('id','in',res),('developer','in',dev)],'developers':[('id','in',res2)]}} 
     else:
-        return {'domain':{'projects':[('id','in',res)]}}
+        return {'domain':{'projects':[('id','in',res)],'developers':[('id','in',res2)]}}
  
 
  
-
+ 
+    
  @api.onchange('property_type')
  def property_type_list(self):
     category = self.env['pie.grid.property'].search([])
@@ -117,14 +129,14 @@ class advance_search(models.Model):
     return {'domain':{'property_status':[('id','in',res)]}}
 
 
- @api.onchange('region')
+ @api.onchange('governorate')
  def region_list(self):
-    regions = self.env['pie.grid.property'].search([])
+    governorate = self.env['pie.grid.property'].search([])
     res = []
-    if regions:
-        for record in regions:
+    if governorate:
+        for record in governorate:
             
-            res.append((record.region.id))
+            res.append((record.governorate.id))
     _logger.warn('region')
     _logger.warn(res)
     res=list(set(res))
@@ -133,26 +145,26 @@ class advance_search(models.Model):
     return {'domain':{'region':[('id','in',res)]}}
 
 
- @api.onchange('area','region')
+ @api.onchange('area','governorate')
  def area_list(self):
-    regions = self.env['pie.grid.property'].search([])
+    governorate = self.env['pie.grid.property'].search([])
     res = []
     dev=[]
-    if regions:
-        for record in regions:
+    if governorate:
+        for record in governorate:
             
             res.append((record.area.id))
-    _logger.warn('region')
+    _logger.warn('governorate')
     _logger.warn(res)
     res=list(set(res))
-    if self.region:
-        for rec in self.region:
+    if self.governorate:
+        for rec in self.governorate:
             dev.append(rec.id)
          
         dev=list(set(dev))
         _logger.warn('devvvvvvvvvvv')
         _logger.warn(dev)
-        area_project=self.env['pie.project'].search([('region','in',dev)])
+        area_project=self.env['pie.project'].search([('governorate','in',dev)])
         dev=[]
         for rec in area_project:
             dev.append(rec.area.id)
@@ -165,19 +177,7 @@ class advance_search(models.Model):
   
  
 
- @api.onchange('property_code')
- def get_property_code_d(self):
-     if self.property_code:
-        res = []
-        
-        property_code = self.env['pie.grid.property'].search([('property_code','like',self.property_code)])
-        for record in property_code:
-            res.append((record.property_code))
-
-        
-        #sorted_x = sorted(res.items(), key=operator.itemgetter(1))
-        res=list(set(res))
-        return res
+ 
 
  @api.onchange('finishing')
  def finishing_list(self):
@@ -193,54 +193,65 @@ class advance_search(models.Model):
     return {'domain':{'finishing':[('id','in',res)]}}
 
 
- @api.onchange('developers')
- def developers_list(self):
-    developers = self.env['pie.grid.property'].search([])
-    res = []
-    if developers:
-        for record in developers:
-            res.append((record.supplier.id))
-         
-    _logger.warn('developers')
-    _logger.warn(res) 
-     
-    res=list(set(res))
-    
-    return {'domain':{'developers':[('id','in',res)]}}
-  
+ 
  @api.onchange('rooms')
  def rooms_list(self):
     rooms = self.env['pie.grid.property'].search([])
     res = []
+    res2=[]
     if rooms:
         for record in rooms:
-            res.append((record.rooms.id))
+            if record.rooms !=0:
+                res2.append(record.rooms)
+                res.append((record.rooms, record.rooms))
     _logger.warn('rooms')
     _logger.warn(res) 
      
     res=list(set(res))
-    return {'domain':{'rooms':[('id','in',res)]}}
+    rooms_lookups=self.env['pie.setup.room']
+    values=[]
+    _logger.info(values)
+    for rec in range(0,len(res2)):
+        _logger.info('dd')
+        _logger.info(str(res2[rec]))
+        values=rooms_lookups.search([('rooms_count','=',int(res2[rec]))])
+        if not values:
+            _logger.info('values')
+            rooms_lookups.create({'rooms_count':str(res2[rec]),'name':str(res2[rec])})
+
+    
+    
 
  @api.onchange('bathrooms')
  def bathrooms_list(self):
     bathrooms = self.env['pie.grid.property'].search([])
     res = []
+    res2=[]
     if bathrooms:
         for record in bathrooms:
-            res.append((record.baths.id))
-    _logger.warn('rooms')
+            if record.baths !=0:
+                res2.append(record.baths)
+                res.append((record.baths, record.baths))
+    _logger.warn('bathrooms')
     _logger.warn(res) 
      
     res=list(set(res))
-    return {'domain':{'bathrooms':[('id','in',res)]}}
- 
- 
- 
+    rooms_lookups=self.env['pie.setup.bathrooms']
+    values=[]
+    _logger.info(values)
+    for rec in range(0,len(res2)):
+        _logger.info('dd')
+        _logger.info(str(res2[rec]))
+        values=rooms_lookups.search([('bathrooms_count','=',int(res2[rec]))])
+        if not values:
+            _logger.info('values')
+            rooms_lookups.create({'bathrooms_count':str(res2[rec]),'name':str(res2[rec])})
+
  
  
  
  def advance_search_property(self):
-  dev,pro,property_type,property_status,property_design,finishing,area,region=([] for i in range(8))
+  dev,pro,property_type,property_status,property_design,finishing,area,governorate=([] for i in range(8))
   strs=""
   domain={}
   str_domain=""
@@ -266,17 +277,18 @@ class advance_search(models.Model):
   if self.rooms:
          strs=""
          for subjj in self.rooms:
-            strs+=str(subjj.id)+","
+            strs+=str(subjj.rooms_count)+","
          strs=strs[:-1] 
          strs="("+strs+")"
          str_domain+="rooms in"+strs+" and "
   if self.bathrooms:
          strs=""
          for subjj in self.bathrooms:
-            strs+=str(subjj.id)+","
+            strs+=str(subjj.bathrooms_count)+","
          strs=strs[:-1] 
          strs="("+strs+")"
-         str_domain+="bathrooms in"+strs+" and "
+         str_domain+="baths in"+strs+" and "
+       
   
   if self.property_type:
          strs=""
@@ -330,13 +342,13 @@ class advance_search(models.Model):
          str_domain+="project in"+strs+" and "
          #raise ValidationError(str_domain)
 
-  if self.region:
+  if self.governorate:
          strs=""
          dev=[]
-         for rec in self.region:
+         for rec in self.governorate:
              dev.append(rec.id)
-         region=self.env['pie.project'].search([('region','in',dev)])
-         for subjj in region:
+         governorate=self.env['pie.project'].search([('governorate','in',dev)])
+         for subjj in governorate:
             strs+=str(subjj.id)+","
          strs=strs[:-1] 
          strs="("+strs+")"
@@ -393,6 +405,8 @@ class advance_search(models.Model):
   self.env.cr.execute(sql)
   res_name = self.env.cr.fetchall()
   self.name="Search property"
+  _logger.info('dsfsdfffffffffffffffffffffffffffffffffffffffffffffffffffff')
+  _logger.info(sql)
   domain="[('id','in',%s)]"%(res_name)
   
   return { 'name':'/',

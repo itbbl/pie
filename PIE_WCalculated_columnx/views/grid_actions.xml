@@ -1,0 +1,25 @@
+<odoo>
+
+
+ <!--         PIE Setup Actions       -->
+
+	<record model="ir.actions.act_window"
+        id="action_grid_project_list_tree">
+        <field name="name">Active Properties</field>
+        <field name="res_model">pie.grid.property</field>
+		<field name="view_mode">tree,form</field>
+    </record>
+  
+    <record model="ir.actions.act_window"
+        id="action_grid_users">
+        <field name="name">Grid Users</field>
+        <field name="res_model">res.users</field>
+        <field name="context">{"default_is_broker_agent":1,"default_is_broker_admin":0}</field>
+		  <field name="domain">[('is_broker_agent','=', True)]</field>
+		<field name="view_mode">tree,form</field>
+         <field name="view_ids" eval="[(5, 0, 0), 
+        (0, 0, {'view_mode': 'tree', 'view_id': ref('PIE_Setup.view_pie_user_tree')}),
+        (0, 0, {'view_mode': 'form', 'view_id': ref('view_pie_grid_user_form')})]"/>
+        
+    </record>
+</odoo>

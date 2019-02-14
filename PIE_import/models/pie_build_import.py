@@ -10,6 +10,7 @@ from odoo.exceptions import ValidationError
 from odoo.http import request
 import datetime
 
+
 from odoo.tools import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT
 _logger = logging.getLogger(__name__)
 try:
@@ -302,7 +303,20 @@ class Supplier_import(models.Model):
         for row in itertools.imap(sheet.row, range(1,sheet.nrows)):
             prop = {}
             for r in Mapped_columns:
-              prop.update({unicode(r[2]):row[r[0]].value})
+              ir_model_obj=self.env['ir.model.fields']
+              ir_model_field=ir_model_obj.search([('model','=','pie.build.draft'),('name','=',unicode(r[2]))])
+              field_type=ir_model_field.ttype
+              if field_type=='date':
+                _logger.warn(row[r[0]].value)
+                _logger.warn(xlrd.xldate_as_tuple(row[r[0]].value, book.datemode))
+                date = xlrd.xldate_as_tuple(row[r[0]].value, book.datemode)
+                #t_date= datetime.datetime.strptime('%s %s' % (date, DEFAULT_SERVER_DATE_FORMAT),"%Y %m/%d %H:%M:%S.%f").date()
+                prop.update({unicode(r[2]):datetime.datetime(*date[0:6])})
+                #_logger.warn( datetime.datetime.strptime(xlrd.xldate_as_tuple(row[r[0]].value, book.datemode), DEFAULT_SERVER_DATE_FORMAT))
+                
+                _logger.warn( "do operation")
+              else:
+                prop.update({unicode(r[2]):row[r[0]].value})
               entity = self.env['pie.entity'].search([['id','=',supplier_id],['pie_type','=','is_supplier']])
               if entity:
                 prop.update({'developer':entity.name})

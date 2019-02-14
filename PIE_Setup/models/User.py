@@ -13,7 +13,7 @@ class pie_admin(models.Model):
     is_broker_agent =fields.Boolean(string='Broker Agent' ,default=False)
     is_supplier_admin =fields.Boolean(string='Supplier Admin' ,default=False)
     is_supplier_editor =fields.Boolean(string='Supplier Editor' ,default=False)
-    entity = fields.Many2one('pie.entity',string="Company")
+    entity = fields.Many2one('pie.entity',string="Company",default=lambda self: self.env.user.entity)
     entity_type = fields.Selection(related='entity.pie_type',string="entity_type")
     entity_access_right = fields.Selection(related='entity.pie_access_right',string="entity_access_right")
     
@@ -120,3 +120,14 @@ class pie_admin(models.Model):
         else:
             Managers_group = self.env.ref('PIE_Setup.group_pie_supplier_editor')
             Managers_group.write({'users': [(3, self.id)]})
+    @api.constrains('active')
+    def toggle_active_t(self):
+        
+        if self.active==True:
+             
+            exist_agents = self.env['res.users'].search_count(['&',('entity.id','=',self.entity.id),('active','=','True')])
+            exist_agents2 = self.env['res.users'].search(['&',('entity.id','=',self.entity.id),('active','=','True')])
+            agents_count = self.entity.number_sales_agents + 1
+            _logger.warn(exist_agents)
+            if exist_agents > agents_count :
+                raise exceptions.ValidationError("You Cannot active user More Sales Agents to this company " +  self.entity.name)

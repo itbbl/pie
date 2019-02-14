@@ -1,5 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_PIE_setup_zone_IT,access.pie.setup.zone admin,model_pie_setup_zone,PIE_Setup.group_pie_admin_admin,1,1,1,0
 access_PIE_setup_area_IT,access.pie.setup.area admin,model_pie_setup_area,PIE_Setup.group_pie_admin_admin,1,1,1,0
 access_PIE_setup_bathroom_IT,access.pie.setup.bathroom IT,model_pie_setup_bathrooms,PIE_Setup.group_pie_admin_admin,1,1,1,0
 access_PIE_setup_category_IT,access.pie.setup.category IT,model_pie_setup_category,PIE_Setup.group_pie_admin_admin,1,1,1,0
@@ -17,7 +16,6 @@ access_PIE_setup_design_IT,access.pie.setup.design IT,model_pie_entity_service,P
 access_PIE_setup_entity_Admin,access.pie.entity_Admin,model_pie_entity,PIE_Setup.group_pie_admin_admin,1,1,1,0
 access_PIE_setup_entity_branch_Admin,access.pie.entity_branch_Admin,model_pie_entity_branch,PIE_Setup.group_pie_admin_admin,1,1,1,0
 ,,,,,,,
-access_PIE_setup_zone_Basic_User 1,access.pie.setup.zone Basic User,model_pie_setup_zone,PIE_Setup.group_pie_basic_user,1,0,0,0
 access_PIE_setup_zone_Basic_User 2,access.pie.setup.area admin,model_pie_setup_area,PIE_Setup.group_pie_basic_user,1,0,0,0
 access_PIE_setup_zone_Basic_User 3,access.pie.setup.bathroom IT,model_pie_setup_bathrooms,PIE_Setup.group_pie_basic_user,1,0,0,0
 access_PIE_setup_zone_Basic_User 4,access.pie.setup.category IT,model_pie_setup_category,PIE_Setup.group_pie_basic_user,1,0,0,0

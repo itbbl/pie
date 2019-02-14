@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_PIE_build_project_form_inherit">
+      <field name="name">view_PIE_build_project_form_inherit</field>
+      <field name="model">pie.project</field>
+      
+      <field name="inherit_id" ref="PIE_Build.view_PIE_build_project_form"/>
+      <field name="arch" type="xml">     
+           <xpath expr="//field[@name='district']" position="after">
+              <field name="payment_plan"/>
+           </xpath>
+      </field>
+    </record>
+</odoo>

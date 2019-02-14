@@ -7,7 +7,7 @@
 		<field name="model">pie.share.sharing_request</field>
 		 
 		<field name="arch" type="xml">
-			<tree String="Share_request" >
+			<tree String="Share_request" noupdate="1" >
 			
              <field name="developer" string="Developer" groups="PIE_Setup.group_pie_broker_manager,PIE_Setup.group_pie_admin_admin" />
  
@@ -28,7 +28,7 @@
 		<field name="name">view_PIE_share_request</field>
 		<field name="model">pie.share.sharing_request</field>
 		<field name="arch" type="xml">
-			<form>
+			<form noupdate="1">
             <header>
 			         
                     <button string="Approve" name="action_confirm" status="Pending" type="object" 
@@ -63,7 +63,7 @@
                          <field name="developer" class="oe_inline" groups="PIE_Setup.group_pie_broker_manager" options="{'no_open':True,'no_create':True,'no_create_edit':True}" attrs="{'required':True,'readonly':[('status', 'in',    ('Approved','Activated'))]}"/> 
 						
                             
-							<field name="create_uid" string="Brorker Name" class="oe_inline"  groups="PIE_Setup.group_pie_supplier_manager" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,}" attrs="{'readonly':True}"/>
+							 
                             
                         </h1>
                        
@@ -84,35 +84,7 @@
 			</form>
 		</field>
 	</record>
-   
-<record id="view_PIE_share_scheduler_form" model="ir.ui.view">
-    <field name="name">pie.share.scheduler.form</field>
-    <field name="model">pie.share.scheduler</field>
-    <field name="arch" type="xml">
-        <form string="Schedule record">
-	    <group>
-		<field name="name"/>
-		<field name="numberOfUpdates"/>
-		<field name="lastModified"/>
-            </group>
-        </form>
-    </field>
-</record>
-
-<!-- tree (list) view-->
-<record id="view_PIE_share_scheduler_form" model="ir.ui.view">
-    <field name="name">pie.share.scheduler.form</field>
-    <field name="model">pie.share.scheduler</field>
-    <field name="arch" type="xml">
-        <tree string="Schedule records">
-	    <field name="name"/>
-	    <field name="numberOfUpdates"/>
-	    <field name="lastModified"/>
-        </tree>
-    </field>
-</record>
-
- 
+  
 
 
 <record id="view_PIE_share_request_form_inherited" model="ir.ui.view">
@@ -154,7 +126,6 @@
                 <sheet>
                 
                    
-                    
                     <div class="oe_title">
                         <label for="developer" class="oe_edit_only" groups="PIE_Setup.group_pie_broker_manager"/>
                          
@@ -162,15 +133,17 @@
 						<label for="Broker " class="oe_edit_only" groups="PIE_Setup.group_pie_supplier_manager"/>
                          
                         <h1>
- 
-                         <field name="developer" class="oe_inline"  groups="PIE_Setup.group_pie_broker_manager" options="{'no_open' : True}"                                 attrs="{'required':True}"/> 
+ 							<!--<field name="dev_list" invisible="1"/> -->
+                         <field name="developer" class="oe_inline" groups="PIE_Setup.group_pie_broker_manager" options="{'no_open':True,'no_create':True,'no_create_edit':True}" attrs="{'required':True}"/> 
+						
                             
-							<field name="create_uid" string="Brorker Name" class="oe_inline"  groups="PIE_Setup.group_pie_supplier_manager" options="{'no_quick_create':True,'no_create_edit':True,'no_open': True,}" attrs="{'readonly':True}"/>
+							 
                             
                         </h1>
                        
                     </div>
                     <group>
+					 <field name="broker" class="oe_inline" options="{'no_open' : True}" groups="PIE_Setup.group_pie_admin_admin" attrs="{'required':True }" String="Broker"/>
              <field name="name"/>
             
              <field name="status" string="Contract Status"  attrs="{'readonly':True}" />
@@ -188,7 +161,7 @@
 			<tree>
              <field name="developer" string="Developer" groups="PIE_Setup.group_pie_broker_manager" />
  
-			 <field name="create_uid" string="Brorker Name"  groups="PIE_Setup.group_pie_supplier_manager"/>
+			 <field name="broker" string="Brorker"  groups="PIE_Setup.group_pie_supplier_manager"/>
              <field name="status"/>
 
             
@@ -237,9 +210,8 @@
                     <attribute name="attrs">{'readonly':True}</attribute> </xpath>
             </field>
 </record>
-  
-  
-<record id="action_server_share_request" model="ir.actions.server">
+
+<!--<record id="action_server_share_request" model="ir.actions.server">
 
           <field name="name">share_reqquest_edit</field>
 
@@ -249,5 +221,6 @@
 
           <field name="code">model.change_statue_activated()</field>
 
- </record>
+ </record>-->
+   
 </odoo>

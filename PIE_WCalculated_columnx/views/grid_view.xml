@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   <record model="ir.ui.view" id="view_PIE_grid_properties">
+      <field name="name">view_PIE_grid_properties</field>
+      <field name="model">pie.grid.property</field>
+      <field name="arch" type="xml">
+         <tree create="false">
+            <field name="project" string="Project"/>
+            <field name="built_up" string="BUA"/>
+            <field name="property_code" string="Property Code"/>
+            <field name="property_status" string="Property Status"/>
+            <field name="price" string="Price"/>
+            <field name="developer" string="Developer"/>
+            <field name="governorate" string="Governorate"/>
+            <field name="finishing_type" string="Finishing"/>
+         </tree>
+      </field>
+   </record>
+
+   <record model="ir.ui.view" id="view_PIE_build_properties_draft_form">
+      <field name="name">view_PIE_build_properties_draft</field>
+      <field name="model">pie.grid.property</field>
+      <field name="arch" type="xml">
+         <form>
+            <sheet>
+			 
+      <div class="container-fluid">
+         <div class="row border-left border-danger border-width-3 mt-3">
+            <div class="col-4 pt-2">
+               <h3 class="red-color font-bold mb-0 line-13 mb-2"><field name="governorate"/></h3>
+               <h4 class="darkgrey-color font-bold mb-0 "><field name="area" attrs="{'readonly':True}"/></h4>
+               <field class="darkgrey-color font-light font-12 mt-0" name="district" attrs="{'readonly':True}" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+               <h3 class="red-color font-bold mrtop-13 mb-0 ">Developer</h3>
+               <field class="darkgrey-color font-light font-12" name="developer" attrs="{'readonly':True}" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+               <h3 class="red-color font-bold mrtop-13 mb-0 ">Project</h3>
+               <field name="project" class="darkgrey-color font-light font-12" attrs="{'readonly':True}" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+               <h3 class="red-color font-bold mrtop-13 mb-0 ">Phase</h3>
+               <p class="darkgrey-color font-light font-12">Phase 1A</p>
+            </div>
+            <div class="col-3 pt-2 pl-0 pr-0">
+               <h4 class="darkgrey-color font-bold mb-0 ">Category</h4>
+               <hr class="border-width-4 mt-0 mb-1 w-5 ml-0 border-darkgrey"></hr>
+               <field name="property_type" class="darkgrey-color font-light d-block font-12" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+               <h4 class="darkgrey-color font-bold mt-3 mb-0 ">Status</h4>
+               <field name="property_status" class="darkgrey-color font-light font-12 mb-1" options="{'no_quick_create': True, 'no_create_edit' : True}" attrs="{'readonly':True}"/>
+               <h4 class="darkgrey-color font-bold mb-0 mt-0">Finishing</h4>
+               <field name="finishing_type" string="Finishing Type" options="{'no_quick_create': True, 'no_create_edit' : True}" attrs="{'readonly':True}" class="darkgrey-color font-light font-12"/>
+               <h4 class="darkgrey-color font-bold mt-4 mb-0 ">BUA</h4>
+                <field name="built_up" string="Built Space" attrs="{'readonly':True}" class="darkgrey-color font-light font-12 mb-1"/>
+               <h4 class="darkgrey-color font-bold mt-0 mb-0 ">Garden</h4>
+                <field name="garden_m" attrs="{'readonly':True}" class="darkgrey-color font-light font-12" />
+            </div>
+            <div class="col-5 pt-2">
+               <h4 class="darkgrey-color font-bold mb-0 ">Design Type</h4>
+               <hr class="border-width-4 mt-0 mb-1 w-5 ml-0 border-darkgrey"></hr>
+                <field name="property_design" string="Property Design" 
+ class="darkgrey-color font-light mb-0 font-12"/>
+               <div class="row mt-0">
+                  <div class="col-6">
+                     <h4 class="darkgrey-color font-bold mt-3 mb-0 ">Rooms</h4>
+                     <field name="rooms" attrs="{'readonly':True}" class="darkgrey-color font-light font-12 mb-1"/>
+                     <h4 class="darkgrey-color font-bold mb-0 mt-0">Baths</h4>
+                       <field name="baths" attrs="{'readonly':True}" class="darkgrey-color font-light font-12"/>
+                     <h4 class="darkgrey-color font-bold mt-4 mb-0 ">Land</h4>
+                      <field name="baths" attrs="{'readonly':True}" class="darkgrey-color font-light font-12 mb-1"/>
+                     <h4 class="darkgrey-color font-bold mt-0 mb-0 ">Roof</h4>
+                      <field name="roof_m" attrs="{'readonly':True}" class="darkgrey-color font-light font-12"/>
+                  </div>
+                  <div class="col-6">
+                     <h4 class="darkgrey-color font-bold mt-3 mb-0 ">Floor</h4>
+                     <p class="darkgrey-color font-light font-12 mb-1">Ground</p>
+                     <h4 class="darkgrey-color font-bold mb-0 mt-0">Garage</h4>
+                      <field name="garage_slot" attrs="{'readonly':True}" class="darkgrey-color font-light font-12"/>
+                     <h4 class="darkgrey-color font-bold mt-4 mb-0 ">Base</h4>
+                     <p class="darkgrey-color font-light font-12 mb-1">0 M</p>
+                     <h4 class="darkgrey-color font-bold mt-0 mb-0 ">Terrace</h4>
+                     <field name="terrace_m" attrs="{'readonly':True}" class="darkgrey-color font-light font-12"/>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+   <div class="container-fluid p-0 mt-0">
+         <div class="row grey_div_noshadow pl-12 mt-0">
+            <div class="col-3">
+               <h4 class="darkgrey-color font-bold mt-3 mb-0 ">Price</h4>
+               <field name="price" string="Price" attrs="{'readonly':True}" class="darkgrey-color font-light font-12"/>
+            </div>
+            <div class="col-4">
+               <h4 class="darkgrey-color font-bold mt-3 mb-0 ">Finish Price</h4>
+               <p class="darkgrey-color font-light font-12 ">0.00</p>
+            </div>
+            <div class="col-5">
+               <h4 class="darkgrey-color font-bold mt-3 mb-0 pr-0 pl-0">Cash Price</h4>
+               <p class="darkgrey-color font-light font-12 ">0.00</p>
+            </div>
+            <div class="col-3">
+               <h4 class="darkgrey-color font-bold mt-3 mb-0 ">P/m2</h4>
+               <p class="darkgrey-color font-light font-12 ">0.00 m2</p>
+            </div>
+            <div class="col-4">
+               <h4 class="darkgrey-color font-bold mt-3 mb-0 ">Finishing m2</h4>
+               <p class="darkgrey-color font-light font-12 ">0.00</p>
+            </div>
+            <div class="col-5">
+               <h4 class="darkgrey-color font-bold mt-3 mb-0 pl-0 pr-0">Annual Interest</h4>
+               <p class="darkgrey-color font-light font-12">0%</p>
+            </div>
+         </div>
+      </div>
+
+
+      <div class="container-fluid mt-2">
+         <div class="row pl-1">
+            <div class="col-4 mt-0 mb-4">
+               <h4 class="font-bold mt-3 mb-0 darkgrey-color ">Maintenance</h4>
+               <p class="lightgrey-color font-light font-12 mb-0">0.00</p>
+            </div>
+            <div class="col-4 mt-0 mb-4">
+               <h4 class="darkgrey-color font-bold mt-3 mb-0 ">Club House</h4>
+               <p class="lightgrey-color font-light font-12 mb-0">0.00</p>
+            </div>
+            <div class="col-4 mt-0 mb-4">
+               <h4 class="darkgrey-color font-bold mt-3 mb-0 ">Garage</h4>
+               <p class="lightgrey-color font-light font-12 mb-0">0.00</p>
+            </div>
+            <div class="col-12">
+               <h4 class="darkgrey-color font-bold mb-0 ">Payment</h4>
+               <hr class="border-width-4 mt-0 mb-1 w-5 ml-0 border-darkgrey"></hr>
+            </div>
+            <div class="col-4">
+               <h4 class="darkgrey-color font-bold mt-2 mb-0 ">Years</h4>
+               <p class="darkgrey-color font-light font-12 mb-0">0</p>
+            </div>
+            <div class="col-4">
+               <h4 class="darkgrey-color font-bold mt-2 mb-0 ">Deposit 1</h4>
+               <p class="darkgrey-color font-light font-12 mb-0">0.00 %</p>
+            </div>
+            <div class="col-4">
+               <h4 class="darkgrey-color font-bold mt-2 mb-0 ">Deposit 3</h4>
+               <p class="darkgrey-color font-light font-12 mb-0">0.00 %</p>
+            </div>
+            <div class="col-4">
+               <h4 class="darkgrey-color font-bold mt-2 mb-0 ">Est Inst.</h4>
+               <p class="darkgrey-color font-light font-12 mb-0">0.00</p>
+            </div>
+            <div class="col-4">
+               <h4 class="darkgrey-color font-bold mt-2 mb-0 ">Deposit 2</h4>
+               <p class="darkgrey-color font-light font-12 mb-0">0.00 %</p>
+            </div>
+            <div class="col-4">
+               <h4 class="darkgrey-color font-bold mt-2 mb-0 ">Deposit 4</h4>
+               <p class="darkgrey-color font-light font-12 mb-0">0.00 %</p>
+            </div>
+            <div class="col-4">
+               <h4 class="darkgrey-color font-bold mt-2 mb-0 ">Est Inst.</h4>
+               <p class="darkgrey-color font-light font-12 mb-0">0.00 %</p>
+            </div>
+            <div class="col-4">
+               <h4 class="darkgrey-color font-bold mt-2 mb-0 ">Total Deposit</h4>
+               <p class="darkgrey-color font-light font-12 mb-0">0.00 %</p>
+            </div>
+            <div class="col-4">
+               <h4 class="darkgrey-color font-bold mt-2 mb-0 ">Est. Delivery</h4>
+               <p class="darkgrey-color font-light font-12 mb-0">0.00 %</p>
+            </div>
+         </div>
+      </div>
+
+
+
+      <div class="container-fluid mt-4 mb-3">
+         <div class="row pdl-4">
+            <div class="col-6 mb-1">
+               <h4 class="darkgrey-color font-bold mt-3 mb-0 d-inline">New Price</h4>
+               <p class="darkgrey-color font-light d-inline mb-0 w-100">0.00</p>
+            </div>
+            <div class="col-6 mb-1">
+               <h4 class="darkgrey-color font-bold mt-3 mb-0 d-inline  ">First Price</h4>
+               <p class="darkgrey-color font-light d-inline mb-0 w-100">0.00</p>
+            </div>
+         </div>
+         <div class="row pdl-4">
+            <div class="col-6 mb-1">
+               <h4 class="darkgrey-color font-bold  mb-0 d-inline  ">P/m2</h4>
+               <p class="darkgrey-color font-light d-inline mb-0 w-100">0.00 m2</p>
+            </div>
+            <div class="col-6 mb-1">
+               <h4 class="darkgrey-color font-bold  mb-0 d-inline  ">P/m2</h4>
+               <p class="darkgrey-color font-light d-inline mb-0 w-100">0.00 m2</p>
+            </div>
+         </div>
+         <div class="row pdl-4">
+            <div class="col-6 mb-1">
+               <h4 class="darkgrey-color font-bold  mb-0 d-inline  ">Date</h4>
+               <p class="darkgrey-color font-light d-inline w-100">01/11/2018</p>
+            </div>
+            <div class="col-6 mb-1">
+               <h4 class="darkgrey-color font-bold  mb-0 d-inline  ">Date</h4>
+               <p class="darkgrey-color font-light d-inline w-100">01/10/2018</p>
+            </div>
+         </div>
+      </div>
+
+
+      <div class="container-fluid p-0">
+         <div class="row grey_div_noshadow pl-18">
+            <div class="col-6 mt-2 mb-2">
+               <h4 class="darkgrey-color font-bold mb-0">Price Change</h4>
+               <p class="darkgrey-color font-light d-inline"><i class="fas fa-sort-up"></i> 0.00</p>
+               <p class="darkgrey-color font-light d-inline"><i class="fas fa-sort-up"></i> 0%</p>
+            </div>
+            <div class="col-6 mt-2 mb-2 pt-4 pb-2">
+               <h4 class="darkgrey-color font-bold mb-0">0 Y -  01 M - 10 D</h4>
+            </div>
+         </div>
+      </div>
+
+
+      <div class="container-fluid mt-4">
+         <div class="row pl-1">
+            <div class="col-6 mb-1">
+               <h4 class="darkgrey-color font-bold mt-0 mb-0 d-block mr-2">Property Code</h4>
+               <field name="property_code" class="darkgrey-color font-light d-block" attrs="{'readonly':True}"/>
+            </div>
+            <div class="col-6 mb-1">
+               <h4 class="darkgrey-color font-bold mt-0 mb-0 d-block mr-2 ">Market</h4>
+               <field name="is_primary" class="darkgrey-color font-light d-block" attrs="{'readonly':True}"/>
+			   <field name="is_secondary" class="darkgrey-color font-light d-block" attrs="{'readonly':True}"/>
+            </div>
+         </div>
+         <div class="row pl-1">
+            <div class="col-6 mb-1">
+               <h4 class="darkgrey-color font-bold mt-0 mb-0 d-block mr-2">Type Code</h4>
+               <p class="darkgrey-color font-light d-block">TWV-4B</p>
+            </div>
+            <div class="col-6 mb-1">
+               <h4 class="darkgrey-color font-bold mt-0 mb-0 d-block mr-2">Broker Supplier</h4>
+               <p class="darkgrey-color font-light d-block">Coldwell Banker</p>
+            </div>
+         </div>
+         <div class="row pl-1">
+            <div class="col-6 mb-1">
+               <h4 class="darkgrey-color font-bold mt-0 mb-0 d-block mr-2">District</h4>
+               <field name="district" class="darkgrey-color font-light d-block" attrs="{'readonly':True}"/>
+            </div>
+            <div class="col-6 mb-1">
+               <h4 class="darkgrey-color font-bold mt-0 mb-0 d-block mr-2">Media Link</h4>
+               <p class="darkgrey-color font-light d-block">www.pie.com</p>
+            </div>
+            <div class="col-12 mb-1">
+               <h4 class="darkgrey-color font-bold mt-0 mb-0 d-block mr-2">Plot</h4>
+               <p class="darkgrey-color font-light d-block">2B</p>
+            </div>
+         </div>
+      </div>
+
+
+      <div class="container-fluid border-left border-danger border-width-3 mt-4">
+         <div class="row pl-1">
+            <div class="col-12">
+               <h4 class="darkgrey-color font-bold mb-0">Remarks</h4>
+               <hr class="border-width-4 mt-0 mb-1 w-5 ml-0 border-darkgrey"></hr>
+               <p class="darkgrey-color font-light">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit  Duis facilisis sed diam a egestas. Vivamus pretium, erat hendrerit egestas condimentum, nisl lectus facilisis lore dignissim ultrices augue diam eu massa. Proin rhoncus eros ut arcu scelerisque varius. 
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit  Duis facilisis sed diam a egestas. Vivamus pretium, erat hendrerit egestas condimentum, nisl lectus facilisis lore dignissim ultrices augue diam eu massa. Proin rhoncus eros ut arcu scelerisque varius. 
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit  Duis facilisis sed diam a egestas. Vivamus pretium, erat hendrerit egestas condimentum, nisl lectus facilisis lore dignissim ultrices augue diam eu massa. Proin rhoncus eros ut arcu scelerisque varius. 
+               </p>
+            </div>
+         </div>
+      </div> 
+               <notebook>
+               
+               </notebook>
+            </sheet>
+         </form>
+      </field>
+   </record>
+  
+   	<record model="ir.ui.view" id="view_pie_grid_user_form">
+		<field name="name">view_pie_grid_user_form</field>
+		<field name="model">res.users</field>
+		<field name="arch" type="xml">
+			<form string=" New Editor">
+                    <header>
+                        <button string="Change Password" type="action" name="69" help="Change the user password."/>
+                    </header>
+                    <sheet>
+                        <field name="id" invisible="1"/>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-check">
+                                <field name="active" widget="boolean_button" options="{&quot;terminology&quot;: &quot;active&quot;}"/>
+                            </button>
+                        </div>
+                        <field name="image" widget="image" class="oe_avatar" options="{&quot;preview_image&quot;: &quot;image_medium&quot;}"/>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" required="1"/></h1>
+                            <field name="email" invisible="1"/>
+                            <label for="login" class="oe_edit_only" string="Email Address"/>
+                            <h2><field name="login"/></h2>
+                            <group>
+                                <field name="company_id" readonly="0" required="1" invisible="1"/>
+                                <field name="entity" required="1" options="{'no_quick_create': True, 'no_create_edit' : True,'no_open': True}"/>
+                            </group>
+                        </div>
+                        <notebook colspan="4">
+                            
+                            <page string="Preferences">
+                                <group>
+                                <group string="Access Rights">                              
+                                   <group col="2" string="Build Rights" invisible="1" >
+                                        <field name="is_broker_admin" readonly="1" attrs="{'invisible':[('entity_type','=','is_supplier')]}"/>
+                                        <field name="is_broker_agent" readonly="1"/>
+                                    </group>
+                                    <group string="Localization" name="preferences">
+                                    
+                                    <field name="lang"/>
+                                    <field name="tz" widget="timezone_mismatch" options="{'tz_offset_field': 'tz_offset'}"/>
+                                    <field name="tz_offset" invisible="1"/>
+                                    <field name="entity_access_right" invisible="1" />
+                                    <field name="entity_type" invisible="1" />
+                                    </group>
+                                    <group string="Menus Customization" groups="base.group_no_one" invisible="1">
+                                        <field name="action_id"/>
+                                    </group>
+                                </group>
+                                <group string="Messaging and Social" name="messaging">
+                                    <field name="signature"/>
+                                </group>
+                                    
+                                </group>
+                                
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+		</field>
+	</record>
+  
+    <record model="ir.ui.view" id="view_PIE_setup_label_tree">
+		<field name="name">view_PIE_setup_label_tree</field>
+		<field name="model">pie.setup.label</field>
+		<field name="arch" type="xml">
+			<tree >
+				<field name="name" string="Label Name"/>
+                <field name="active" string="Active"/>
+			</tree>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_PIE_setup_label_form">
+		<field name="name">view_PIE_setup_label_form</field>
+		<field name="model">pie.setup.label</field>
+		<field name="arch" type="xml">
+			<form  >
+		 
+			<group>
+			     
+				<field name="name" string="Label Name"/>
+                <field name="active" string="Active"/>
+				
+				</group>
+			</form>
+		</field>
+	</record>
+  
+</odoo>

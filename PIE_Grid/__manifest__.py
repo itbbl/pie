@@ -7,7 +7,7 @@
     "author": "Kingfisher Consultancy , BusinessBorderlines",
     "sequence":15,
     'depends': ['PIE_Setup','mail'],
-    'data': ['views/grid_view.xml','views/grid_actions.xml','views/grid_Menus.xml','security/ir.model.access.csv'],
+    'data': ['views/grid_view.xml','views/grid_actions.xml','views/grid_Menus.xml','security/ir.model.access.csv','security/user_groups.xml'],
     'image': [],
     'demo': [],
     'license': 'AGPL-3',

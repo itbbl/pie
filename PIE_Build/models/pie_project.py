@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
-
 from odoo import api ,fields, models,exceptions
+import logging
+from odoo.exceptions import ValidationError
+_logger = logging.getLogger(__name__)
 
 
 class Project(models.Model):
@@ -23,11 +25,10 @@ class Project(models.Model):
 
     name = fields.Char(string='Name')
     
-    developer_id = fields.Integer(string="Dev ID")
-    @api.depends('developer')
-    def _dev_id(self):
-        self.developer_id = self.developer.id
-        
+    def fields_get(self):
+        _logger.warn("3ayz 7aga mn el fields ???????????")
+        return super(Project,self).fields_get(self)
+    
     @api.constrains('name')
     def _check_duplicate_code(self):
         names = self.search([])

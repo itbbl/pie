@@ -118,12 +118,9 @@ class Entity(models.Model):
     def validate_contractnumber(self):
         userInput=0
         try:
-
-            userInput = int(self.contract_contant_mobile) 
-       
+          userInput = int(self.contract_contant_mobile)
         except ValueError:
-
-            raise ValidationError('Not a valid Contrat Mobile ')    
+          raise ValidationError('Not a valid Contrat Mobile ')    
            
     @api.constrains('contract_contant_mail')
     def validate_contract_mail(self):
@@ -138,8 +135,6 @@ class Entity(models.Model):
     def create(self, vals):
 
         partner = super(Entity, self).create(vals)
-       
-       
         return partner
     @api.one
     @api.depends('branches')
@@ -149,7 +144,7 @@ class Entity(models.Model):
         self.number_branches=branches_account
         for rec in self:
             self.number_branches=branches_account
-        #if branches_account>self.number_branches:
+
     @api.constrains('name')
     def _check_duplicate_code(self):
         names = self.search([])
@@ -175,35 +170,8 @@ class Entity(models.Model):
             group = group_user_broker.update({ 'users':users})
             users=self.env['res.users'].search([('broker_admin','=',self.id)])
             if len(users)>1:
-
-                raise ValidationError('select only one Admin .....')
-
-
-            """else:
-                 template = self.env.ref('auth_signup.set_password_email', raise_if_not_found=False)
-            
-                 if not template:
-
-                     template = self.env.ref('auth_signup.reset_password_email')
-                 assert template._name == 'mail.template'
-
-                 template_values = {
-                              'email_to': self.entity_broker_mail.login,
-                                'email_cc': False,
-                                 'auto_delete': True,
-                             'partner_to': False,
-                              'scheduled_date': False,
-                                     }
-                 template.write(template_values)
-
-                 for user in self:
-                     if not user.entity_broker_mail.login:
-                        raise UserError(_("Cannot send email: user %s has no email address.") % user.name)
-                     with self.env.cr.savepoint():
-
-                         template.with_context(lang="en_AU").send_mail(user.entity_broker_mail.id, force_send=True, raise_exception=True)
-                     _logger.info("Password reset email sent for user <%s> to <%s>", user.entity_broker_mail.login, user.entity_broker_mail.login)"""
-                    
+              raise ValidationError('select only one Admin .....')
+           
         
     @api.constrains('internal_broker_admin')
     def _check_inliner_broker(self):
@@ -215,71 +183,18 @@ class Entity(models.Model):
             group = group_user_broker.update({ 'users':users})
             users=self.env['res.users'].search([('internal_broker_admin','=',self.id)])
             if len(users)>1:
-             raise ValidationError('select only one Admin .....')
-            """else:
-                 template = self.env.ref('auth_signup.set_password_email', raise_if_not_found=False)
-            
-                 if not template:
+              raise ValidationError('select only one Admin .....')
 
-                     template = self.env.ref('auth_signup.reset_password_email')
-                 assert template._name == 'mail.template'
-
-                 template_values = {
-                              'email_to': self.internal_broker_admin.login,
-                                'email_cc': False,
-                                 'auto_delete': True,
-                             'partner_to': False,
-                              'scheduled_date': False,
-                                     }
-                 template.write(template_values)
-
-                 for user in self:
-                     if not user.internal_broker_admin.login:
-                        raise UserError(_("Cannot send email: user %s has no email address.") % user.name)
-                     with self.env.cr.savepoint():
-
-                         template.with_context(lang="en_AU").send_mail(user.internal_broker_admin.id, force_send=True, raise_exception=True)
-                     _logger.info("Password reset email sent for user <%s> to <%s>", user.internal_broker_admin.login, user.internal_broker_admin.login)"""
     @api.constrains('entity_supplier_mail')
     def _check_supplier(self):
         group_id=self.env['ir.model.data'].search([('name','=','group_pie_supplier_manager')])
-        group_user_supplier = self.env['res.groups'].search([('id','=',group_id.res_id)])
-         
-        """if self.entity_supplier_mail.id>0:
-            
-            for rec in group_user_supplier:
-                if rec.users.id.id==self.entity_supplier_mail.id:
-                    raise ValidationError('Admin is selected before......')
-        group_user_supplier = self.env['res.groups'].search([('id','=',14)])    """    
+        group_user_supplier = self.env['res.groups'].search([('id','=',group_id.res_id)]) 
         users_supplier=self.env['res.users'].search([('supplier_admin','!=',False)])
         group_supplier = group_user_supplier.update({'users':users_supplier})
         users=self.env['res.users'].search([('supplier_admin','=',self.id)])
         if len(users)>1:
             raise ValidationError('select only one Admin .....')
-        """else:
-                 template = self.env.ref('auth_signup.set_password_email', raise_if_not_found=False)
-            
-                 if not template:
 
-                     template = self.env.ref('auth_signup.reset_password_email')
-                 assert template._name == 'mail.template'
-
-                 template_values = {
-                              'email_to': self.entity_supplier_mail.login,
-                                'email_cc': False,
-                                 'auto_delete': True,
-                             'partner_to': False,
-                              'scheduled_date': False,
-                                     }
-                 template.write(template_values)
-
-                 for user in self:
-                     if not user.entity_supplier_mail.login:
-                        raise UserError(_("Cannot send email: user %s has no email address.") % user.name)
-                     with self.env.cr.savepoint():
-
-                         template.with_context(lang="en_AU").send_mail(user.entity_supplier_mail.id, force_send=True, raise_exception=True)
-                     _logger.info("Password reset email sent for user <%s> to <%s>", user.entity_supplier_mail.login, user.entity_supplier_mail.login)"""
     @api.constrains('publisher')
     def _check_publisher(self):
         group_id=self.env['ir.model.data'].search([('name','=','group_pie_supplier_publisher')])
@@ -289,32 +204,6 @@ class Entity(models.Model):
         group_supplier = group_user_supplier.update({'users':publisher})
         template = self.env.ref('auth_signup.set_password_email', raise_if_not_found=False)
             
-        """if not template:
-            template = self.env.ref('auth_signup.reset_password_email')
-        assert template._name == 'mail.template'
-
-        template_values = {
-            'email_to': self.publisher.login,
-            'email_cc': False,
-            'auto_delete': True,
-            'partner_to': False,
-            'scheduled_date': False,
-        }
-        template.write(template_values)
-
-        for user in self:
-
-             
-            if not user.publisher.login:
-                raise UserError(_("Cannot send email: user %s has no email address.") % user.name)
-            with self.env.cr.savepoint():
-                template.with_context(lang="en_AU").send_mail(user.publisher.id, force_send=True, raise_exception=True)
-            _logger.info("Password reset email sent for user <%s> to <%s>", user.publisher.login, user.publisher.login)"""
-            
-        
-        
- 
-				 
 
 
 
@@ -324,25 +213,22 @@ class Entity(models.Model):
             raise ValidationError('You Cannot add Define Sales Agents Count more than 999 or less than 0.')
 
     
-    @api.constrains('phone')
+    @api.constrains('mobile')
     def _get_valdition_phone(self):
-        if self.phone:
-
-                match = re.match('^(?:\+?44)?[09]\d{10,13}$', self.phone)
-        
-                if match == None:
-                    raise ValidationError('Invalid Phone Number ')
+        if self.mobile:
+          match = re.match('^(?:\+?44)?[09]\d{10,13}$', self.mobile)
+          if match == None:
+            raise ValidationError('Invalid Phone Number ')
 
                                  
     @api.constrains('active')
     def change_entity_state(self):
-         
-        if self.entity_supplier_mail.id>0:
-         users=self.env['res.users'].search([('login','=',self.entity_supplier_mail.login)])
-         users.write({'active':False})
-        elif self.entity_broker_mail.id>0:
-         users=self.env['res.users'].search([('login','=',self.entity_broker_mail.login)])
-         users.write({'active':False})
+      if self.entity_supplier_mail.id>0:
+        users=self.env['res.users'].search([('login','=',self.entity_supplier_mail.login)])
+        users.write({'active':False})
+      elif self.entity_broker_mail.id>0:
+        users=self.env['res.users'].search([('login','=',self.entity_broker_mail.login)])
+        users.write({'active':False})
             
         
          
@@ -363,18 +249,17 @@ class Entity(models.Model):
         return {'domain':{'publisher':[('id','=',-1)]}}
     @api.constrains('internal_broker')
     def _remove_broker_admin(self):
-     
-     if self.internal_broker==True and self.entity_broker_mail.id>0:
-      users=self.env['res.users'].search([('login','=',self.entity_broker_mail.login)])
-      users.write({'active':False})
+      if self.internal_broker==True and self.entity_broker_mail.id>0:
+        users=self.env['res.users'].search([('login','=',self.entity_broker_mail.login)])
+        users.write({'active':False})
        
                                  
     @api.constrains('active')
     def change_entity_state(self):
       if self.active==False:
-            users=self.env['res.users'].search([('entity','=',self.id)])
-            for rec in users:
-              rec.write({'active':False})
+        users=self.env['res.users'].search([('entity','=',self.id)])
+        for rec in users:
+          rec.write({'active':False})
       if self.active==True:
         users=self.env['res.users'].search([('entity','=',self.id)])
         sql = " UPDATE res_users SET active = true  WHERE entity ="+ str(self.id)

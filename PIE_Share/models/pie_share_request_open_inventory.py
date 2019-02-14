@@ -15,27 +15,35 @@ class open_inventory(models.Model):
     broker_id=fields.Integer(related='developer.id')
     name=fields.Char('Contact Person',size=150 )
     open_inventory=fields.Boolean('Open Inventory',default=False)
-    
+    broker = fields.Many2one('pie.entity',string="Broker",store=True,domain="[('pie_type','=','is_broker')]",default=lambda self: self.env.user.entity)
+    developer = fields.Many2one('pie.entity',string="Supplier",store=True  ,domain="['&',('pie_type','=','is_supplier'),('type_inventory','=','open_inventory')]", required=True)
+
      
      
   
   
     
     def action_enable_broker(self):
-     self.update({
+      self.update({
         'status':'Enable',
-         
-        
-
         })
-
+         
+      self.broker.sudo().active_suppliers_open = [(2,self.developer.id)]
+      self.developer.sudo().active_brokers_open = [(2,self.broker.id)]
+      self.env.cr.commit() 
+      self.env['ir.cron'].clear_caches()
+         
     def action_disable(self):
-     self.update({
-        'status':'Disable',
-         
-        
+        self.update({
+                'status':'Disable', })
 
-        })
+        
+        
+        self.broker.sudo().active_suppliers_open = [(4,self.developer.id)]
+        self.developer.sudo().active_brokers_open = [(4,self.broker.id)]
+        self.env.cr.commit() 
+        self.env['ir.cron'].clear_caches()
+        
 
     
     @api.constrains('developer')
@@ -51,6 +59,21 @@ class open_inventory(models.Model):
 				raise ValidationError('Error :supplier  sent new request before ....')
                  
      
+
+    @api.multi
+    def unlink(self):
+       
+        self.broker.sudo().active_suppliers_open = [(2,self.developer.id)]
+        self.developer.sudo().active_brokers_open = [(2,self.broker.id)]
+         
+        self.env.cr.commit()
+        return models.Model.unlink(self)
+
+class inherited_entity(models.Model):
+  _inherit='pie.entity'
+  active_suppliers_open=fields.Many2many(comodel_name='pie.entity',relation='supplier_entity_rel_open',column1='id',column2='broker_id',store=True,auto_join= True)
+  active_brokers_open=fields.Many2many(comodel_name='pie.entity',relation='broker_entity_rel_open',column1='id',column2='supplier_id',store=True,auto_join= True)
+  #suppliers_list = fields.One2many(comodel_name='pie.entity',store=True,auto_join= True)
 
 
  

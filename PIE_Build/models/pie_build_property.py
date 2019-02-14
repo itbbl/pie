@@ -12,7 +12,7 @@ class Build_Property(models.Model):
 
     project = fields.Many2one('pie.project',size=150,required=True)
     zone = fields.Char(related='project.zone',size=150)
-    district = fields.Char(string="District",size=150)
+    district = fields.Char(related='project.district',size=150)
     plot = fields.Char(string="Plot",size=150)
     governorate = fields.Many2one(related='project.governorate',string="Region",size=150)
     area = fields.Many2one(related='project.area',string="Area",size=150)
@@ -22,9 +22,13 @@ class Build_Property(models.Model):
     property_id = fields.Char(string="Property PIE ID",size=350)
     property_code = fields.Char(string="Property Code",size=150)
     design_code = fields.Char(string="Design Code",size=150)
-    property_type = fields.Char(string="Property Type",size=150)
-    property_design = fields.Char(string="Property Design",size=150)
-
+    
+    #property_type = fields.Char(string="Property Type",size=150)
+    #property_design = fields.Char(string="Property Design",size=150)
+    
+    property_type = fields.Many2one('pie.setup.category',string="Property Type",size=150)
+    property_design = fields.Many2one('pie.setup.property_design',string="Property Design",size=150)
+    
     rooms = fields.Integer(string="Count of Rooms",size=150)
     baths = fields.Integer(string="Count of Baths",size=150)
     price = fields.Float(string="Property Cash Price",size=150)
@@ -36,7 +40,6 @@ class Build_Property(models.Model):
     basement_m = fields.Float(string="Basement Space",size=150)
     roof_m = fields.Float(string="roof Space",size=150)
     garage_slot = fields.Integer(string="Count of Garage Slots",size=150)
-
     finishing_type =fields.Many2one('pie.setup.finishing',string="Finishing Type",size=150)
     property_status =fields.Many2one('pie.setup.property_status',string="Property Status",size=150)
     property_category =fields.Many2one('pie.setup.category',string="Property Category",size=150)

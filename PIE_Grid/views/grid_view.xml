@@ -272,7 +272,48 @@
          </div>
       </div> 
                <notebook>
-               
+                 <page string="Labels">
+					<field name="labels_pro" mode="tree,kanban">
+					 
+					<tree>
+					<field name="create_uid" string="Create By"/>
+					<field name="broker"   groups="PIE_Setup.group_pie_admin_admin"/>
+					<field name="share_type"/>
+							 
+							<field name="label" />
+					</tree>
+					<form>
+                          <group>
+						  <group>
+						  <field name="label" widget="many2many_tags" attrs="{'required':True}">
+
+														  
+										
+										<tree>
+									 
+									<field name="name"/>
+									<field name="active"/>
+									</tree>
+									
+									
+							</field>
+						   <field name="broker" attrs="{'required':True}" groups="PIE_Setup.group_pie_admin_admin"/>
+						  </group><group>
+						    <field name="share_type" attrs="{'required':True}"/>
+							<field name="share_with" widget="many2many_tags" attrs="{'invisible':['|',('share_type','=','private'),('share_type','=','public')],
+							'required':[('share_type','=','specific')] }"/>
+							<field name="comment"/>
+							</group>
+						  </group>
+
+					   
+					</form>
+					</field>
+
+
+
+
+                 </page>
                </notebook>
             </sheet>
          </form>

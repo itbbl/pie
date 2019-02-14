@@ -41,4 +41,5 @@ class sharing_scheduler(models.Model):
               sharing_request_id.update({'status':'Activated'})
               sharing_request_id.broker.sudo().active_suppliers = [(4,sharing_request_id.developer.id)]
               sharing_request_id.developer.sudo().active_brokers = [(4,sharing_request_id.broker.id)]
+             self.env['ir.cron'].clear_caches()  
                 

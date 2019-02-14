@@ -1,0 +1,16 @@
+{
+    'name': 'PIE Calculated Columns',
+    'category': 'Sales',
+    'summary': 'PIE Calculated Columns',
+    'version': '10.0.1.2.0',
+    'website': 'https://www.businessborderlines.com',
+    "author": "Kingfisher Consultancy , BusinessBorderlines",
+    "sequence":90,
+    'depends': ['PIE_Setup','PIE_Grid'],
+    'data': [],
+    'image': [],
+    'demo': ['views/views.xml'],
+    'license': 'AGPL-3',
+    'installable': True,
+    'application': True,
+}

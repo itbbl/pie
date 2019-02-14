@@ -187,9 +187,17 @@ class PIE_Export_Props(models.Model):
             'garden_m':prope.garden_m, 
             'terrace_m':prope.terrace_m,
             'basement_m':prope.basement_m,
+              'delivery_date':prope.delivery_date,
             'roof_m':prope.roof_m,
             'rooms':prope.rooms, 
             'baths':prope.baths,
+              'plot':prope.plot,
+              'design_code':prope.design_code,
+              'garage_slot':prope.garage_slot,
+              'garage_price':prope.garage_slot_price,
+              'maintne_fee':prope.maintne_fee,
+              'baths':prope.baths,
+              'clubhouse_fee':prope.clubhouse_fee,
             'supplier':prope.supplier.id
             }
             #prop_dict = dict_from_class(prope)

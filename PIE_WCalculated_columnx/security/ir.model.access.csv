@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+,,,,,,,
+access_PIE_build_prop Broker Admin 2,access.piebuild.prop boker 1,PIE_Setup.model_pie_setup_property_comments,PIE_Setup.group_pie_broker_manager,1,1,1,0
+access_PIE_build_prop Broker Admin 3,access.piebuild.prop boker 2,PIE_Setup.model_pie_setup_property_labels,PIE_Setup.group_pie_broker_manager,1,1,0,0
+,,,,,,,
+access_PIE_build_prop Broker Admin 3,access.piebuild.prop boker,model_pie_grid_property,PIE_Setup.group_pie_broker_manager,1,0,0,0

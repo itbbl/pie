@@ -67,3 +67,8 @@ a.dropdown-toggle::after {
     list-style: none;
 }
 
+.o_form_view .o_group .o_form_field {
+    width: auto;
+    padding: 5px;
+    /* margin: 1px; */
+}

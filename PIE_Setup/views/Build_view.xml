@@ -174,10 +174,10 @@
 			<form  >
 		 
 			<group>
-			    <field name="logo" widget="image" class="oe_avatar"/>
+			     
 				<field name="name" string="Label Name"/>
                 <field name="active" string="Active"/>
-				<field name="state" string="state"/>
+				 
 				</group>
 			</form>
 		</field>
